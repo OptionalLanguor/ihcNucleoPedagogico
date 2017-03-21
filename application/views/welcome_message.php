@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<style type="text/css">
 
-	::selection { background-color: #E13300; color: white; }
+	::selection { background-color: #E17F3F; color: #00EEFF; }
 	::-moz-selection { background-color: #E13300; color: white; }
 
 	body {
@@ -33,7 +33,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		margin: 0 0 14px 0;
 		padding: 14px 15px 10px 15px;
 	}
-
+	p {
+		color: #0011EE
+	}
 	code {
 		font-family: Consolas, Monaco, Courier New, Courier, monospace;
 		font-size: 12px;
@@ -66,7 +68,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</style>
 </head>
 <body>
-
 <div id="container">
 	<h1>Welcome to CodeIgniter!</h1>
 
@@ -79,7 +80,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<p>The corresponding controller for this page is found at:</p>
 		<code>application/controllers/Welcome.php</code>
 
-		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
+		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="teste/">User Guide</a>.</p>
 	</div>
 
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
