@@ -20,11 +20,11 @@ body {font-size:16px;}
     <h3 class="w3-padding-64"><b>Universidade Federal de Itajubá<br><h5><i>campus</i> Itabira</b></h5></h3>
   </div>
   <div class="w3-bar-block">
-    <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Menu Principal</a> 
-    <a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Registros de Atendimento</a> 
-    <a href="#services" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Services</a> 
-    <a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Designers</a> 
-    <a href="#packages" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Packages</a> 
+    <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Menu Principal</a>
+    <a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Registros de Atendimento</a>
+    <a href="#services" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Services</a>
+    <a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Designers</a>
+    <a href="#packages" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Packages</a>
     <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
   </div>
 </nav>
@@ -47,14 +47,16 @@ body {font-size:16px;}
     <h1 class="w3-xxxlarge w3-text-red"><b>Sistema de atendimento.</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
   </div>
-  
+
   <!-- Photo grid (modal) -->
-  <div class="w3-row-padding">
-    <div class="w3-half">
-      <img src="/w3images/kitchenconcrete.jpg" style="width:100%" onclick="onClick(this)" alt="Concrete meets bricks">
-      <img src="/w3images/livingroom.jpg" style="width:100%" onclick="onClick(this)" alt="Light, white and tight scandinavian design">
-      <img src="/w3images/diningroom.jpg" style="width:100%" onclick="onClick(this)" alt="White walls with designer chairs">
-    </div>
+  <div class="w3-container">
+  <?php
+      if (isset($this->session->userdata['email'])) {
+          $email = ($this->session->userdata['email']);
+          echo "<h1>". "Email: ".$email."</h1>";
+      }
+  ?>
+  </div>
 
     <div class="w3-half">
       <img src="/w3images/atrium.jpg" style="width:100%" onclick="onClick(this)" alt="Windows for the atrium">
@@ -82,7 +84,7 @@ body {font-size:16px;}
     incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
     </p>
   </div>
-  
+
   <!-- Designers -->
   <div class="w3-container" id="designers" style="margin-top:75px">
     <h1 class="w3-xxxlarge w3-text-red"><b>Designers.</b></h1>
@@ -154,7 +156,7 @@ body {font-size:16px;}
         </li>
       </ul>
     </div>
-        
+
     <div class="w3-half">
       <ul class="w3-ul w3-light-grey w3-center">
         <li class="w3-red w3-xlarge w3-padding-32">Pro</li>
@@ -173,7 +175,7 @@ body {font-size:16px;}
       </ul>
     </div>
   </div>
-  
+
   <!-- Contact -->
   <div class="w3-container" id="contact" style="margin-top:75px">
     <h1 class="w3-xxxlarge w3-text-red"><b>Contact.</b></h1>
@@ -193,7 +195,7 @@ body {font-size:16px;}
         <input class="w3-input w3-border" type="text" name="Message" required>
       </div>
       <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Send Message</button>
-    </form>  
+    </form>
   </div>
 
 <!-- End page content -->
@@ -208,7 +210,7 @@ function w3_open() {
     document.getElementById("mySidebar").style.display = "block";
     document.getElementById("myOverlay").style.display = "block";
 }
- 
+
 function w3_close() {
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("myOverlay").style.display = "none";
