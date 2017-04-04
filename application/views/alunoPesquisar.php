@@ -21,9 +21,9 @@ body {font-size:16px;}
   </div>
   <div class="w3-bar-block">
     <a href="menu_principal.php"  class="w3-bar-item w3-button w3-hover-white">Paginal Inicial</a> 
-    <a href="pesquisarAluno.php" class="w3-bar-item w3-button w3-hover-white">Pesquisar Aluno</a> 
-    <a href="cadastrarAluno.php" class="w3-bar-item w3-button w3-hover-white">Cadastrar Aluno</a> 
-    <a href="editarAluno.php" class="w3-bar-item w3-button w3-hover-white">Editar Aluno</a> 
+    <a href="alunoPesquisar.php" class="w3-bar-item w3-button w3-hover-white">Pesquisar Aluno</a> 
+    <a href="alunoCadastrar.php" class="w3-bar-item w3-button w3-hover-white">Cadastrar Aluno</a> 
+    <a href="alunoEditar.php" class="w3-bar-item w3-button w3-hover-white">Editar Aluno</a> 
   </div>
 </nav>
 
