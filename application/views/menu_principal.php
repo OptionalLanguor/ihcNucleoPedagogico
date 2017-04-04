@@ -46,35 +46,16 @@ body {font-size:16px;}
     <h1 class="w3-jumbo"><b>Núcleo Pedagógico</b></h1>
     <h1 class="w3-xxxlarge w3-text-indigo"><b>Sistema de atendimento.</b></h1>
     <hr style="width:50px;border:5px solid indigo" class="w3-round">
+	<p>Aliquam pellentesque sapien sit amet interdum rutrum. Donec tortor magna, vestibulum et quam quis, gravida porta mi. Nam et ipsum ultricies, pellentesque libero et, consequat ligula. Mauris consequat, est ac elementum egestas, quam leo sagittis turpis, nec lacinia risus risus at tellus. Maecenas
+	finibus mauris lorem. Aenean id dui eu sem hendrerit dignissim nec at justo. Fusce fringilla blandit ullamcorper.</p>
+	<p>Morbi aliquet metus dolor, rutrum sagittis ante imperdiet pharetra. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris lacus sapien, consequat id posuere id, vehicula eu elit. Etiam egestas sapien at purus elementum, in consequat est accumsan. Fusce gravida elit id velit porta,
+	nec consectetur justo tempus. Fusce congue eu ipsum ac faucibus. Pellentesque at finibus nisl.
+    </p>
   </div>
   
-  <!-- Photo grid (modal) -->
-  <div class="w3-row-padding">
-    <div class="w3-half">
-      <img src="/w3images/kitchenconcrete.jpg" style="width:100%" onclick="onClick(this)" alt="Concrete meets bricks">
-      <img src="/w3images/livingroom.jpg" style="width:100%" onclick="onClick(this)" alt="Light, white and tight scandinavian design">
-      <img src="/w3images/diningroom.jpg" style="width:100%" onclick="onClick(this)" alt="White walls with designer chairs">
-    </div>
-
-    <div class="w3-half">
-      <img src="/w3images/atrium.jpg" style="width:100%" onclick="onClick(this)" alt="Windows for the atrium">
-      <img src="/w3images/bedroom.jpg" style="width:100%" onclick="onClick(this)" alt="Bedroom and office in one space">
-      <img src="/w3images/livingroom2.jpg" style="width:100%" onclick="onClick(this)" alt="Scandinavian design">
-    </div>
-  </div>
-
-  <!-- Modal for full size images on click-->
-  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
-    <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
-    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-      <img id="img01" class="w3-image">
-      <p id="caption"></p>
-    </div>
-  </div>
-
   <!-- Services -->
   <div class="w3-container" id="services" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-indigo"><b>Services.</b></h1>
+    <h1 class="w3-xxxlarge w3-text-indigo"><b>Mais atendimentos.</b></h1>
     <hr style="width:50px;border:5px solid indigo" class="w3-round">
     <p>We are a interior design service that focus on what's best for your home and what's best for you!</p>
     <p>Some text about our services - what we do and what we offer. We are lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
@@ -85,7 +66,7 @@ body {font-size:16px;}
   
   <!-- Designers -->
   <div class="w3-container" id="designers" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-indigo"><b>Designers.</b></h1>
+    <h1 class="w3-xxxlarge w3-text-indigo"><b>E muitos outros.</b></h1>
     <hr style="width:50px;border:5px solid indigo" class="w3-round">
     <p>The best team in the world.</p>
     <p>We are lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
@@ -131,7 +112,7 @@ body {font-size:16px;}
 
   <!-- Packages / Pricing Tables -->
   <div class="w3-container" id="packages" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-indigo"><b>Packages.</b></h1>
+    <h1 class="w3-xxxlarge w3-text-indigo"><b>São vários.</b></h1>
     <hr style="width:50px;border:5px solid indigo" class="w3-round">
     <p>Some text our prices. Lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure</p>
   </div>
@@ -199,9 +180,9 @@ body {font-size:16px;}
 <!-- End page content -->
 </div>
 
-<!-- W3.CSS Container -->
+<!-- W3.CSS Container 
 <div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px"><p class="w3-right">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></p></div>
-
+-->
 <script>
 // Script to open and close sidebar
 function w3_open() {
