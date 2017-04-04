@@ -75,7 +75,7 @@ body {font-size:16px;}
       </div>
 
       <div class="w3-group">
-        <label>Email</label>
+        <label>E-mail</label>
         <input class="w3-input w3-border" type="text" name="Email" required>
       </div>
 

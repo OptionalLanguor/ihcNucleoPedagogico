@@ -22,9 +22,9 @@ body {font-size:16px;}
   <div class="w3-bar-block">
     <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Menu Principal</a> 
     <a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Registros de Atendimento</a> 
-    <a href="#services" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Cadastrar aluno</a> 
-    <a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Cadastrar professor</a> 
-    <a href="#packages" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Cadastrar disciplina</a> 
+    <a href="#services" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Cadastrar Aluno</a> 
+    <a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Cadastrar Professor</a> 
+    <a href="<?php echo site_url('Cadastrar_palavra_chave') ?>" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Cadastrar Palavra-Chave</a> 
     <a href="<?php echo site_url('Cadastrar_funcionario') ?>" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Cadastrar Funcionario</a>
       
   </div>
