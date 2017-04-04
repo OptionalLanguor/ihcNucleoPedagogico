@@ -25,8 +25,7 @@ body {font-size:16px;}
     <a href="#services" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Cadastrar aluno</a> 
     <a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Cadastrar professor</a> 
     <a href="#packages" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Cadastrar disciplina</a> 
-    <a href="<?php echo site_url('Cadastrar_funcionario') ?>"> onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Cadastrar Funcionario</a>
-
+    <a href="<?php echo site_url('Cadastrar_funcionario') ?>" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Cadastrar Funcionario</a>
       
   </div>
 </nav>
