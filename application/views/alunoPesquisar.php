@@ -9,19 +9,7 @@
 
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-indigo w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
-<<<<<<< HEAD
-  <div class="w3-container">
-    <h3 class="w3-padding-64"><b>Universidade</b></br><b>Federal de Itajubá</b></h3>
-  </div>
-  <div class="w3-bar-block">
-    <a href="menu_principal.php"  class="w3-bar-item w3-button w3-hover-white">Paginal Inicial</a> 
-    <a href="alunoPesquisar.php" class="w3-bar-item w3-button w3-hover-white">Pesquisar Aluno</a> 
-    <a href="alunoCadastrar.php" class="w3-bar-item w3-button w3-hover-white">Cadastrar Aluno</a> 
-    <a href="alunoEditar.php" class="w3-bar-item w3-button w3-hover-white">Editar Aluno</a> 
-  </div>
-=======
     <?php $this->load->view('commons/menu'); ?>
->>>>>>> origin/master
 </nav>
 
 

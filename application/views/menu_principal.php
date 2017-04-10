@@ -9,23 +9,7 @@
 
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-indigo w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
-<<<<<<< HEAD
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
-  <div class="w3-container">
-    <h3 class="w3-padding-64"><b>Universidade Federal de Itajubá<br><h5><i>campus</i> Itabira</b></h5></h3>
-  </div>
-  <div class="w3-bar-block">
-    <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Menu Principal</a> 
-    <a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Registros de Atendimento</a> 
-    <a href="alunoCadastrar.php" class="w3-bar-item w3-button w3-hover-white">Cadastrar Aluno</a> 
-    <a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Cadastrar Professor</a> 
-    <a href="<?php echo site_url('Cadastrar_palavra_chave') ?>" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Cadastrar Palavra-Chave</a> 
-    <a href="<?php echo site_url('Cadastrar_funcionario') ?>" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Cadastrar Funcionario</a>
-      
-  </div>
-=======
     <?php $this->load->view('commons/menu'); ?>
->>>>>>> origin/master
 </nav>
 <!-- Top menu on small screens -->
 <header class="w3-container w3-top w3-hide-large w3-indigo w3-xlarge w3-padding">
