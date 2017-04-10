@@ -31,10 +31,10 @@
     <hr style="width:50px;border:5px solid #3f51b5" class="w3-round">
 
     <?php echo form_open('Cadastrar_aluno/Cadastrar'); ?>
-    
+
     <?php
         if (isset($sucesso_msg)) {
-          echo "<div class='w3-container w3-center w3-red'>";
+          echo "<div class='w3-container w3-center w3-green'>";
           echo $sucesso_msg;
           echo "</div>";
         }
