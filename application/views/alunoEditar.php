@@ -56,6 +56,10 @@
         <input class="w3-input w3-border" type="email" name="Email" required>
       </div>
       <div class="w3-section">
+        <label>Endereço</label>
+        <input class="w3-input w3-border" type="text" name="Endereco" required>
+      </div>
+      <div class="w3-section">
         <label>Telefone</label>
         <input class="w3-input w3-border" type="text" name="Telefone" required>
       </div>

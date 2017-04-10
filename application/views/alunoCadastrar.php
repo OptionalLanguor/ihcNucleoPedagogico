@@ -29,18 +29,31 @@
   <div class="w3-container" id="criacao" >
     <h1 class="w3-xxxlarge w3-text-indigo"><b>Dados do Novo aluno</b></h1>
     <hr style="width:50px;border:5px solid #3f51b5" class="w3-round">
-    <form action="/acoes.php" target="_blank">
+
+    <?php echo form_open('Cadastrar_aluno/Cadastrar'); ?>
+    
+    <?php
+        if (isset($sucesso_msg)) {
+          echo "<div class='w3-container w3-center w3-red'>";
+          echo $sucesso_msg;
+          echo "</div>";
+        }
+      ?>
       <div class="w3-section">
         <label>Nome</label>
         <input class="w3-input w3-border" type="text" name="Nome" required>
       </div>
       <div class="w3-section">
         <label>CPF</label>
-        <input class="w3-input w3-border" type="text" name="CPF" required>
+        <input class="w3-input w3-border" type="text" placeholder="XXXXXXXXXXX" name="CPF" required>
       </div>
       <div class="w3-section">
         <label>Email</label>
         <input class="w3-input w3-border" type="email" name="Email" required>
+      </div>
+      <div class="w3-section">
+        <label>Endereço</label>
+        <input class="w3-input w3-border" type="text" name="Endereco" required>
       </div>
       <div class="w3-section">
         <label>Telefone</label>
@@ -60,6 +73,12 @@
       </div>
       <button type="submit" class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom">Armazenar cadastro do Aluno</button>
     </form>
+
+
+
+
+
+
   </div>
 
 <!-- End page content -->

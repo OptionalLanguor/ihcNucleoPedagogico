@@ -29,45 +29,52 @@
   <div class="w3-container" id="pesquisa" >
     <h1 class="w3-xxxlarge w3-text-indigo"><b>Pesquisa de Cadastro</b></h1>
     <hr style="width:50px;border:5px solid #3f51b5" class="w3-round">
-    <form action="/acoes.php" target="_blank">
+
+     <?php echo form_open('Pesquisar_aluno/Pesquisar'); ?>
+    
+
       <div class="w3-section">
         <label>Registro Acadêmico</label>
         <input class="w3-input w3-border" type="number" name="RA" required>
       </div>
       <button type="submit" class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom">Buscar dados do Aluno</button>
+
     </form>
+
   </div>
 
   <!-- Dados -->
   <div class="w3-container" id="mostra" style="margin-top:20px">
     <h1 class="w3-xxxlarge w3-text-indigo"><b>Dados atuais do aluno</b></h1>
     <hr style="width:50px;border:5px solid #3f51b5" class="w3-round">
-    <form action="/acoes.php" target="_blank">
       <div class="w3-section">
         <label>Nome</label>
-        <label class="w3-input output">resultado do banco</label>
+        <label class="w3-input output"><?php if (isset($nome)) {echo $nome;} ?></label>
       </div>
       <div class="w3-section">
         <label>CPF</label>
-        <label class="w3-input output">resultado do banco</label>
+        <label class="w3-input output"><?php if (isset($cpf)) {echo $cpf;} ?></label>
       </div>
       <div class="w3-section">
         <label>Email</label>
-        <label class="w3-input output">resultado do banco</label>
+        <label class="w3-input output"><?php if (isset($email)) {echo $email;} ?></label>
+      </div>
+      <div class="w3-section">
+        <label>Endereço</label>
+        <label class="w3-input output"><?php if (isset($endereco)) {echo $endereco;} ?></label>
       </div>
       <div class="w3-section">
         <label>Telefone</label>
-        <label class="w3-input output">resultado do banco</label>
+        <label class="w3-input output"><?php if (isset($telefone)) {echo $telefone;} ?></label>
       </div>
       <div class="w3-section">
         <label>Curso</label>
-        <label class="w3-input output">resultado do banco</label>
+        <label class="w3-input output"><?php if (isset($curso)) {echo $curso;} ?></label>
       </div>
       <div class="w3-section">
         <label>Periodo do Curso</label>
-        <label class="w3-input output">resultado do banco</label>
+        <label class="w3-input output"><?php if (isset($periodo)) {echo $periodo;} ?></label>
       </div>
-    </form>
   </div>
 
 <!-- End page content -->

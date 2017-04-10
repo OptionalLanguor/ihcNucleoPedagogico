@@ -13,7 +13,7 @@ class Editar_aluno extends CI_Controller
 
     public function Index()
     {
-            $this->load->view('alunoEditar');
+        $this->load->view('alunoEditar');
     }
 
 }
