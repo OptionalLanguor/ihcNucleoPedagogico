@@ -1,35 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
 <title>Cadastrar Funcionário</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-</head>
 
-<style>
-body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
-body {font-size:16px;}
-.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
-.w3-half img:hover{opacity:1}
-</style>
+<!-- Header commons/header -->
+<?php $this->load->view('commons/header'); ?>
 
 <body>
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-indigo w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
-  <div class="w3-container">
-    <h3 class="w3-padding-64"><b>Universidade Federal de Itajubá<br><h5><i>campus</i> Itabira</b></h5></h3>
-  </div>
-  <div class="w3-bar-block">
-    <a href="" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Menu Principal</a> 
-    <a href="#funcionario" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Funcionarios</a> 
-    <a href="" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Alunos</a> 
-    <a href="" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Professores</a> 
-    <a href="" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Atendimento</a> 
-    <a href="" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
-  </div>
+    <?php $this->load->view('commons/menu'); ?>
 </nav>
 
 <!-- Top menu on small screens -->
@@ -46,7 +25,7 @@ body {font-size:16px;}
 
   <!-- Header -->
 
- <div class="w3-container" id="funcionario" style="margin-top:75px">  
+ <div class="w3-container" id="funcionario" style="margin-top:75px">
  <h1 class="w3-xxxlarge w3-text-indigo"><b>Cadastrar Funcionário</b></h1>
 
     <hr style="width:50px;border:5px indigo" class="w3-round">
@@ -61,14 +40,14 @@ body {font-size:16px;}
   </div>
 
   <!-- Funcionário - tela de cadastro -->
- 
-    
+
+
     <form action="/action_page.php" target="_blank">
       <div class="w3-group">
         <label>Nome</label>
         <input class="w3-input w3-border" type="text" name="Name" required>
       </div>
- 	
+
      <div class="w3-group">
         <label>CPF</label>
         <input class="w3-input w3-border" type="text" name="Name" required>
@@ -97,7 +76,7 @@ body {font-size:16px;}
 
 
       <button type="submit" class="w3-button w3-block w3-padding-large w3-green w3-margin-bottom">Cadastrar</button>
-    </form>  
+    </form>
   </div>
 
 <!-- End page content -->
@@ -106,26 +85,8 @@ body {font-size:16px;}
 <!-- W3.CSS Container -->
 <div class="w3-white w3-container w3-padding-32" style="margin-top:75px;padding-right:58px"></div>
 
-<script>
-// Script to open and close sidebar
-function w3_open() {
-    document.getElementById("mySidebar").style.display = "block";
-    document.getElementById("myOverlay").style.display = "block";
-}
- 
-function w3_close() {
-    document.getElementById("mySidebar").style.display = "none";
-    document.getElementById("myOverlay").style.display = "none";
-}
-
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
-</script>
+<!--Scripts da paǵina -->
+<?php $this->load->view('commons/scripts'); ?>
 
 </body>
 </html>

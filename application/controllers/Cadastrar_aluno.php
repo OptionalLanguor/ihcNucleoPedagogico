@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No    direct    script    access    allowed');
-class Cadastrar_funcionario extends CI_Controller
+class Cadastrar_aluno extends CI_Controller
 {
 
     public function __construct()
@@ -13,7 +13,7 @@ class Cadastrar_funcionario extends CI_Controller
 
     public function Index()
     {
-            $this->load->view('cadastrar_funcionario');
+            $this->load->view('alunoCadastrar');
     }
 
 }

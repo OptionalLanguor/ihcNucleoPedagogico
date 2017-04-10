@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html>
 <title>Sistema do Núcleo Pedagógico</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-<style>
-body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
-body {font-size:16px;}
-.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
-.w3-half img:hover{opacity:1}
-</style>
+
+<!-- Header commons/header -->
+<?php $this->load->view('commons/header'); ?>
+
 <body>
 
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-indigo w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+<<<<<<< HEAD
   <div class="w3-container">
     <h3 class="w3-padding-64"><b>Universidade</b></br><b>Federal de Itajubá</b></h3>
   </div>
@@ -24,6 +19,9 @@ body {font-size:16px;}
     <a href="alunoCadastrar.php" class="w3-bar-item w3-button w3-hover-white">Cadastrar Aluno</a> 
     <a href="alunoEditar.php" class="w3-bar-item w3-button w3-hover-white">Editar Aluno</a> 
   </div>
+=======
+    <?php $this->load->view('commons/menu'); ?>
+>>>>>>> origin/master
 </nav>
 
 
@@ -38,7 +36,7 @@ body {font-size:16px;}
   <div class="w3-container" style="margin-top:40px" id="novoaluno">
     <h1 class="w3-jumbo"><b>Cadastros dos Alunos</b></h1>
   </div>
-  
+
   <!-- Insercao -->
   <div class="w3-container" id="criacao" >
     <h1 class="w3-xxxlarge w3-text-indigo"><b>Dados do Novo aluno</b></h1>
@@ -73,11 +71,14 @@ body {font-size:16px;}
         <input class="w3-input w3-border" type="number" name="Periodo" required>
       </div>
       <button type="submit" class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom">Armazenar cadastro do Aluno</button>
-    </form>  
+    </form>
   </div>
 
 <!-- End page content -->
 </div>
+
+<!--Scripts da paǵina -->
+<?php $this->load->view('commons/scripts'); ?>
 
 </body>
 </html>
