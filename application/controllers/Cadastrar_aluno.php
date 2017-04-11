@@ -25,10 +25,20 @@ class Cadastrar_aluno extends CI_Controller
 		'curso' => $this->input->post('Curso'),
 		'periodo' => $this->input->post('Periodo')
 		);
-        if ($this->Aluno_Model->cadastra_aluno($aluno)) {
-          	$sucesso_msg = array(
-            'sucesso_msg' => 'Cadastro realizado');
-            $this->load->view('alunoCadastrar',$sucesso_msg);
+        $cad=$this->Aluno_Model->cadastra_aluno($aluno);
+        if ($cad) {
+          	$result_msg = array(
+            'result_msg' => 'Cadastro realizado',
+            'success' => true
+            );
+            $this->load->view('alunoCadastrar',$result_msg);
+        }
+        else{
+            $result_msg = array(
+            'result_msg' => 'Registro Acadêmico já existente, ou CPF inválido.',
+            'success' => false
+            );
+            $this->load->view('alunoCadastrar',$result_msg);
         }
     }
 }

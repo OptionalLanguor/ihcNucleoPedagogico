@@ -33,43 +33,49 @@
     <?php echo form_open('Cadastrar_aluno/Cadastrar'); ?>
 
     <?php
-        if (isset($sucesso_msg)) {
-          echo "<div class='w3-container w3-center w3-green'>";
-          echo $sucesso_msg;
+        if (isset($result_msg)) {
+          if($success){
+            echo "<div class='w3-container w3-center w3-green'>";
+          }
+          else{
+            echo "<div class='w3-container w3-center w3-red'>";
+          }
+          echo $result_msg;
           echo "</div>";
+          $result_msg=NULL;
         }
       ?>
       <div class="w3-section">
         <label>Nome</label>
-        <input class="w3-input w3-border" type="text" name="Nome" required>
+        <input class="w3-input w3-border" type="text" maxlength="64" name="Nome" required>
       </div>
       <div class="w3-section">
-        <label>CPF</label>
-        <input class="w3-input w3-border" type="text" placeholder="XXXXXXXXXXX" name="CPF" required>
+        <label>CPF (11 dígitos)</label>
+        <input class="w3-input w3-border" type="text" placeholder="XXXXXXXXXXX" maxlength="11" name="CPF" required>
       </div>
       <div class="w3-section">
         <label>Email</label>
-        <input class="w3-input w3-border" type="email" name="Email" required>
+        <input class="w3-input w3-border" type="email" maxlength="64" name="Email" required>
       </div>
       <div class="w3-section">
         <label>Endereço</label>
-        <input class="w3-input w3-border" type="text" name="Endereco" required>
+        <input class="w3-input w3-border" type="text" maxlength="64" name="Endereco" required>
       </div>
       <div class="w3-section">
         <label>Telefone</label>
-        <input class="w3-input w3-border" type="text" name="Telefone" required>
+        <input class="w3-input w3-border" type="text" maxlength="16" name="Telefone" required>
       </div>
       <div class="w3-section">
         <label>Registro Acadêmico</label>
-        <input class="w3-input w3-border" type="number" name="RA" required>
+        <input class="w3-input w3-border" type="text" maxlength="10" name="RA" required>
       </div>
       <div class="w3-section">
         <label>Curso</label>
-        <input class="w3-input w3-border" type="text" name="Curso" required>
+        <input class="w3-input w3-border" type="text" maxlength="3" name="Curso" required>
       </div>
       <div class="w3-section">
         <label>Periodo do Curso</label>
-        <input class="w3-input w3-border" type="number" name="Periodo" required>
+        <input class="w3-input w3-border" type="number" maxlength="2" min="1" max="10" name="Periodo" required>
       </div>
       <button type="submit" class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom">Armazenar cadastro do Aluno</button>
     </form>
