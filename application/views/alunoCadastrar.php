@@ -22,7 +22,7 @@
 
   <!-- Header -->
   <div class="w3-container" style="margin-top:40px" id="novoaluno">
-    <h1 class="w3-jumbo"><b>Cadastros dos Alunos</b></h1>
+    <h1 class="w3-jumbo"><b>Cadastro de Aluno</b></h1>
   </div>
 
   <!-- Insercao -->
@@ -77,13 +77,8 @@
         <label>Periodo do Curso</label>
         <input class="w3-input w3-border" type="number" maxlength="2" min="1" max="10" name="Periodo" required>
       </div>
-      <button type="submit" class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom">Armazenar cadastro do Aluno</button>
+      <button type="submit" class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom">Armazenar Aluno</button>
     </form>
-
-
-
-
-
 
   </div>
 
