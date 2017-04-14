@@ -34,7 +34,7 @@
 	<!--Professor-->
 	<table>
 	<td>
-  		<a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white"><i class="fa fa-drivers-license-o"></i> Cadastrar Professor</a>
+  		<a href="<?php echo site_url('Cadastrar_professor') ?>" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white"><i class="fa fa-drivers-license-o"></i> Cadastrar Professor</a>
 	</td>
 	</table>
 	<!--Palavra-Chave-->
