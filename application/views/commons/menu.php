@@ -27,6 +27,12 @@
   		<a href="<?php echo site_url('Cadastrar_professor') ?>" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white"><i class="fa fa-drivers-license-o"></i> Cadastrar Professor</a>
 	</td>
 	</table>
+  <!--Disciplina-->
+  <table>
+  <td>
+      <a href="<?php echo site_url('Cadastrar_disciplina') ?>" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white"><i class="fa fa-drivers-license-o"></i> Cadastrar Disciplina</a>
+  </td>
+  </table>
 	<!--Palavra-Chave-->
 	<table>
 	<td>
