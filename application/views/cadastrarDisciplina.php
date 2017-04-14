@@ -37,7 +37,7 @@
         <label>Nome ou sigla</label>
         <input class="w3-input w3-border" type="text" maxlength="10" name="Nome_ou_Sigla" required>
       </div>
-      <button type="submit" class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom">Buscar dados do Aluno</button>
+      <button type="submit" class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom">Buscar dados da Disciplina</button>
 
     </form>
 
