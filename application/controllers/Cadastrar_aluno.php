@@ -11,7 +11,7 @@ class Cadastrar_aluno extends CI_Controller
     }
     public function Index()
     {
-        $this->load->view('alunoCadastrar');
+        $this->load->view('cadastrarAluno');
     }
     public function Cadastrar()
     {
@@ -25,20 +25,56 @@ class Cadastrar_aluno extends CI_Controller
 		'curso' => $this->input->post('Curso'),
 		'periodo' => $this->input->post('Periodo')
 		);
-        $cad=$this->Aluno_Model->cadastra_aluno($aluno);
-        if ($cad) {
-          	$result_msg = array(
-            'result_msg' => 'Cadastro realizado',
-            'success' => true
-            );
-            $this->load->view('alunoCadastrar',$result_msg);
-        }
-        else{
-            $result_msg = array(
-            'result_msg' => 'Registro Acadêmico já existente, ou CPF inválido.',
-            'success' => false
-            );
-            $this->load->view('alunoCadastrar',$result_msg);
+        $this->Aluno_Model->cadastra_aluno($aluno);
+        $this->load->view('cadastrarAluno');
+    }
+    public function Pesquisar()
+    {
+        $pesquisa = $this->input->post('qualquer_atributo');
+        $pesquisa_res['resultado'] = $this->Aluno_Model->pesquisa_aluno($pesquisa);
+        $this->load->view('cadastrarAluno', $pesquisa_res);
+    }
+    public function dados_aluno()
+    {
+        $id_Pessoa = $this->input->post("id_Pessoa");
+
+        $consulta = $this->Aluno_Model->pesquisa_aluno_id($id_Pessoa);
+
+        $array_aluno = array(
+
+          "id_Pessoa" => $consulta[0]->id_Pessoa,
+            'nome' => $consulta[0]->nome,
+            'cpf' => $consulta[0]->cpf,
+            'email' => $consulta[0]->email,
+            'endereco' => $consulta[0]->endereco,
+            'telefone' => $consulta[0]->telefone,
+            'matricula' => $consulta[0]->matricula,
+            'curso' => $consulta[0]->curso,
+            'periodo' => $consulta[0]->periodo
+
+        );
+
+        echo json_encode($array_aluno);
+    }
+    public function salvar_edicao()
+    {
+        $dados_atualizados = array(
+
+          "id_Pessoa" => $this->input->post("id_Pessoa"),
+            'nome' => $this->input->post('nome'),
+            'cpf' => $this->input->post('cpf'),
+            'email' => $this->input->post('email'),
+            'endereco' => $this->input->post('endereco'),
+            'telefone' => $this->input->post('telefone'),
+            'matricula' => $this->input->post('matricula'),
+            'curso' => $this->input->post('curso'),
+            'periodo' => $this->input->post('periodo')
+          );
+
+        if ($this->Aluno_Model->update_aluno($dados_atualizados["id_Pessoa"], $dados_atualizados)) {
+            echo 1;
+        } else {
+            echo 0;
         }
     }
 }

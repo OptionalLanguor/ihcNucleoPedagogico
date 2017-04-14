@@ -1,6 +1,6 @@
 <?php
 
-defined('BASEPATH')    or    exit('No	direct	script	access	allowed');
+defined('BASEPATH')    or    exit('No   direct  script  access  allowed');
 class Aluno_Model extends CI_Model
 {
 
@@ -9,24 +9,35 @@ class Aluno_Model extends CI_Model
         parent::__construct();
     }
 
-    public function pesquisa_aluno($matricula)
+    public function pesquisa_aluno($pesquisa)
     {
+
         $this->db->from('Aluno');
-        $this->db->where('matricula', $matricula);
-        $res = $this->db->get()->result();
-        return (!empty($res))?$res[0]:false;
+        $this->db->like('nome', $pesquisa);
+        $this->db->or_where('cpf', $pesquisa);
+        $this->db->or_where('matricula', $pesquisa);
+        $this->db->or_where('curso', $pesquisa);
+        $this->db->or_where('periodo', (int)$pesquisa);
+        return $this->db->get()->result();
     }
     public function cadastra_aluno($aluno)
     {
         $this->db->from('Aluno');
-        $this->db->where('matricula', $aluno['matricula']);
-        $res = $this->db->get()->result();
-        if(empty($res) && strlen($aluno['cpf']) == 11){
-            $this->db->insert('Aluno', $aluno);
-            return true;
-        }
-        else{
-            return false;
-        }
+        $this->db->insert('Aluno', $aluno);
+    }
+    public function pesquisa_aluno_id($id)
+    {
+        $this->db->from('Aluno');
+        $this->db->where('id_Pessoa', $id);
+        return $this->db->get()->result();
+    }
+    public function update_aluno($id_Pessoa=null,$dados_atualizados=null)
+    {
+      $this->db->where('id_Pessoa', $id_Pessoa);
+
+      if($this->db->update('Aluno', $dados_atualizados))
+        return true;
+      else
+        return false;
     }
 }

@@ -19,7 +19,7 @@
 <div class="w3-main" style="margin-left:340px;width: 70%">
 
   <!-- Header -->
-  <div class="w3-container" style="margin-top:40px" id="pesquisa_de_aluno">
+  <div class="w3-container" style="margin-top:40px" id="pesquisa_de_professor">
     <h1 class="w3-jumbo"><b>Professor</b></h1>
   </div>
 
@@ -37,7 +37,7 @@
         <label>Nome ou SIAPE</label>
         <input class="w3-input w3-border" type="text" maxlength="10" name="Nome_ou_Siape" required>
       </div>
-      <button type="submit" class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom">Buscar dados do Aluno</button>
+      <button type="submit" class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom">Buscar dados do Professor</button>
 
     </form>
 
