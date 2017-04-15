@@ -31,6 +31,18 @@ $(function(){
   });
 });
 $(function(){
+  $('#formulario_professor_exclusao').ajaxForm({
+    success: function(data) {
+      if (data == 1) {
+
+        //se for sucesso, simplesmente recarrego a página. Aqui você pode usar sua imaginação.
+        document.location.href = base_url +"index.php/Cadastrar_professor/Pesquisar";
+
+      }
+    }
+  });
+});
+$(function(){
   $('#formulario_aluno').ajaxForm({
     success: function(data) {
       if (data == 1) {
@@ -54,20 +66,29 @@ $(function(){
       id_Professor: id_Professor
     }, function (data){
       $('#nome').val(data.nome);
+      $('#nome_exclusao').text(data.nome);
       $('#siape').val(data.siape);
-      $('#id_Professor').val(data.id_Professor);//aqui eu seto a o input hidden com o id do cliente, para que a edição funcione. Em cada tela aberta, eu seto o id do cliente.
+      $('#id_Professor').val(data.id_Professor);
+      $('#id_Professor_exclusao').val(data.id_Professor);//aqui eu seto a o input hidden com o id do cliente, para que a edição funcione. Em cada tela aberta, eu seto o id do cliente.
     }, 'json');
   }
 
   function janelaEditarProfessor(id_Professor){
     if(id_Professor!=null)
     {
+      carregaDadosProfessorJSonExclusao(id_Professor);
+    }
+    document.getElementById("modalEditarProfessor").style.display = "block";
+  }
+
+  function janelaExcluirProfessor(id_Professor){
+    if(id_Professor!=null)
+    {
       carregaDadosProfessorJSon(id_Professor);
     }
-    //antes de abrir a janela, preciso carregar os dados do cliente e preencher os campos dentro do modal
 
 
-    document.getElementById("modalEditarProfessor").style.display = "block";
+    document.getElementById("modalExcluirProfessor").style.display = "block";
   }
 
   function janelaCadastrarProfessor(){

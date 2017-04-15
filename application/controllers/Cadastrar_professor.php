@@ -64,4 +64,14 @@ class Cadastrar_professor extends CI_Controller
             echo 0;
         }
     }
+
+    public function excluir()
+    {
+        $id_Professor = $this->input->post("id_Professor_exclusao");
+
+        if ($this->Professor_Model->delete_professor($id_Professor))
+            echo 1;
+        else
+            echo 0;
+    }
 }

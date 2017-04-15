@@ -37,4 +37,13 @@ class Professor_Model extends CI_Model
       else
         return false;
     }
+    public function delete_professor($id_Professor=null)
+    {
+      $this->db->where('id_Professor', $id_Professor);
+
+      if($this->db->delete('Professor'))
+        return true;
+      else
+        return false;
+    }
 }
