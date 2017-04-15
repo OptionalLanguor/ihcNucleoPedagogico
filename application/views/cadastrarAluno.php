@@ -121,7 +121,7 @@
         </div>
         <input type="hidden" class="form-control" name="id_Pessoa" id="id_Pessoa">
         <button style="width: 49.5%" type="$('#formulario_aluno').submit()" class="w3-button w3-green w3-margin-bottom">Atualizar os dados do Aluno</button>
-        <button style="width: 49.5%" onclick="document.getElementById('modalEditarAluno').style.display='none'" class="w3-button w3-red w3-margin-bottom">Cancelar</button>
+        <button style="width: 49.5%" type ="button" onclick="document.getElementById('modalEditarAluno').style.display='none'" class="w3-button w3-red w3-margin-bottom">Cancelar</button>
       </form>
 
     </div>
@@ -171,7 +171,7 @@
          <input class="w3-input w3-border" type="text" maxlength="64" name="Endereco" required>
        </div>
         <button style="width: 49.5%" type="submit" class="w3-button w3-green w3-margin-bottom">Cadastrar Novo Aluno</button>
-        <button style="width: 49.5%" onclick="document.getElementById('modalCadastrarAluno').style.display='none'" class="w3-button w3-red w3-margin-bottom">Cancelar</button>
+        <button style="width: 49.5%" type ="button" onclick="document.getElementById('modalCadastrarAluno').style.display='none'" class="w3-button w3-red w3-margin-bottom">Cancelar</button>
       </form>
     </div>
   </div>

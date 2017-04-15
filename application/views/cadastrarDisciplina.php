@@ -85,7 +85,7 @@
         </div>
         <input type="hidden" class="form-control" name="id_Disciplina" id="id_Disciplina">
         <button style="width: 49.5%" type="$('#formulario_disciplina').submit()" class="w3-button w3-green w3-margin-bottom">Atualizar os dados da Disciplina</button>
-        <button style="width: 49.5%" onclick="document.getElementById('modalEditarDisciplina').style.display='none'" class="w3-button w3-red w3-margin-bottom">Cancelar</button>
+        <button style="width: 49.5%" type ="button" onclick="document.getElementById('modalEditarDisciplina').style.display='none'" class="w3-button w3-red w3-margin-bottom">Cancelar</button>
       </form>
 
     </div>
@@ -111,7 +111,7 @@
          <input class="w3-input w3-border" type="text" maxlength="10" name="Sigla" required>
        </div>
         <button style="width: 49.5%" type="submit" class="w3-button w3-green w3-margin-bottom">Cadastrar Nova Disciplina</button>
-        <button style="width: 49.5%" onclick="document.getElementById('modalCadastrarDisciplina').style.display='none'" class="w3-button w3-red w3-margin-bottom">Cancelar</button>
+        <button style="width: 49.5%" type ="button" onclick="document.getElementById('modalCadastrarDisciplina').style.display='none'" class="w3-button w3-red w3-margin-bottom">Cancelar</button>
       </form>
     </div>
   </div>

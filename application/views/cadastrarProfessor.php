@@ -60,8 +60,8 @@
         <td><?php echo $row->siape;?></td>
         <td><?php echo $row->nome;?></td>
         <td>
-          <button href="javascript:;" onclick="janelaEditarProfessor(<?php echo $row->id_Professor ?>)"><i class="fa fa-pencil"></i>
-          </button><button href="javascript:;" onclick="janelaExcluirProfessor(<?php echo $row->id_Professor ?>)"><i class="fa fa-trash-o"></i></button>
+          <button href="javascript:;" onclick="janelaEditarProfessor(<?php echo $row->id_Professor ?>)"><i class="fa fa-pencil"></i></button>
+          <button href="javascript:;" onclick="janelaExcluirProfessor(<?php echo $row->id_Professor ?>)"><i class="fa fa-trash-o"></i></button>
         </td>
     </tr>
   <?php }} ?>
@@ -88,9 +88,8 @@
         </div>
         <input type="hidden" class="form-control" name="id_Professor" id="id_Professor">
         <button style="width: 49.5%" type="$('#formulario_professor').submit()" class="w3-button w3-green w3-margin-bottom">Atualizar os dados do Professor</button>
-        <button style="width: 49.5%" onclick="document.getElementById('modalEditarProfessor').style.display='none'" class="w3-button w3-red w3-margin-bottom">Cancelar</button>
+        <button style="width: 49.5%" type ="button" onclick="document.getElementById('modalEditarProfessor').style.display='none'" class="w3-button w3-red w3-margin-bottom">Cancelar</button>
       </form>
-
     </div>
   </div>
 </div>
@@ -114,7 +113,7 @@
          <input class="w3-input w3-border" type="text" maxlength="10" name="Siape" required>
        </div>
         <button style="width: 49.5%" type="submit" class="w3-button w3-green w3-margin-bottom">Cadastrar Novo Professor</button>
-        <button style="width: 49.5%" onclick="document.getElementById('modalCadastrarProfessor').style.display='none'" class="w3-button w3-red w3-margin-bottom">Cancelar</button>
+        <button style="width: 49.5%" type ="button" onclick="document.getElementById('modalCadastrarProfessor').style.display='none'" class="w3-button w3-red w3-margin-bottom">Cancelar</button>
       </form>
     </div>
   </div>
@@ -133,11 +132,10 @@
           <p>Deseja realmente excluir o cadastro de <strong><span class="w3-xlarge" id="nome_exclusao"></span></strong></p>
         </div>
         <input type="hidden" class="form-control" name="id_Professor_exclusao" id="id_Professor_exclusao">
-        <button style="width: 49.5%" type="$('#formulario_professor').submit()" class="w3-button w3-red w3-margin-bottom">Confirmar Exclusão</button>
-        <button style="width: 49.5%" onclick="document.getElementById('modalExcluirProfessor').style.display='none'" class="w3-button w3-gray w3-margin-bottom">Cancelar</button>
+        <button style="width: 49.5%" type="$('#formulario_professor_exclusao').submit()" class="w3-button w3-red w3-margin-bottom">Confirmar Exclusão</button>
+        <button style="width: 49.5%" type ="button" onclick="document.getElementById('modalExcluirProfessor').style.display='none'" class="w3-button w3-gray w3-margin-bottom">Cancelar</button>
       </form>
-
-    </div>
+   </div>
   </div>
 </div>
 

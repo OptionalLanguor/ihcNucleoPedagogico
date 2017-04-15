@@ -76,7 +76,7 @@ $(function(){
   function janelaEditarProfessor(id_Professor){
     if(id_Professor!=null)
     {
-      carregaDadosProfessorJSonExclusao(id_Professor);
+      carregaDadosProfessorJSon(id_Professor);
     }
     document.getElementById("modalEditarProfessor").style.display = "block";
   }
@@ -86,7 +86,6 @@ $(function(){
     {
       carregaDadosProfessorJSon(id_Professor);
     }
-
 
     document.getElementById("modalExcluirProfessor").style.display = "block";
   }
