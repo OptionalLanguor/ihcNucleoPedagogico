@@ -19,7 +19,7 @@
 <div class="w3-main" style="margin-left:340px;width: 70%">
 
   <!-- Header -->
-  <div class="w3-container" style="margin-top:40px" id="pesquisa_de_aluno">
+  <div class="w3-container" style="margin-top:40px" id="pesquisa_de_disciplina">
     <h1 class="w3-jumbo"><b>Disciplina</b></h1>
   </div>
 
@@ -34,7 +34,7 @@
      <?php echo form_open('Cadastrar_disciplina/Pesquisar'); ?>
 
       <div class="w3-section">
-        <label>Nome ou sigla</label>
+        <label>Nome ou Sigla</label>
         <input class="w3-input w3-border" type="text" maxlength="10" name="Nome_ou_Sigla" required>
       </div>
       <button type="submit" class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom">Buscar dados da Disciplina</button>
@@ -56,10 +56,13 @@
   </thead>
   <?php if(isset($resultado)){foreach($resultado as $row) { ?>
     <tr>
-        <td><?php echo $row->id_Discip;?></td>
-        <td><?php echo $row->Sigla;?></td>
+        <td><?php echo $row->id_Disciplina;?></td>
+        <td><?php echo $row->sigla;?></td>
         <td><?php echo $row->nome;?></td>
-        <td><button href="javascript:;" onclick="janelaEditarDisciplina(<?php echo $row->id_Disciplina ?>)"><i class="fa fa-pencil"></button></td>
+        <td>
+          <button href="javascript:;" onclick="janelaEditarDisciplina(<?php echo $row->id_Disciplina ?>)"><i class="fa fa-pencil"></i></button>
+          <button href="javascript:;" onclick="janelaExcluirDisciplina(<?php echo $row->id_Disciplina ?>)"><i class="fa fa-trash-o"></i></button>
+        </td>
     </tr>
   <?php }} ?>
 </table>
@@ -87,7 +90,6 @@
         <button style="width: 49.5%" type="$('#formulario_disciplina').submit()" class="w3-button w3-green w3-margin-bottom">Atualizar os dados da Disciplina</button>
         <button style="width: 49.5%" type ="button" onclick="document.getElementById('modalEditarDisciplina').style.display='none'" class="w3-button w3-red w3-margin-bottom">Cancelar</button>
       </form>
-
     </div>
   </div>
 </div>
@@ -114,6 +116,26 @@
         <button style="width: 49.5%" type ="button" onclick="document.getElementById('modalCadastrarDisciplina').style.display='none'" class="w3-button w3-red w3-margin-bottom">Cancelar</button>
       </form>
     </div>
+  </div>
+</div>
+
+<div id="modalExcluirDisciplina" class="w3-modal">
+  <div class="w3-modal-content">
+    <header class="w3-container w3-red">
+      <span onclick="document.getElementById('modalExcluirDisciplina').style.display='none'"
+      class="w3-button w3-display-topright">&times;</span>
+      <h2>Excluir Disciplina</h2>
+    </header>
+    <div class="w3-container" style="margin-top:20px">
+      <form role="form" method="post" action="<?php echo base_url('index.php/Cadastrar_disciplina/excluir')?>" id="formulario_disciplina_exclusao">
+        <div class="w3-section">
+          <p>Deseja realmente excluir o cadastro de <strong><span class="w3-xlarge" id="nome_exclusao"></span></strong></p>
+        </div>
+        <input type="hidden" class="form-control" name="id_Disciplina_exclusao" id="id_Disciplina_exclusao">
+        <button style="width: 49.5%" type="$('#formulario_disciplina_exclusao').submit()" class="w3-button w3-red w3-margin-bottom">Confirmar Exclusão</button>
+        <button style="width: 49.5%" type ="button" onclick="document.getElementById('modalExcluirDisciplina').style.display='none'" class="w3-button w3-gray w3-margin-bottom">Cancelar</button>
+      </form>
+   </div>
   </div>
 </div>
 

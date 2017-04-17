@@ -15,7 +15,7 @@ class Cadastrar_disciplina extends CI_Controller
     }
     public function Pesquisar()
     {
-        $pesquisa = $this->input->post('Nome da disciplina');
+        $pesquisa = $this->input->post('Nome_ou_Sigla');
         $pesquisa_res['resultado'] = $this->Disciplina_Model->pesquisa_disciplina($pesquisa);
         $this->load->view('cadastrarDisciplina', $pesquisa_res);
     }
@@ -26,7 +26,7 @@ class Cadastrar_disciplina extends CI_Controller
           'nome' => $this->input->post('Nome'),
           'sigla' => $this->input->post('Sigla'),
         );
-        $this->Disciplina_Model->cadastrar_disciplina($disciplina);
+        $this->Disciplina_Model->Cadastrar_disciplina($disciplina);
         $this->load->view('cadastrarDisciplina');
     }
 
@@ -63,5 +63,15 @@ class Cadastrar_disciplina extends CI_Controller
         } else {
             echo 0;
         }
+    }
+
+    public function excluir()
+    {
+        $id_Disciplina = $this->input->post("id_Disciplina_exclusao");
+
+        if ($this->Disciplina_Model->delete_disciplina($id_Disciplina))
+            echo 1;
+        else
+            echo 0;
     }
 }

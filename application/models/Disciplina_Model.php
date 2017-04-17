@@ -22,7 +22,7 @@ class Disciplina_Model extends CI_Model
         $this->db->insert('Disciplina', $disciplina);
     }
 
-    public function pesquisa_disciplinar_id($id)
+    public function pesquisa_disciplina_id($id)
     {
         $this->db->from('Disciplina');
         $this->db->where('id_Disciplina', $id);
@@ -33,6 +33,15 @@ class Disciplina_Model extends CI_Model
       $this->db->where('id_Disciplina', $id_Disciplina);
 
       if($this->db->update('Disciplina', $dados_atualizados))
+        return true;
+      else
+        return false;
+    }
+    public function delete_disciplina($id_Disciplina=null)
+    {
+      $this->db->where('id_Disciplina', $id_Disciplina);
+
+      if($this->db->delete('DisciplinaD'))
         return true;
       else
         return false;
