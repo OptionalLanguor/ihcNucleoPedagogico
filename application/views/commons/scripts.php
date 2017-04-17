@@ -42,6 +42,41 @@ $(function(){
     }
   });
 });
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+$(function(){
+  $('#formulario_disciplina').ajaxForm({
+    success: function(data) {
+      if (data == 1) {
+
+        //se for sucesso, simplesmente recarrego a página. Aqui você pode usar sua imaginação.
+        document.location.href = document.location.href;
+
+      }
+    }
+  });
+});
+$(function(){
+  $('#formulario_disciplina_exclusao').ajaxForm({
+    success: function(data) {
+      if (data == 1) {
+
+        //se for sucesso, simplesmente recarrego a página. Aqui você pode usar sua imaginação.
+        document.location.href = base_url +"index.php/Cadastrar_disciplina/Pesquisar";
+
+      }
+    }
+  });
+});
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
 $(function(){
   $('#formulario_aluno').ajaxForm({
     success: function(data) {
