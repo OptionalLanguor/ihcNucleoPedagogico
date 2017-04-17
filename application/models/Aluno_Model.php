@@ -22,7 +22,6 @@ class Aluno_Model extends CI_Model
     }
     public function cadastra_aluno($aluno)
     {
-        $this->db->from('Aluno');
         $this->db->insert('Aluno', $aluno);
     }
     public function pesquisa_aluno_id($id)
