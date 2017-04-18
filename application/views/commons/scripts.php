@@ -68,6 +68,43 @@ $(function(){
     }
   });
 });
+
+function carregaDadosDisciplinaJSon(id_Disciplina){
+    $.post(base_url +'/index.php/Cadastrar_disciplina/dados_disciplina', {
+      id_Disciplina: id_Disciplina
+    }, function (data){
+      $('#nome').val(data.nome);
+      $('#sigla').val(data.sigla);
+      $('#nome_exclusao').val(data.nome);
+      $('#id_Disciplina_exclusao').val(data.id_Disciplina);
+      $('#id_Disciplina').val(data.id_Disciplina);//aqui eu seto a o input hidden com o id do cliente, para que a edição funcione. Em cada tela aberta, eu seto o id do cliente.
+    }, 'json');
+  }
+
+  function janelaEditarDisciplina(id_Disciplina){
+    if(id_Disciplina!=null)
+    {
+      carregaDadosDisciplinaJSon(id_Disciplina);
+    }
+    document.getElementById("modalEditarDisciplina").style.display = "block";
+  }
+
+  function janelaCadastrarDisciplina(){
+
+    document.getElementById("modalCadastrarDisciplina").style.display = "block";
+  }
+
+  function janelaExcluirDisciplina(id_Disciplina){
+    if(id_Disciplina!=null)
+    {
+      carregaDadosDisciplinaJSon(id_Disciplina);
+    }
+
+    document.getElementById("modalExcluirDisciplina").style.display = "block";
+  }
+
+
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
 

@@ -41,7 +41,7 @@ class Disciplina_Model extends CI_Model
     {
       $this->db->where('id_Disciplina', $id_Disciplina);
 
-      if($this->db->delete('DisciplinaD'))
+      if($this->db->delete('Disciplina'))
         return true;
       else
         return false;
