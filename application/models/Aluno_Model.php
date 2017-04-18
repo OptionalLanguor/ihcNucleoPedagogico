@@ -11,7 +11,9 @@ class Aluno_Model extends CI_Model
 
     public function pesquisa_aluno($pesquisa)
     {
-
+        if($pesquisa == "")
+            return $this->db->get('Aluno')->result();
+        
         $this->db->from('Aluno');
         $this->db->like('nome', $pesquisa);
         $this->db->or_where('cpf', $pesquisa);

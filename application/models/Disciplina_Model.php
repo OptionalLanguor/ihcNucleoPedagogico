@@ -10,6 +10,9 @@ class Disciplina_Model extends CI_Model
 
     public function pesquisa_disciplina($pesquisa)
     {
+        if($pesquisa == "")
+            return $this->db->get('Disciplina')->result();
+
         $this->db->from('Disciplina');
         $this->db->like('sigla', $pesquisa);
         $this->db->or_like('nome', $pesquisa);

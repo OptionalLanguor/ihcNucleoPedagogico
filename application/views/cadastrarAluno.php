@@ -35,7 +35,7 @@
 
       <div class="w3-section">
         <label>RA, Nome, CPF, Curso ou Periodo</label>
-        <input class="w3-input w3-border" type="text" maxlength="64" name="qualquer_atributo" required>
+        <input class="w3-input w3-border" type="text" maxlength="64" name="qualquer_atributo">
       </div>
       <button type="submit" class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom">Buscar dados do Aluno</button>
 

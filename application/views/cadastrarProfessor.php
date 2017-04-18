@@ -35,7 +35,7 @@
 
       <div class="w3-section">
         <label>Nome ou SIAPE</label>
-        <input class="w3-input w3-border" type="text" maxlength="10" name="Nome_ou_Siape" required>
+        <input class="w3-input w3-border" type="text" maxlength="10" name="Nome_ou_Siape">
       </div>
       <button type="submit" class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom">Buscar dados do Professor</button>
 

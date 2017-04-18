@@ -10,6 +10,9 @@ class Professor_Model extends CI_Model
 
     public function pesquisa_professor($pesquisa)
     {
+        if($pesquisa == "")
+            return $this->db->get('Professor')->result();
+
         $this->db->from('Professor');
         $this->db->like('siape', $pesquisa);
         $this->db->or_like('nome', $pesquisa);
