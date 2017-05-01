@@ -11,7 +11,8 @@ class Cadastrar_professor extends CI_Controller
     }
     public function Index()
     {
-        $this->load->view('cadastrarProfessor');
+        $pesquisa_res['resultado'] = $this->Professor_Model->pesquisa_professor('');
+        $this->load->view('cadastrarProfessor', $pesquisa_res);
     }
     public function Pesquisar()
     {

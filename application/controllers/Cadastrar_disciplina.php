@@ -11,7 +11,8 @@ class Cadastrar_disciplina extends CI_Controller
     }
     public function Index()
     {
-        $this->load->view('cadastrarDisciplina');
+        $pesquisa_res['resultado'] = $this->Disciplina_Model->pesquisa_disciplina('');
+        $this->load->view('cadastrarDisciplina', $pesquisa_res);
     }
     public function Pesquisar()
     {
