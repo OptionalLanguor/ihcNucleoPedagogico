@@ -61,12 +61,17 @@
 	<!--Tutorial-->
 	<table>
 	<td>
-  		<a href="<?php echo site_url('Tutorial') ?>" onclick="w3_close()" class="<?php if($this->uri->segment(1)=="Tutorial"){echo "w3-bar-item w3-button w3-white";}else{echo "w3-bar-item w3-button w3-hover-white";}?>"><i class="fa fa-question-circle"> 
+  		<a href="<?php echo site_url('Tutorial') ?>" onclick="w3_close()" class="<?php if($this->uri->segment(1)=="Tutorial"){echo "w3-bar-item w3-button w3-white";}else{echo "w3-bar-item w3-button w3-hover-white";}?>"><i class="fa fa-question-circle">
   		</i> Turorial</a>
 	</td>
 	</table>
 
-
+  <!--Cadastrar Anexo-->
+  <table>
+  <td>
+      <a href="<?php echo site_url('Cadastrar_anexo') ?>" onclick="w3_close()" class="<?php if($this->uri->segment(1)=="Cadastrar_anexo"){echo "w3-bar-item w3-button w3-white";}else{echo "w3-bar-item w3-button w3-hover-white";}?>"> Cadastrar anexo</a>
+  </td>
+  </table>
 
 
 
