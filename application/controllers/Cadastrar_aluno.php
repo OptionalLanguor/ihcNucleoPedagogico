@@ -11,7 +11,8 @@ class Cadastrar_aluno extends CI_Controller
     }
     public function Index()
     {
-        $this->load->view('cadastrarAluno');
+        $pesquisa_res['resultado'] = $this->Aluno_Model->pesquisa_aluno('');
+        $this->load->view('cadastrarAluno', $pesquisa_res);
     }
     public function Cadastrar()
     {
