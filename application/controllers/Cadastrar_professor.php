@@ -5,6 +5,9 @@ class Cadastrar_professor extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        if (!($this->session->userdata('esta_logado'))) {
+            redirect('login');
+        }
         $this->load->model('Professor_Model');
         $this->load->helper('url');
         $this->load->helper('form');

@@ -5,6 +5,9 @@ class Cadastrar_disciplina extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        if (!($this->session->userdata('esta_logado'))) {
+            redirect('login');
+        }
         $this->load->model('Disciplina_Model');
         $this->load->helper('url');
         $this->load->helper('form');
