@@ -27,7 +27,8 @@ class Cadastrar_aluno extends CI_Controller
 		'periodo' => $this->input->post('Periodo')
 		);
         $this->Aluno_Model->cadastra_aluno($aluno);
-        $this->load->view('cadastrarAluno');
+        $pesquisa_res['resultado'] = $this->Aluno_Model->pesquisa_aluno('');
+        $this->load->view('cadastrarAluno', $pesquisa_res);
     }
     public function Pesquisar()
     {
@@ -77,5 +78,14 @@ class Cadastrar_aluno extends CI_Controller
         } else {
             echo 0;
         }
+    }
+    public function excluir()
+    {
+        $id_Pessoa = $this->input->post("id_Pessoa_exclusao");
+
+        if ($this->Aluno_Model->delete_aluno($id_Pessoa))
+            echo 1;
+        else
+            echo 0;
     }
 }

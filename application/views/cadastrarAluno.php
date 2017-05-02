@@ -71,7 +71,10 @@
         <td><?php echo $row->email;?></td>
         <td><?php echo $row->telefone;?></td>
         <td><?php echo $row->endereco;?></td>
-        <td><button href="javascript:;" onclick="janelaEditarAluno(<?php echo $row->id_Pessoa ?>)"><i class="fa fa-pencil"></button></td>
+        <td>
+          <button href="javascript:;" onclick="janelaEditarAluno(<?php echo $row->id_Pessoa ?>)"><i class="fa fa-pencil"></i></button>
+          <button href="javascript:;" onclick="janelaExcluirAluno(<?php echo $row->id_Pessoa ?>)"><i class="fa fa-trash-o"></i></button>
+        </td>
     </tr>
   <?php }} ?>
 </table>
@@ -174,6 +177,26 @@
         <button style="width: 49.5%" type ="button" onclick="document.getElementById('modalCadastrarAluno').style.display='none'" class="w3-button w3-red w3-margin-bottom">Cancelar</button>
       </form>
     </div>
+  </div>
+</div>
+
+<div id="modalExcluirAluno" class="w3-modal">
+  <div class="w3-modal-content">
+    <header class="w3-container w3-red">
+      <span onclick="document.getElementById('modalExcluirAluno').style.display='none'"
+      class="w3-button w3-display-topright">&times;</span>
+      <h2>Excluir Aluno</h2>
+    </header>
+    <div class="w3-container" style="margin-top:20px">
+      <form role="form" method="post" action="<?php echo base_url('index.php/Cadastrar_aluno/excluir')?>" id="formulario_aluno_exclusao">
+        <div class="w3-section">
+          <p>Deseja realmente excluir o cadastro de <strong><span class="w3-xlarge" id="nome_exclusao"></span></strong></p>
+        </div>
+        <input type="hidden" class="form-control" name="id_Pessoa_exclusao" id="id_Pessoa_exclusao">
+        <button style="width: 49.5%" type="$('#formulario_aluno_exclusao').submit()" class="w3-button w3-red w3-margin-bottom">Confirmar Exclusão</button>
+        <button style="width: 49.5%" type ="button" onclick="document.getElementById('modalExcluirAluno').style.display='none'" class="w3-button w3-gray w3-margin-bottom">Cancelar</button>
+      </form>
+   </div>
   </div>
 </div>
 

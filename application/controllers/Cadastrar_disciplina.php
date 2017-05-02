@@ -28,7 +28,8 @@ class Cadastrar_disciplina extends CI_Controller
           'sigla' => $this->input->post('Sigla'),
         );
         $this->Disciplina_Model->Cadastrar_disciplina($disciplina);
-        $this->load->view('cadastrarDisciplina');
+        $pesquisa_res['resultado'] = $this->Disciplina_Model->pesquisa_disciplina('');
+        $this->load->view('cadastrarDisciplina', $pesquisa_res);
     }
 
     public function dados_disciplina()

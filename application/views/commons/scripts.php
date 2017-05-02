@@ -69,6 +69,35 @@ $(function(){
   });
 });
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+$(function(){
+  $('#formulario_aluno').ajaxForm({
+    success: function(data) {
+      if (data == 1) {
+
+        //se for sucesso, simplesmente recarrego a página. Aqui você pode usar sua imaginação.
+        document.location.href = document.location.href;
+
+      }
+    }
+  });
+});
+$(function(){
+  $('#formulario_aluno_exclusao').ajaxForm({
+    success: function(data) {
+      if (data == 1) {
+
+        //se for sucesso, simplesmente recarrego a página. Aqui você pode usar sua imaginação.
+        document.location.href = base_url +"index.php/Cadastrar_aluno/Pesquisar";
+
+      }
+    }
+  });
+});
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 function carregaDadosDisciplinaJSon(id_Disciplina){
     $.post(base_url +'/index.php/Cadastrar_disciplina/dados_disciplina', {
       id_Disciplina: id_Disciplina
@@ -108,24 +137,6 @@ function carregaDadosDisciplinaJSon(id_Disciplina){
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-
-
-
-
-
-
-$(function(){
-  $('#formulario_aluno').ajaxForm({
-    success: function(data) {
-      if (data == 1) {
-
-        //se for sucesso, simplesmente recarrego a página. Aqui você pode usar sua imaginação.
-        document.location.href = document.location.href;
-
-      }
-    }
-  });
-});
 
 //Aqui eu seto uma variável javascript com o base_url do CodeIgniter, para usar nas funções do post.
   var base_url = "<?php echo base_url() ?>";
@@ -171,6 +182,7 @@ $(function(){
       id_Pessoa: id_Pessoa
     }, function (data){
       $('#nome').val(data.nome);
+      $('#nome_exclusao').text(data.nome);
       $('#cpf').val(data.cpf);
       $('#email').val(data.email);
       $('#endereco').val(data.endereco);
@@ -178,7 +190,8 @@ $(function(){
       $('#matricula').val(data.matricula);
       $('#curso').val(data.curso);
       $('#periodo').val(data.periodo);
-      $('#id_Pessoa').val(data.id_Pessoa);//aqui eu seto a o input hidden com o id do cliente, para que a edição funcione. Em cada tela aberta, eu seto o id do cliente.
+      $('#id_Pessoa').val(data.id_Pessoa);
+      $('#id_Pessoa_exclusao').val(data.id_Pessoa);//aqui eu seto a o input hidden com o id do cliente, para que a edição funcione. Em cada tela aberta, eu seto o id do cliente.
     }, 'json');
   }
 
@@ -191,6 +204,15 @@ $(function(){
 
 
     document.getElementById("modalEditarAluno").style.display = "block";
+  }
+
+  function janelaExcluirAluno(id_Pessoa){
+    if(id_Pessoa!=null)
+    {
+      carregaDadosAlunoJSon(id_Pessoa);
+    }
+
+    document.getElementById("modalExcluirAluno").style.display = "block";
   }
 
   function janelaCadastrarAluno(){

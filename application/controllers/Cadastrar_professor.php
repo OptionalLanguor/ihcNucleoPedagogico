@@ -28,7 +28,8 @@ class Cadastrar_professor extends CI_Controller
           'siape' => $this->input->post('Siape'),
         );
         $this->Professor_Model->cadastrar_professor($professor);
-        $this->load->view('cadastrarProfessor');
+        $pesquisa_res['resultado'] = $this->Professor_Model->pesquisa_professor('');
+        $this->load->view('cadastrarProfessor', $pesquisa_res);
     }
 
     public function dados_professor()

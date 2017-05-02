@@ -1,5 +1,4 @@
 <?php
-
 defined('BASEPATH')    or    exit('No   direct  script  access  allowed');
 class Aluno_Model extends CI_Model
 {
@@ -8,7 +7,6 @@ class Aluno_Model extends CI_Model
     {
         parent::__construct();
     }
-
     public function pesquisa_aluno($pesquisa)
     {
         if($pesquisa == "")
@@ -37,6 +35,15 @@ class Aluno_Model extends CI_Model
       $this->db->where('id_Pessoa', $id_Pessoa);
 
       if($this->db->update('Aluno', $dados_atualizados))
+        return true;
+      else
+        return false;
+    }
+    public function delete_aluno($id_Pessoa=null)
+    {
+      $this->db->where('id_Pessoa', $id_Pessoa);
+
+      if($this->db->delete('Aluno'))
         return true;
       else
         return false;
