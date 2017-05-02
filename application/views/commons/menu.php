@@ -57,4 +57,17 @@
   		<a href="<?php echo site_url('Cadastrar_procedimento') ?>" onclick="w3_close()" class="<?php if($this->uri->segment(1)=="Cadastrar_procedimento"){echo "w3-bar-item w3-button w3-white";}else{echo "w3-bar-item w3-button w3-hover-white";}?>"> Cadastrar Procedimento</a>
 	</td>
 	</table>
+
+	<!--Tutorial-->
+	<table>
+	<td>
+  		<a href="<?php echo site_url('Tutorial') ?>" onclick="w3_close()" class="<?php if($this->uri->segment(1)=="Tutorial"){echo "w3-bar-item w3-button w3-white";}else{echo "w3-bar-item w3-button w3-hover-white";}?>"><i class="fa fa-question-circle"> 
+  		</i> Turorial</a>
+	</td>
+	</table>
+
+
+
+
+
 </div>
