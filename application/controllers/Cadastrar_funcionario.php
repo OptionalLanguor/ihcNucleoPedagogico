@@ -5,9 +5,6 @@ class Cadastrar_funcionario extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        if (!($this->session->userdata('esta_logado'))) {
-            redirect('login');
-        }
         $this->load->model('Funcionario_Model');
         $this->load->helper('url');
         $this->load->helper('form');
@@ -15,19 +12,19 @@ class Cadastrar_funcionario extends CI_Controller
     public function Index()
     {
         $pesquisa_res['resultado'] = $this->Funcionario_Model->pesquisa_funcionario('');
-        $this->load->view('cadastrar_funcionario', $pesquisa_res);
+        $this->load->view('cadastrarFuncionario', $pesquisa_res);
     }
     public function Pesquisar()
     {
         $pesquisa = $this->input->post('variavel_pesquisa');
         $pesquisa_res['resultado'] = $this->Funcionario_Model->pesquisa_funcionario($pesquisa);
-        $this->load->view('cadastrar_funcionario', $pesquisa_res);
+        $this->load->view('cadastrarFuncionario', $pesquisa_res);
     }
 
     public function Cadastrar()
     {
         $funcionario = array(
-          'nome' => $this->input->post('Nome'),
+          'nome' => $this->input->post('nome'),
           'cpf' => $this->input->post('cpf'),
           'telefone' => $this->input->post('telefone'),
           'login' => $this->input->post('login'),
@@ -35,8 +32,7 @@ class Cadastrar_funcionario extends CI_Controller
           'email' => $this->input->post('email'),
         );
         $this->Funcionario_Model->cadastrar_funcionario($funcionario);
-        $pesquisa_res['resultado'] = $this->Funcionario_Model->pesquisa_funcionario('');
-        $this->load->view('cadastrar_funcionario', $pesquisa_res);
+        $this->load->view('CadastrarFuncionario');
     }
 
     public function dados_funcionario()

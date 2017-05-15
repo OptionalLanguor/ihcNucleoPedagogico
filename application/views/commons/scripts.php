@@ -69,35 +69,6 @@ $(function(){
   });
 });
 
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-$(function(){
-  $('#formulario_aluno').ajaxForm({
-    success: function(data) {
-      if (data == 1) {
-
-        //se for sucesso, simplesmente recarrego a página. Aqui você pode usar sua imaginação.
-        document.location.href = document.location.href;
-
-      }
-    }
-  });
-});
-$(function(){
-  $('#formulario_aluno_exclusao').ajaxForm({
-    success: function(data) {
-      if (data == 1) {
-
-        //se for sucesso, simplesmente recarrego a página. Aqui você pode usar sua imaginação.
-        document.location.href = base_url +"index.php/Cadastrar_aluno/Pesquisar";
-
-      }
-    }
-  });
-});
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 function carregaDadosDisciplinaJSon(id_Disciplina){
     $.post(base_url +'/index.php/Cadastrar_disciplina/dados_disciplina', {
       id_Disciplina: id_Disciplina
@@ -137,6 +108,24 @@ function carregaDadosDisciplinaJSon(id_Disciplina){
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+
+
+
+
+
+
+$(function(){
+  $('#formulario_aluno').ajaxForm({
+    success: function(data) {
+      if (data == 1) {
+
+        //se for sucesso, simplesmente recarrego a página. Aqui você pode usar sua imaginação.
+        document.location.href = document.location.href;
+
+      }
+    }
+  });
+});
 
 //Aqui eu seto uma variável javascript com o base_url do CodeIgniter, para usar nas funções do post.
   var base_url = "<?php echo base_url() ?>";
@@ -182,7 +171,6 @@ function carregaDadosDisciplinaJSon(id_Disciplina){
       id_Pessoa: id_Pessoa
     }, function (data){
       $('#nome').val(data.nome);
-      $('#nome_exclusao').text(data.nome);
       $('#cpf').val(data.cpf);
       $('#email').val(data.email);
       $('#endereco').val(data.endereco);
@@ -190,8 +178,7 @@ function carregaDadosDisciplinaJSon(id_Disciplina){
       $('#matricula').val(data.matricula);
       $('#curso').val(data.curso);
       $('#periodo').val(data.periodo);
-      $('#id_Pessoa').val(data.id_Pessoa);
-      $('#id_Pessoa_exclusao').val(data.id_Pessoa);//aqui eu seto a o input hidden com o id do cliente, para que a edição funcione. Em cada tela aberta, eu seto o id do cliente.
+      $('#id_Pessoa').val(data.id_Pessoa);//aqui eu seto a o input hidden com o id do cliente, para que a edição funcione. Em cada tela aberta, eu seto o id do cliente.
     }, 'json');
   }
 
@@ -206,17 +193,76 @@ function carregaDadosDisciplinaJSon(id_Disciplina){
     document.getElementById("modalEditarAluno").style.display = "block";
   }
 
-  function janelaExcluirAluno(id_Pessoa){
-    if(id_Pessoa!=null)
-    {
-      carregaDadosAlunoJSon(id_Pessoa);
-    }
-
-    document.getElementById("modalExcluirAluno").style.display = "block";
-  }
-
   function janelaCadastrarAluno(){
     document.getElementById("modalCadastrarAluno").style.display = "block";
   }
+
+///////////////////////////////////////FUNCIONARIO///////////////////////////////////
+$(function(){
+  $('#formulario_funcionario').ajaxForm({
+    success: function(data) {
+      if (data == 1) {
+
+        document.location.href = document.location.href;
+
+      }
+    }
+  });
+});
+$(function(){
+  $('#formulario_funcionario_exclusao').ajaxForm({
+    success: function(data) {
+      if (data == 1) {
+        document.location.href = base_url +"index.php/Cadastrar_funcionario/Pesquisar";
+
+      }
+    }
+  });
+});
+
+
+  function carregaDadosFuncionarioJSon(id_Funcionario){
+    $.post(base_url +'/index.php/Cadastrar_funcionario/dados_funcionario', {
+      id_Funcionario: id_Funcionario
+    }, function (data){
+      $('#id_Funcionario').val(data.id_Funcionario);
+      $('#id_Funcionario_exclusao').val(data.id_Funcionario);
+      $('#nome').val(data.nome);
+      $('#nome_exclusao').text(data.nome);
+      $('#login').val(data.login);
+      $('#login_exclusao').text(data.login);
+      $('#senha').val(data.senha);
+      $('#senha_exclusao').text(data.senha);
+      $('#email').val(data.email);
+      $('#email_exclusao').text(data.email);
+      $('#cpf').val(data.cpf);
+      $('#cpf_exclusao').text(data.cpf);
+      $('#telefone').val(data.telefone);
+      $('#tefefone_exclusao').val(data.telefone);
+    }, 'json');
+  }
+
+  function janelaEditarFuncionario(id_Funcionario){
+    if(id_Funcionario!=null)
+    {
+      carregaDadosFuncionarioJSon(id_Funcionario);
+    }
+    document.getElementById("modalEditarFuncionario").style.display = "block";
+  }
+
+  function janelaExcluirFuncionario(id_Funcionario){
+    if(id_Funcionario!=null)
+    {
+      carregaDadosFuncionarioJSon(id_Funcionario);
+    }
+
+    document.getElementById("modalExcluirFuncionario").style.display = "block";
+  }
+
+  function janelaCadastrarFuncionario(){
+    document.getElementById("modalCadastrarFuncionario").style.display = "block";
+  }
+
+////////////////////////////////////FINAL FUNCIONARIO///////////////////////////////////////
 
 </script>

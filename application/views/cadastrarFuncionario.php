@@ -24,7 +24,7 @@
   </div>
 
   <div class="w3-container">
-    <button class="w3-button w3-green" onclick="janelaCadastrarfuncionario()">Cadastrar Novo Funcionario</button>
+    <button class="w3-button w3-green" onclick="janelaCadastrarFuncionario()">Cadastrar Novo Funcionario</button>
   </div>
   <!-- Pesquisa -->
   <div class="w3-container">
@@ -50,9 +50,11 @@
     <tr class="w3-gray">
       <th>id_Funcionario</th>
       <th>Nome</th>
-      <th>cpf</th>
-      <th>telefone</th>
-      <th>email</th>
+      <th>CPF</th>
+      <th>Telefone</th>
+      <th>Email</th>
+      <th>Login</th>
+      <th>Senha</th>
       <th>Operações</th>
     </tr>
   </thead>
@@ -61,8 +63,10 @@
         <td><?php echo $row->id_Funcionario;?></td>
         <td><?php echo $row->nome;?></td>
         <td><?php echo $row->cpf;?></td>
-        <td><?php echo $row->login;?></td>
         <td><?php echo $row->telefone;?></td>
+        <td><?php echo $row->email;?></td>
+        <td><?php echo $row->login;?></td>
+        <td><?php echo $row->senha;?></td>
         <td>
           <button href="javascript:;" onclick="janelaEditarFuncionario(<?php echo $row->id_Funcionario ?>)"><i class="fa fa-pencil"></i></button>
           <button href="javascript:;" onclick="janelaExcluirFuncionario(<?php echo $row->id_Funcionario ?>)"><i class="fa fa-trash-o"></i></button>
@@ -84,15 +88,27 @@
       <form role="form" method="post" action="<?php echo base_url('index.php/Cadastrar_funcionario/salvar_edicao')?>" id="formulario_funcionario">
         <div class="w3-section">
           <label for="nome">Nome</label>
-          <input type="text" class="form-control" id="nome" name="nome">
+          <input type="text" class="form-control" id="nome" maxlength="64" name="nome" required>
         </div>
         <div class="w3-section">
-          <label for="siape">cpf</label>
-          <input type="text" class="form-control" id="cpf" name="cpf">
+          <label for="cpf">CPF</label>
+          <input type="text" class="form-control" id="cpf" maxlength="11" minlength="11" name="cpf" required>
         </div>
         <div class="w3-section">
-          <label for="nome">Login</label>
-          <input type="text" class="form-control" id="login" name="login">
+          <label for="telefone">Telefone</label>
+          <input type="text" class="form-control" id="telefone" name="telefone" required>
+        </div>
+        <div class="w3-section">
+          <label for="email">Email</label>
+          <input type="text" class="form-control" id="email" maxlength="64" name="email" required>
+        </div>
+        <div class="w3-section">
+          <label for="login">Login</label>
+          <input type="text" class="form-control" id="login" maxlength="32" name="login" required>
+        </div>
+        <div class="w3-section">
+          <label for="senha">Senha</label>
+          <input type="text" class="form-control" id="senha" maxlength="32" name="senha" required>
         </div>
         <input type="hidden" class="form-control" name="id_Funcionario" id="id_Funcionario">
         <button style="width: 49.5%" type="$('#formulario_funcionario').submit()" class="w3-button w3-green w3-margin-bottom">Atualizar os dados do Funcionario</button>
@@ -102,26 +118,42 @@
   </div>
 </div>
 
-<div id="modalCadastrarfuncionario" class="w3-modal">
+<div id="modalCadastrarFuncionario" class="w3-modal">
   <div class="w3-modal-content">
     <header class="w3-container w3-indigo">
-      <span onclick="document.getElementById('modalCadastrarfuncionario').style.display='none'"
+      <span onclick="document.getElementById('modalCadastrarFuncionario').style.display='none'"
       class="w3-button w3-display-topright">&times;</span>
       <h2>Cadastrar Funcionario</h2>
     </header>
     <div class="w3-container" style="margin-top:20px">
       <hr style="width:50px;border:5px solid #3f51b5" class="w3-round">
       <?php echo form_open('Cadastrar_funcionario/Cadastrar'); ?>
-       <div class="w3-section">
-         <label>Nome</label>
-         <input class="w3-input w3-border" type="text" maxlength="10" name="Nome" required>
-       </div>
-       <div class="w3-section">
-         <label>Siape</label>
-         <input class="w3-input w3-border" type="text" maxlength="10" name="Siape" required>
-       </div>
+        <div class="w3-section">
+          <label for="nome">Nome</label>
+          <input type="text" class="form-control" id="nome" maxlength="64" name="nome" required>
+        </div>
+        <div class="w3-section">
+          <label for="cpf">CPF</label>
+          <input type="text" class="form-control" id="cpf" maxlength="11" minlength="11" name="cpf" required>
+        </div>
+        <div class="w3-section">
+          <label for="telefone">Telefone</label>
+          <input type="text" class="form-control" id="telefone" name="telefone" required>
+        </div>
+        <div class="w3-section">
+          <label for="email">Email</label>
+          <input type="text" class="form-control" id="email" maxlength="64" name="email" required>
+        </div>
+        <div class="w3-section">
+          <label for="login">Login</label>
+          <input type="text" class="form-control" id="login" maxlength="32" name="login" required>
+        </div>
+        <div class="w3-section">
+          <label for="senha">Senha</label>
+          <input type="text" class="form-control" id="senha" maxlength="32" name="senha" required>
+        </div>
         <button style="width: 49.5%" type="submit" class="w3-button w3-green w3-margin-bottom">Cadastrar Novo Funcionario</button>
-        <button style="width: 49.5%" type ="button" onclick="document.getElementById('modalCadastrarfuncionario').style.display='none'" class="w3-button w3-red w3-margin-bottom">Cancelar</button>
+        <button style="width: 49.5%" type ="button" onclick="document.getElementById('modalCadastrarFuncionario').style.display='none'" class="w3-button w3-red w3-margin-bottom">Cancelar</button>
       </form>
     </div>
   </div>
