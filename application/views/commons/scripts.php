@@ -281,7 +281,8 @@ $(function(){
   }
   ?>
 
-////////////////////////////////////RELATORIO DE ATENDIMENTO///////////////////////////////////////
+
+////////////////////////////////////REGISTRO DE ATENDIMENTO///////////////////////////////////////
 
 $(function(){
   $('#formulario_relatorio_atendimento').ajaxForm({
@@ -296,6 +297,7 @@ $(function(){
   });
 });
 
+
   function carregaDadosRegistroAtendimentoJSon(id_Registro){
     $.post(base_url +'/index.php/Cadastrar_registro_atendimento/dados_registro_atendimento', {
       id_Registro: id_Registro
@@ -306,6 +308,8 @@ $(function(){
       $('#id_Pessoa').val(data.id_Pessoa);
       $('#id_Registro').val(data.id_Registro);
       $('#observacao').val(data.observacao);
+
+      }, 'json');
   }
 
   function janelaEditarRegistroAtendimento(id_Registro){
