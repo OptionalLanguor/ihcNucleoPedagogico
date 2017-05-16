@@ -23,8 +23,10 @@ $(function(){
     success: function(data) {
       if (data == 1) {
 
-        //se for sucesso, simplesmente recarrego a página. Aqui você pode usar sua imaginação.
-        document.location.href = document.location.href;
+        //se for sucesso, simplesmente recarrego a página. Aqui você pode usar sua imaginação
+        //document.location.href = document.location.href;
+        document.getElementById('modalEditarProfessor').style.display='none';
+        janelaEdicaoSucesso();
 
       }
     }
@@ -36,7 +38,9 @@ $(function(){
       if (data == 1) {
 
         //se for sucesso, simplesmente recarrego a página. Aqui você pode usar sua imaginação.
-        document.location.href = base_url +"index.php/Cadastrar_professor/Pesquisar";
+        //document.location.href = base_url +"index.php/Cadastrar_professor/Pesquisar";
+        document.getElementById('modalExcluirProfessor').style.display='none';
+        janelaExclusaoSucesso();
 
       }
     }
@@ -263,6 +267,30 @@ $(function(){
     document.getElementById("modalCadastrarFuncionario").style.display = "block";
   }
 
-////////////////////////////////////FINAL FUNCIONARIO///////////////////////////////////////
 
+
+
+
+  function atualizaPagina(){
+      document.location.href = document.location.href;
+  }
+
+  function janelaCadastroSucesso(){
+    document.getElementById("sucesso_cadastro").style.display = "block";
+  }
+
+  function janelaEdicaoSucesso(){
+    document.getElementById("sucesso_edicao").style.display = "block";
+  }
+  function janelaExclusaoSucesso(){
+    document.getElementById("sucesso_exclusao").style.display = "block";
+  }
+
+  //Abrir janela de sucesso no cadastro professor
+  <?php  if (isset($sucesso_cadastro)) {
+    echo 'janelaCadastroSucesso();';
+  }
+  ?>
+
+////////////////////////////////////FINAL FUNCIONARIO///////////////////////////////////////
 </script>
