@@ -29,13 +29,20 @@
   <div class="w3-container">
     <p> Selecione o anexo a ser carregado: (Máximo 10 MB) </p>
     <!-- <?php echo form_open('cadastrar_anexo/Inserir'); ?> -->
-
+<table class="w3-vertical-align:text-top;">
+      <td valign="middle">
         <div class="w3-section" >
-         <label class="w3-label w3-border" style="width: 300px;" type="text" name="nome" required>Nome do arquivo</label>
+         <label class="w3-label w3-border w3-block w3-section w3-large" style="width: 300px;" type="text" name="nome" required>Nome do arquivo</label>
         </div>
-
-        <button type="submit" class="w3-button w3-block w3-gray w3-margin-bottom w3-section" style="width: 300px;">Selecionar Anexo </button>
-      <button type="submit" class="w3-button w3-block w3-green w3-margin-bottom w3-section" style="width: 300px;">Cadastrar Anexo</button>
+      </td>
+      <td valign="middle">
+        <span style="display:inline-block; width: 10px;"></span>
+      </td>
+      <td valign="middle">
+        <button type="submit" class="w3-button w3-block w3-section w3-indigo w3-margin-bottom w3-padding-small" style="width: 160px;" > Pesquisar </button>
+      </td>
+</table>
+      <button type="submit" class="w3-button w3-block w3-green w3-margin-bottom w3-section" style="width: 470px;">Cadastrar Anexo</button>
     </form>
  </div>
 

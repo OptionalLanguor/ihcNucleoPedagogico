@@ -69,10 +69,10 @@
   <!--Cadastrar Anexo-->
   <table>
   <td>
-      <a href="<?php echo site_url('Cadastrar_anexo') ?>" onclick="w3_close()" class="<?php if($this->uri->segment(1)=="Cadastrar_anexo"){echo "w3-bar-item w3-button w3-white";}else{echo "w3-bar-item w3-button w3-hover-white";}?>"> Cadastrar anexo</a>
+      <a href="<?php echo site_url('Cadastrar_anexo') ?>" onclick="w3_close()" class="<?php if($this->uri->segment(1)=="Cadastrar_anexo"){echo "w3-bar-item w3-button w3-white";}else{echo "w3-bar-item w3-button w3-hover-white";}?>"><i class="fa fa-paperclip">
+      </i> Cadastrar anexo</a>
   </td>
   </table>
-
 
 
 </div>
