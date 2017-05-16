@@ -10,14 +10,16 @@ class Aluno_Model extends CI_Model
     public function pesquisa_registro($pesquisa)
     {
         if($pesquisa == "")
-            return $this->db->get('Aluno')->result();
+            return $this->db->get('registatendimento')->result();
         
-        $this->db->from('Aluno');
-        $this->db->like('nome', $pesquisa);
-        $this->db->or_where('cpf', $pesquisa);
-        $this->db->or_where('matricula', $pesquisa);
-        $this->db->or_where('curso', $pesquisa);
-        $this->db->or_where('periodo', (int)$pesquisa);
+        $this->db->from('registatendimento');
+        $this->db->where('data_abertura', $pesquisa);
+        $this->db->or_like('descricao', $pesquisa);
+        $this->db->or_where('id_Categoria', $pesquisa);
+        $this->db->or_where('id_Pessoa', $pesquisa);
+        $this->db->or_where('id_Registro', $pesquisa);
+        $this->db->or_like('observacao', $pesquisa);
+        
         return $this->db->get()->result();
     }
     public function cadastra_aluno($aluno)
