@@ -14,69 +14,60 @@ class Cadastrar_registro_atendimento extends CI_Controller
     }
     public function Index()
     {
-        $pesquisa_res['resultado'] = $this->Registro_Atendimento_Model->pesquisa_registro('');
+        $pesquisa_res['resultado'] = $this->Registro_Atendimento_Model->pesquisa_registro_atendimento('');
         $this->load->view('cadastrar_registro_atendimento', $pesquisa_res);
     }
     public function Cadastrar()
     {
-    	$aluno = array(
-		'nome' => $this->input->post('Nome'),
-		'cpf' => $this->input->post('CPF'),
-		'email' => $this->input->post('Email'),
-		'endereco' => $this->input->post('Endereco'),
-		'telefone' => $this->input->post('Telefone'),
-		'matricula' => $this->input->post('RA'),
-		'curso' => $this->input->post('Curso'),
-		'periodo' => $this->input->post('Periodo')
+    	$registro_atendimento = array(
+		'data_abertura' => $this->input->post('Data de abertura'),
+		'descricao' => $this->input->post('Descricao'),
+		'id_Categoria' => $this->input->post('id_Categoria'),
+		'id_Pessoa' => $this->input->post('id_Pessoa'),
+		'id_Registro' => $this->input->post('id_Registro'),
+		'observacao' => $this->input->post('observacao')
+        //lembrar de quardar a data de abertura automaticamente
 		);
-        $this->Aluno_Model->cadastra_aluno($aluno);
-        $pesquisa_res['resultado'] = $this->Aluno_Model->pesquisa_aluno('');
-        $this->load->view('cadastrarAluno', $pesquisa_res);
+        $this->Registro_Atendimento_Model->cadastra_registro_atendimento($registro_atendimento);
+        $pesquisa_res['resultado'] = $this->Registro_Atendimento_Model->pesquisa_registro_atendimento('');
+        $this->load->view('cadastrar_registro_atendimento', $pesquisa_res);
     }
     public function Pesquisar()
     {
         $pesquisa = $this->input->post('qualquer_atributo');
-        $pesquisa_res['resultado'] = $this->Aluno_Model->pesquisa_aluno($pesquisa);
-        $this->load->view('cadastrarAluno', $pesquisa_res);
+        $pesquisa_res['resultado'] = $this->Registro_Atendimento_Model->pesquisa_registro_atendimento($pesquisa);
+        $this->load->view('cadastrar_registro_atendimento', $pesquisa_res);
     }
-    public function dados_registro()
+    public function dados_registro_atendimento()
     {
-        $id_Pessoa = $this->input->post("id_Pessoa");
+        $id_Registro = $this->input->post("id_Registro");
 
-        $consulta = $this->Aluno_Model->pesquisa_aluno_id($id_Pessoa);
+        $consulta = $this->Registro_Atendimento_Model->pesquisa_registro_atendimento_id($id_Registro);
 
-        $array_aluno = array(
+        $array_registro_atendimento = array(
 
-          "id_Pessoa" => $consulta[0]->id_Pessoa,
-            'nome' => $consulta[0]->nome,
-            'cpf' => $consulta[0]->cpf,
-            'email' => $consulta[0]->email,
-            'endereco' => $consulta[0]->endereco,
-            'telefone' => $consulta[0]->telefone,
-            'matricula' => $consulta[0]->matricula,
-            'curso' => $consulta[0]->curso,
-            'periodo' => $consulta[0]->periodo
-
+            'data_abertura' => $consulta[0]->data_abertura,
+            'descricao' => $consulta[0]->descricao,
+            'id_Categoria' => $consulta[0]->id_Categoria,
+            'id_Pessoa' => $consulta[0]->id_Pessoa,
+            'id_Registro' => $consulta[0]->id_Registro,
+            'observacao' => $consulta[0]->observacao
         );
-
-        echo json_encode($array_aluno);
+        echo json_encode($array_registro_atendimento);
     }
     public function salvar_edicao()
     {
         $dados_atualizados = array(
 
-          "id_Pessoa" => $this->input->post("id_Pessoa"),
-            'nome' => $this->input->post('nome'),
-            'cpf' => $this->input->post('cpf'),
-            'email' => $this->input->post('email'),
-            'endereco' => $this->input->post('endereco'),
-            'telefone' => $this->input->post('telefone'),
-            'matricula' => $this->input->post('matricula'),
-            'curso' => $this->input->post('curso'),
-            'periodo' => $this->input->post('periodo')
+            'data_abertura' => $this->input->post("data_abertura"),
+            'descricao' => $this->input->post('descricao'),
+            'id_Categoria' => $this->input->post('id_Categoria'),
+            'id_Pessoa' => $this->input->post('id_Pessoa'),
+            'id_Registro' => $this->input->post('id_Registro'),
+            'observacao' => $this->input->post('observacao')
           );
 
-        if ($this->Aluno_Model->update_aluno($dados_atualizados["id_Pessoa"], $dados_atualizados)) {
+        if ($this->Registro_Atendimento_Model->update_registro_atendimento($dados_atualizados["id_Registro"], $dados_atualizados)) {
             echo 1;
         } else {
             echo 0;
@@ -84,9 +75,9 @@ class Cadastrar_registro_atendimento extends CI_Controller
     }
     public function excluir()
     {
-        $id_Pessoa = $this->input->post("id_Pessoa_exclusao");
+        $id_Registro = $this->input->post("id_Registro_exclusao");
 
-        if ($this->Aluno_Model->delete_aluno($id_Pessoa))
+        if ($this->Registro_Atendimento_Model->delete_registro_atendimento($id_Registro))
             echo 1;
         else
             echo 0;

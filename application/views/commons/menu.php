@@ -12,7 +12,7 @@
 	<!--Registro de Atendimento-->
 	<table>
 	<td>
-  		<a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white"><i class="fa fa-calendar-plus-o"></i> Registros de Atendimento</a>
+  		<a href="<?php echo site_url('Cadastrar_registro_atendimento') ?>" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white"><i class="fa fa-calendar-plus-o"></i> Cadastrar Registros de Atendimento</a>
 	</td>
 	</table>
 	<!--Aluno-->

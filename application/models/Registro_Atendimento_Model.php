@@ -1,13 +1,12 @@
 <?php
 defined('BASEPATH')    or    exit('No   direct  script  access  allowed');
-class Aluno_Model extends CI_Model
+class Registro_Atendimento_Model extends CI_Model
 {
-
     public function __construct()
     {
         parent::__construct();
     }
-    public function pesquisa_registro($pesquisa)
+    public function pesquisa_registro_atendimento($pesquisa)
     {
         if($pesquisa == "")
             return $this->db->get('registatendimento')->result();
@@ -22,30 +21,30 @@ class Aluno_Model extends CI_Model
         
         return $this->db->get()->result();
     }
-    public function cadastra_aluno($aluno)
+    public function cadastra_registro_atendimento($registro_atendimento)
     {
-        $this->db->insert('Aluno', $aluno);
+        $this->db->insert('registatendimento', $registro_atendimento);
     }
-    public function pesquisa_aluno_id($id)
+    public function pesquisa_registro_atendimento_id($id)
     {
-        $this->db->from('Aluno');
-        $this->db->where('id_Pessoa', $id);
+        $this->db->from('registatendimento');
+        $this->db->where('id_Registro', $id);
         return $this->db->get()->result();
     }
-    public function update_aluno($id_Pessoa=null,$dados_atualizados=null)
+    public function update_registro_atendimento($id_Registro=null, $dados_atualizados=null)
     {
-      $this->db->where('id_Pessoa', $id_Pessoa);
+      $this->db->where('id_Registro', $id_Registro);
 
-      if($this->db->update('Aluno', $dados_atualizados))
+      if($this->db->update('registatendimento', $dados_atualizados))
         return true;
       else
         return false;
     }
-    public function delete_aluno($id_Pessoa=null)
+    public function delete_registro_atendimento($id_Registro=null)
     {
-      $this->db->where('id_Pessoa', $id_Pessoa);
+      $this->db->where('id_Registro', $id_Registro);
 
-      if($this->db->delete('Aluno'))
+      if($this->db->delete('registatendimento'))
         return true;
       else
         return false;

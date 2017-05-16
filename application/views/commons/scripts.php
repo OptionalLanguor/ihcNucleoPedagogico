@@ -110,14 +110,6 @@ function carregaDadosDisciplinaJSon(id_Disciplina){
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
 $(function(){
   $('#formulario_aluno').ajaxForm({
     success: function(data) {
@@ -268,9 +260,6 @@ $(function(){
   }
 
 
-
-
-
   function atualizaPagina(){
       document.location.href = document.location.href;
   }
@@ -292,5 +281,47 @@ $(function(){
   }
   ?>
 
-////////////////////////////////////FINAL FUNCIONARIO///////////////////////////////////////
+////////////////////////////////////RELATORIO DE ATENDIMENTO///////////////////////////////////////
+
+$(function(){
+  $('#formulario_relatorio_atendimento').ajaxForm({
+    success: function(data) {
+      if (data == 1) {
+
+        //se for sucesso, simplesmente recarrego a página. Aqui você pode usar sua imaginação.
+        document.location.href = document.location.href;
+
+      }
+    }
+  });
+});
+
+  function carregaDadosRegistroAtendimentoJSon(id_Registro){
+    $.post(base_url +'/index.php/Cadastrar_registro_atendimento/dados_registro_atendimento', {
+      id_Registro: id_Registro
+    }, function (data){
+      $('#data_abertura').val(data.data_abertura);
+      $('#descricao').val(data.descricao);
+      $('#id_Categoria').val(data.id_Categoria);
+      $('#id_Pessoa').val(data.id_Pessoa);
+      $('#id_Registro').val(data.id_Registro);
+      $('#observacao').val(data.observacao);
+  }
+
+  function janelaEditarRegistroAtendimento(id_Registro){
+    if(id_Registro!=null)
+    {
+      carregaDadosRegistroAtendimentoJSon(id_Registro);
+    }
+    //antes de abrir a janela, preciso carregar os dados do cliente e preencher os campos dentro do modal
+
+
+    document.getElementById("modalEditarRegistroAtendimento").style.display = "block";
+  }
+
+  function janelaCadastrarRegistroAtendimento(){
+    document.getElementById("modalCadastrarRegistroAtendimento").style.display = "block";
+  }
+
+////////////////////////////////////FINAL RELATORIO DE ATENDIMENTO///////////////////////////////////////
 </script>

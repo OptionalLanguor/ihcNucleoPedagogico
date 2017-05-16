@@ -19,28 +19,27 @@
 <div class="w3-main" style="margin-left:340px;width: 70%">
 
   <!-- Header -->
-  <div class="w3-container" style="margin-top:40px" id="pesquisa_de_aluno">
-    <h1 class="w3-jumbo"><b>Aluno</b></h1>
+  <div class="w3-container" style="margin-top:40px" id="pesquisa_de_registro_atendimento">
+    <h1 class="w3-jumbo"><b>Registro de Atendimento</b></h1>
   </div>
 
   <div class="w3-container">
-    <button class="w3-button w3-green" onclick="janelaCadastrarAluno()">Cadastrar Novo Aluno</button>
+    <button class="w3-button w3-green" onclick="janelaCadastrarRegistroAtendimento()">Cadastrar Novo Registro Atendimento</button>
   </div>
   <!-- Pesquisa -->
   <div class="w3-container">
 
     <hr style="width:50px;border:5px solid #3f51b5" class="w3-round">
 
-     <?php echo form_open('Cadastrar_aluno/Pesquisar'); ?>
+     <?php echo form_open('Cadastrar_registro_atendimento/Pesquisar'); ?>
 
       <div class="w3-section">
-        <label>RA, Nome, CPF, Curso ou Periodo</label>
+        <label>Insira a data de abertura, descricao, observação, categoria, ou aluno</label>
         <input class="w3-input w3-border" type="text" maxlength="64" name="qualquer_atributo">
       </div>
-      <button type="submit" class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom">Buscar dados do Aluno</button>
+      <button type="submit" class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom">Buscar dados do Registro de Atendimento</button>
 
     </form>
-
   </div>
 
   <!-- Dados -->
@@ -49,137 +48,104 @@
   <thead>
     <tr class="w3-gray">
       <th>id</th>
-      <th>RA</th>
-      <th>Nome</th>
-      <th>CPF</th>
-      <th>Curso</th>
-      <th>Periodo</th>
-      <th>Email</th>
-      <th>Telefone</th>
-      <th>Endereco</th>
-      <th>Operações</th>
+      <th>Data de abertura</th>
+      <th>Nome do Aluno</th>
+      <th>Categoria</th>
+      <th>Descricao</th>
+      <th>Observacao</th>
     </tr>
   </thead>
   <?php if(isset($resultado)){foreach($resultado as $row) { ?>
     <tr>
+        <td><?php echo $row->id_Registro;?></td>
+        <td><?php echo $row->data_abertura;?></td>
         <td><?php echo $row->id_Pessoa;?></td>
-        <td><?php echo $row->matricula;?></td>
-        <td><?php echo $row->nome;?></td>
-        <td><?php echo $row->cpf;?></td>
-        <td><?php echo $row->curso;?></td>
-        <td><?php echo $row->periodo;?></td>
-        <td><?php echo $row->email;?></td>
-        <td><?php echo $row->telefone;?></td>
-        <td><?php echo $row->endereco;?></td>
+        <td><?php echo $row->id_Categoria;?></td>
+        <td><?php echo $row->descricao;?></td>
+        <td><?php echo $row->observacao;?></td>
         <td>
-          <button href="javascript:;" onclick="janelaEditarAluno(<?php echo $row->id_Pessoa ?>)"><i class="fa fa-pencil"></i></button>
-          <button href="javascript:;" onclick="janelaExcluirAluno(<?php echo $row->id_Pessoa ?>)"><i class="fa fa-trash-o"></i></button>
+          <button href="javascript:;" onclick="janelaEditarRegistroAtendimento(<?php echo $row->id_Pessoa ?>)"><i class="fa fa-pencil"></i></button>
+          <!--
+          <button href="javascript:;" onclick="janelaExcluirAluno(<?php #echo $row->id_Pessoa ?>)"><i class="fa fa-trash-o"></i></button>
+          -->
         </td>
     </tr>
   <?php }} ?>
 </table>
 </div>
 
-<div id="modalEditarAluno" class="w3-modal">
+<div id="modalEditarRegistroAtendimento" class="w3-modal">
   <div class="w3-modal-content">
     <header class="w3-container w3-indigo">
-      <span onclick="document.getElementById('modalEditarAluno').style.display='none'"
+      <span onclick="document.getElementById('modalEditarRegistroAtendimento').style.display='none'"
       class="w3-button w3-display-topright">&times;</span>
-      <h2>Editar Aluno</h2>
+      <h2>Editar Registro de Atendimento</h2>
     </header>
     <div class="w3-container" style="margin-top:20px">
       <hr style="width:50px;border:5px solid #3f51b5" class="w3-round">
-      <form role="form" method="post" action="<?php echo base_url('index.php/Cadastrar_aluno/salvar_edicao')?>" id="formulario_aluno">
+      <form role="form" method="post" action="<?php echo base_url('index.php/Cadastrar_registro_atendimento/salvar_edicao')?>" id="formulario_registro_atendimento">
         <div class="w3-section">
-          <label for="nome">Registro Acadêmico</label>
-          <input type="text" maxlength="10" class="form-control" id="matricula" name="matricula">
+          <label for="nome">Data de abertura</label>
+          <input type="text" maxlength="10" class="form-control" id="data_abertura" name="data_abertura">
         </div>
         <div class="w3-section">
-          <label for="nome">Nome</label>
-          <input type="text" maxlength="64" class="form-control" id="nome" name="nome">
+          <label for="nome">Descrição</label>
+          <input type="text" maxlength="64" class="form-control" id="descricao" name="descricao">
         </div>
         <div class="w3-section">
-          <label for="nome">CPF</label>
-          <input type="text" maxlength="11" class="form-control" id="cpf" name="cpf">
+          <label for="nome">id_Categoria</label>
+          <input type="text" maxlength="11" class="form-control" id="id_Categoria" name="id_Categoria">
         </div>
         <div class="w3-section">
-          <label for="nome">Curso</label>
-          <input type="text" maxlength="3" class="form-control" id="curso" name="curso">
+          <label for="nome">id_Pessoa</label>
+          <input type="text" maxlength="3" class="form-control" id="id_Pessoa" name="id_Pessoa">
         </div>
         <div class="w3-section">
-          <label for="nome">Periodo do Curso</label>
-          <input type="number" maxlength="2" min="1" max="10" class="form-control" id="periodo" name="periodo">
+          <label for="nome">Observação</label>
+          <input type="number" maxlength="2" min="1" max="10" class="form-control" id="observacao" name="observacao">
         </div>
-        <div class="w3-section">
-          <label for="nome">Email</label>
-          <input type="email" maxlength="64" class="form-control" id="email" name="email">
-        </div>
-        <div class="w3-section">
-          <label for="nome">Telefone</label>
-          <input type="text" maxlength="16" class="form-control" id="telefone" name="telefone">
-        </div>
-        <div class="w3-section">
-          <label for="nome">Endereco</label>
-          <input type="text" maxlength="64" class="form-control" id="endereco" name="endereco">
-        </div>
-        <input type="hidden" class="form-control" name="id_Pessoa" id="id_Pessoa">
-        <button style="width: 49.5%" type="$('#formulario_aluno').submit()" class="w3-button w3-green w3-margin-bottom">Atualizar os dados do Aluno</button>
-        <button style="width: 49.5%" type ="button" onclick="document.getElementById('modalEditarAluno').style.display='none'" class="w3-button w3-red w3-margin-bottom">Cancelar</button>
+        <input type="hidden" class="form-control" name="id_Registro" id="id_Registro">
+        <button style="width: 49.5%" type="$('#formulario_registro_atendimento').submit()" class="w3-button w3-green w3-margin-bottom">Atualizar os dados do Registro de Atendimento</button>
+        <button style="width: 49.5%" type ="button" onclick="document.getElementById('modalEditarRegistroAtendimento').style.display='none'" class="w3-button w3-red w3-margin-bottom">Cancelar</button>
       </form>
 
     </div>
   </div>
 </div>
 
-<div id="modalCadastrarAluno" class="w3-modal">
+<div id="modalCadastrarRegistroAtendimento" class="w3-modal">
   <div class="w3-modal-content">
     <header class="w3-container w3-indigo">
-      <span onclick="document.getElementById('modalCadastrarAluno').style.display='none'"
+      <span onclick="document.getElementById('modalCadastrarRegistroAtendimento').style.display='none'"
       class="w3-button w3-display-topright">&times;</span>
-      <h2>Cadastrar Aluno</h2>
+      <h2>Cadastrar Registro de Atendimento</h2>
     </header>
     <div class="w3-container" style="margin-top:20px">
       <hr style="width:50px;border:5px solid #3f51b5" class="w3-round">
-      <?php echo form_open('Cadastrar_aluno/Cadastrar'); ?>
+      <?php echo form_open('Cadastrar_registro_atendimento/Cadastrar'); ?>
        <div class="w3-section">
-         <label>Registro Acadêmico</label>
-         <input class="w3-input w3-border" type="text" maxlength="10" name="RA" required>
+         <label>Data de Abertura</label>
+         <input class="w3-input w3-border" type="text" maxlength="10" name="data_abertura" required>
        </div>
        <div class="w3-section">
-         <label>Nome</label>
-         <input class="w3-input w3-border" type="text" maxlength="64" name="Nome" required>
+         <label>Descrição</label>
+         <input class="w3-input w3-border" type="text" maxlength="64" name="descricao" required>
        </div>
        <div class="w3-section">
-         <label>CPF</label>
-         <input class="w3-input w3-border" type="text" maxlength="11" name="CPF" required>
+         <label>id_Categoria</label>
+         <input class="w3-input w3-border" type="text" maxlength="11" name="id_Categoria" required>
        </div>
        <div class="w3-section">
-         <label>Curso</label>
-         <input class="w3-input w3-border" type="text" maxlength="3" name="Curso" required>
+         <label>Observação</label>
+         <input class="w3-input w3-border" type="text" maxlength="3" name="observacao" required>
        </div>
-       <div class="w3-section">
-         <label>Periodo do Curso</label>
-         <input class="w3-input w3-border" type="number" maxlength="2" min="1" max="10" name="Periodo" required>
-       </div>
-       <div class="w3-section">
-         <label>Email</label>
-         <input class="w3-input w3-border" type="email" maxlength="64" name="Email" required>
-       </div>
-       <div class="w3-section">
-         <label>Telefone</label>
-         <input class="w3-input w3-border" type="text" maxlength="16" name="Telefone" required>
-       </div>
-       <div class="w3-section">
-         <label>Endereco</label>
-         <input class="w3-input w3-border" type="text" maxlength="64" name="Endereco" required>
-       </div>
-        <button style="width: 49.5%" type="submit" class="w3-button w3-green w3-margin-bottom">Cadastrar Novo Aluno</button>
-        <button style="width: 49.5%" type ="button" onclick="document.getElementById('modalCadastrarAluno').style.display='none'" class="w3-button w3-red w3-margin-bottom">Cancelar</button>
+        <button style="width: 49.5%" type="submit" class="w3-button w3-green w3-margin-bottom">Cadastrar Novo Registro de Atendimento</button>
+        <button style="width: 49.5%" type ="button" onclick="document.getElementById('modalCadastrarRegistroAtendimento').style.display='none'" class="w3-button w3-red w3-margin-bottom">Cancelar</button>
       </form>
     </div>
   </div>
 </div>
-
+<!--
 <div id="modalExcluirAluno" class="w3-modal">
   <div class="w3-modal-content">
     <header class="w3-container w3-red">
@@ -188,7 +154,7 @@
       <h2>Excluir Aluno</h2>
     </header>
     <div class="w3-container" style="margin-top:20px">
-      <form role="form" method="post" action="<?php echo base_url('index.php/Cadastrar_aluno/excluir')?>" id="formulario_aluno_exclusao">
+      <form role="form" method="post" action="<?php #echo base_url('index.php/Cadastrar_aluno/excluir')?>" id="formulario_aluno_exclusao">
         <div class="w3-section">
           <p>Deseja realmente excluir o cadastro de <strong><span class="w3-xlarge" id="nome_exclusao"></span></strong></p>
         </div>
@@ -199,7 +165,7 @@
    </div>
   </div>
 </div>
-
+-->
 <!-- End page content -->
 </div>
 
