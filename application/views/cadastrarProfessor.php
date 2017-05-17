@@ -119,6 +119,10 @@
   </div>
 </div>
 
+<?php $this->load->view('commons/sucesso_cadastro'); ?>
+<?php $this->load->view('commons/sucesso_edicao'); ?>
+<?php $this->load->view('commons/sucesso_exclusao'); ?>
+
 <div id="modalExcluirProfessor" class="w3-modal">
   <div class="w3-modal-content">
     <header class="w3-container w3-red">

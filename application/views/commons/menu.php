@@ -12,49 +12,49 @@
 	<!--Registro de Atendimento-->
 	<table>
 	<td>
-  		<a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white"><i class="fa fa-calendar-plus-o"></i> Registros de Atendimento</a>
+  		<a href="<?php echo site_url('Cadastrar_registro_atendimento') ?>" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white"><i class="fa fa-calendar-plus-o"></i> Registros de Atendimento</a>
 	</td>
 	</table>
 	<!--Aluno-->
 	<table>
 	<td>
-  		<a href="<?php echo site_url('Cadastrar_aluno') ?>" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white"><i class="fa fa-graduation-cap"></i> Cadastrar Aluno</a>
+  		<a href="<?php echo site_url('Cadastrar_aluno') ?>" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white"><i class="fa fa-graduation-cap"></i> Aluno</a>
 	</td>
 	</table>
 	<!--Professor-->
 	<table>
 	<td>
-  		<a href="<?php echo site_url('Cadastrar_professor') ?>" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white"><i class="fa fa-drivers-license-o"></i> Cadastrar Professor</a>
+  		<a href="<?php echo site_url('Cadastrar_professor') ?>" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white"><i class="fa fa-drivers-license-o"></i> Professor</a>
 	</td>
 	</table>
   <!--Disciplina-->
   <table>
   <td>
-      <a href="<?php echo site_url('Cadastrar_disciplina') ?>" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white"><i class="fa fa-pencil-square-o"></i> Cadastrar Disciplina</a>
+      <a href="<?php echo site_url('Cadastrar_disciplina') ?>" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white"><i class="fa fa-pencil-square-o"></i> Disciplina</a>
   </td>
   </table>
 	<!--Palavra-Chave-->
 	<table>
 	<td>
-  		<a href="<?php echo site_url('Cadastrar_palavra_chave') ?>" onclick="w3_close()" class="<?php if($this->uri->segment(1)=="Cadastrar_palavra_chave"){echo "w3-bar-item w3-button w3-white";}else{echo "w3-bar-item w3-button w3-hover-white";}?>"><i class="fa fa-key"></i> Cadastrar Palavra-Chave</a>
+  		<a href="<?php echo site_url('Cadastrar_palavra_chave') ?>" onclick="w3_close()" class="<?php if($this->uri->segment(1)=="Cadastrar_palavra_chave"){echo "w3-bar-item w3-button w3-white";}else{echo "w3-bar-item w3-button w3-hover-white";}?>"><i class="fa fa-key"></i> Palavra-Chave</a>
 	</td>
 	</table>
 	<!--Funcionario-->
 	<table>
 	<td>
-  		<a href="<?php echo site_url('Cadastrar_funcionario') ?>" onclick="w3_close()" class="<?php if($this->uri->segment(1)=="Cadastrar_funcionario"){echo "w3-bar-item w3-button w3-white";}else{echo "w3-bar-item w3-button w3-hover-white";}?>"><i class="fa fa-user-circle-o"></i> Cadastrar Funcionario</a>
+  		<a href="<?php echo site_url('Cadastrar_funcionario') ?>" onclick="w3_close()" class="<?php if($this->uri->segment(1)=="Cadastrar_funcionario"){echo "w3-bar-item w3-button w3-white";}else{echo "w3-bar-item w3-button w3-hover-white";}?>"><i class="fa fa-user-circle-o"></i> Funcionario</a>
 	</td>
 	</table>
 	<!--Categoria-->
 	<table>
 	<td>
-  		<a href="<?php echo site_url('Cadastrar_categoria') ?>" onclick="w3_close()" class="<?php if($this->uri->segment(1)=="Cadastrar_categoria"){echo "w3-bar-item w3-button w3-white";}else{echo "w3-bar-item w3-button w3-hover-white";}?>"> Cadastrar Categoria</a>
+  		<a href="<?php echo site_url('Cadastrar_categoria') ?>" onclick="w3_close()" class="<?php if($this->uri->segment(1)=="Cadastrar_categoria"){echo "w3-bar-item w3-button w3-white";}else{echo "w3-bar-item w3-button w3-hover-white";}?>"> Categoria</a>
 	</td>
 	</table>
 	<!--Procedimento-->
 	<table>
 	<td>
-  		<a href="<?php echo site_url('Cadastrar_procedimento') ?>" onclick="w3_close()" class="<?php if($this->uri->segment(1)=="Cadastrar_procedimento"){echo "w3-bar-item w3-button w3-white";}else{echo "w3-bar-item w3-button w3-hover-white";}?>"> Cadastrar Procedimento</a>
+  		<a href="<?php echo site_url('Cadastrar_procedimento') ?>" onclick="w3_close()" class="<?php if($this->uri->segment(1)=="Cadastrar_procedimento"){echo "w3-bar-item w3-button w3-white";}else{echo "w3-bar-item w3-button w3-hover-white";}?>"> Procedimento</a>
 	</td>
 	</table>
 
@@ -69,10 +69,10 @@
   <!--Cadastrar Anexo-->
   <table>
   <td>
-      <a href="<?php echo site_url('Cadastrar_anexo') ?>" onclick="w3_close()" class="<?php if($this->uri->segment(1)=="Cadastrar_anexo"){echo "w3-bar-item w3-button w3-white";}else{echo "w3-bar-item w3-button w3-hover-white";}?>"> Cadastrar anexo</a>
+      <a href="<?php echo site_url('Cadastrar_anexo') ?>" onclick="w3_close()" class="<?php if($this->uri->segment(1)=="Cadastrar_anexo"){echo "w3-bar-item w3-button w3-white";}else{echo "w3-bar-item w3-button w3-hover-white";}?>"><i class="fa fa-paperclip">
+      </i> Anexo</a>
   </td>
   </table>
-
 
 
 </div>
