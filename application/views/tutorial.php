@@ -41,9 +41,18 @@
   <div class="w3-container" id="services" style="margin-top:75px">
     <h1 class="w3-xxxlarge w3-text-indigo"><b>Cadastrar Aluno.</b></h1>
    <!-- <hr style="width:50px;border:5px solid indigo" class="w3-round"> -->
+
+   
+  
+   <!--
+     <img src="FluxogramaCadastrarAluno.png" class="w3-round" alt="Norway">
+    <img src="index.png" alt="Fluxograma" style="width:1111px;height:624px;">
+    -->
     <p>Esta página permite registrar os dados do(s) aluno(s) relacionado(s) com este registro. Para cada aluno devem ser registrado os seguintes dados: nome, registro acadêmico, cpf, email, curso, período e telefone.</p>
 
-    <p> Para cadastrar, editar ou excluir um aluno, basta ir até a página, no menu lateral, clicando em cadastrar aluno. Na pagina cadastro de aluno pode-se procurar por alunos já cadastrados e editar seus dados ou excluir o aluno, ambas ações nos "Operações" vistas na última coluna da tabela. O botão com um lápis indica a edição dos dados do aluno. O botão com uma lixeira indica a exclusão daquele aluno.</p>
+    <img src="<?php echo base_url('includes/imagens_view_tutorial/FluxogramaCadastrarAluno.png')?>" style="width:1111px;height:624px;">
+
+    <p> Para cadastrar, editar ou excluir um aluno, basta ir até a página, no menu lateral, clicando em Aluno. Na página cadastro de aluno pode-se procurar por alunos já cadastrados e editar seus dados ou excluir o aluno, ambas ações nos "Operações" vistas na última coluna da tabela. O botão com um lápis indica a edição dos dados do aluno. O botão com uma lixeira indica a exclusão daquele aluno.</p>
 
     <p>Para o cadastro de um novo aluno clique no botão verde "Cadastrar novo Aluno". Note que abre uma janela bem intuitiva. Preencha os campos: Registro Acadêmico, Nome, CPF, Curso, Periodo do Curso, Email, Telefone e Endereço e clique no botão verde "Cadastrar Novo Aluno" para efetuar o cadastro</p>
 <!-- 
@@ -57,8 +66,10 @@
     <h1 class="w3-xxxlarge w3-text-indigo"><b>Cadastrar Professor.</b></h1>
    <!-- <hr style="width:50px;border:5px solid indigo" class="w3-round"> -->
     <p>O cadastro do professor deverá exigir que o usuário insira o SIAPE do professor e o nome do professor. </p>
+
+     <img src="<?php echo base_url('includes/imagens_view_tutorial/FluxogramaCadastrarProfessor.png')?>" style="width:1084px;height:656px;">
     <p>
-    Para cadastrar um professor basta ir na menu lateral e clicar em "Cadastar Professor" você sera direcionado para página de cadastro de professor.
+    Para cadastrar um professor basta ir na menu lateral e clicar em "Professor" você sera direcionado para página de cadastro, edição e exclusão de professor.
     Ao abrir a página já são listados os professores cadastrados. Na página cadastro de professor pode-se procurar por professores já cadastrados e editar seus dados ou excluir o professor, ambas ações nos "Operações" vistas na última coluna da tabela. O botão com um lápis indica a edição dos dados do professor. O botão com uma lixeira indica a exclusão daquele professor. 
     </p>
 
@@ -77,8 +88,10 @@
     <p>O cadastro de novas disciplinas será feito a partir da inserção do nome da
 disciplina e sua sigla. Na inserção de uma disciplina é necessário informar os campos de Nome e sigla da disciplina </p>
 
+<img src="<?php echo base_url('includes/imagens_view_tutorial/FluxogramaCadastrarDisciplina.png')?>" style="width:1155px;height:767px;">
+
  <p>
-    Para cadastrar uma disciplina basta ir na menu lateral e clicar em "Cadastar Disciplina" você sera direcionado para página de cadastro de disciplina.
+    Para cadastrar uma disciplina basta ir na menu lateral e clicar em "Disciplina" você sera direcionado para página de cadastro de disciplina.
     Ao abrir a página já são listados as disciplinas cadastradas. Na página cadastro de disciplina pode-se procurar por disciplinas já cadastrados e editar seus dados ou excluir uma disciplina, ambas ações nos "Operações" vistas na última coluna da tabela. O botão com um lápis indica a edição dos dados do disciplina. O botão com uma lixeira indica a exclusão daquela disciplina. 
     </p>
 
@@ -98,7 +111,7 @@ disciplina e sua sigla. Na inserção de uma disciplina é necessário informar 
 serão usadas como parâmetros de pesquisa. Cada palavra chave deve conter
 seu respectivo nome. </p>
 
-
+<img src="<?php echo base_url('includes/imagens_view_tutorial/FluxogramaCadastrarPalavraChave.png')?>" style="width:1083px;height:277px;">
 
     <p>Clique no menu lateral "Cadastrar Palavra-Chave". Após aberta a página Palavra Chave, preencha o campo: Palavra Chave com uma palavra chave e clique no botão verde "Cadastrar Palavra Chave" para efetuar o cadastro</p>
 
@@ -113,7 +126,9 @@ seu respectivo nome. </p>
    
     <p>O usuário poderá efetuar a inserção de novos funcionários. Devem ser armazenados os seguintes dados para cada funcionário: nome, cpf, email, telefone, login e senha. </p>
 
-    <p> Para cadastrar, editar ou excluir um funcionário, basta ir até a página, no menu lateral, clicando em cadastrar funcionário. Na pagina cadastro de funcionário pode-se procurar por funcionário já cadastrados e editar seus dados ou excluir o funcionário, ambas ações nos "Operações" vistas na última coluna da tabela. O botão com um lápis indica a edição dos dados do funcionário. O botão com uma lixeira indica a exclusão daquele funcionário.</p>
+    <img src="<?php echo base_url('includes/imagens_view_tutorial/FluxogramaCadastrarFuncionario.png')?>" style="width:1110px;height:739px;">
+
+    <p> Para cadastrar, editar ou excluir um funcionário, basta ir até a página, no menu lateral, clicando em Funcionário. Na pagina cadastro de funcionário pode-se procurar por funcionário já cadastrados e editar seus dados ou excluir o funcionário, ambas ações nos "Operações" vistas na última coluna da tabela. O botão com um lápis indica a edição dos dados do funcionário. O botão com uma lixeira indica a exclusão daquele funcionário.</p>
 
     <p>Para o cadastro de um novo funcionário clique no botão verde "Cadastrar Novo Funcionário". Note que abre uma janela bem intuitiva. Preencha os campos: Nome, CPF, Email, Telefone e clique no botão verde "Cadastrar Novo Aluno" para efetuar o cadastro</p>
 <!-- 
@@ -125,9 +140,12 @@ seu respectivo nome. </p>
 <!-- Cadastrar Categoria -->
   <div class="w3-container" id="services" style="margin-top:75px">
     <h1 class="w3-xxxlarge w3-text-indigo"><b>Cadastrar Categoria.</b></h1>
-   
-    <p>Clique no menu lateral "Cadastrar Categoria". Após aberta a página Categoria, preencha o campo: Nome com uma categoria e clique no botão azul "Criar Categoria" para efetuar o cadastro</p>
 
+   <img src="<?php echo base_url('includes/imagens_view_tutorial/FluxogramaCadastrarCategoria.png')?>" style="width:1082px;height:213px;">
+
+    <p>Clique no menu lateral "Categoria". Após aberta a página Categoria, preencha o campo: Nome com uma categoria e clique no botão azul "Criar Categoria" para efetuar o cadastro</p>
+
+    
    <!-- 
     <button type="submit" class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom">Ir para a página Cadastrar Categoria.</button>
 -->
@@ -137,8 +155,10 @@ seu respectivo nome. </p>
   <!-- Cadastrar Procedimento -->
   <div class="w3-container" id="services" style="margin-top:75px">
     <h1 class="w3-xxxlarge w3-text-indigo"><b>Cadastrar Procedimento.</b></h1>
+
+    <img src="<?php echo base_url('includes/imagens_view_tutorial/FluxogramaCadastrarProcedimento.png')?>" style="width:1073px;height:260px;">
    
-   <p>Clique no menu lateral "Cadastrar Procedimento". Após aberta a página Cadastro de Procedimento, preencha o campo: Nome com uma procedimento e clique no botão azul "Criar Procedimento" para efetuar o cadastro</p>
+   <p>Clique no menu lateral "Procedimento". Após aberta a página Cadastro de Procedimento, preencha o campo: Nome com uma procedimento e clique no botão azul "Criar Procedimento" para efetuar o cadastro</p>
 
 <!--    
     <button type="submit" class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom">Ir para a página Cadastrar Procedimento.</button>
@@ -149,7 +169,7 @@ seu respectivo nome. </p>
 
     
 
-  <!-- Contact -->
+  <!-- Contact 
   <div class="w3-container" id="contact" style="margin-top:75px">
     <h1 class="w3-xxxlarge w3-text-indigo"><b>Contato com o suporte.</b></h1>
     <hr style="width:50px;border:5px solid indigo" class="w3-round">
@@ -170,7 +190,7 @@ seu respectivo nome. </p>
       <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Enviar</button>
     </form>
   </div>
-
+-->
 <!-- End page content -->
 </div>
 
