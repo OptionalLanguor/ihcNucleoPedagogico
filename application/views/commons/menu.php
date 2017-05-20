@@ -30,7 +30,7 @@
   <!--Disciplina-->
   <table>
   <td>
-      <a href="<?php echo site_url('Cadastrar_disciplina') ?>" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white"><i class="fa fa-pencil-square-o"></i> Disciplina</a>
+      <a href="<?php echo site_url('Cadastrar_disciplina') ?>" onclick="w3_close()" class="<?php if($this->uri->segment(1)=="Cadastrar_disciplina"){echo "w3-bar-item w3-button w3-white";}else{echo "w3-bar-item w3-button w3-hover-white";}?>"><i class="fa fa-pencil-square-o"></i> Disciplina</a>
   </td>
   </table>
 	<!--Palavra-Chave-->
@@ -58,6 +58,14 @@
 	</td>
 	</table>
 
+<!--Norma-->
+	<table>
+	<td>
+  		<a href="<?php echo site_url('Norma') ?>" onclick="w3_close()" class="<?php if($this->uri->segment(1)=="Norma"){echo "w3-bar-item w3-button w3-white";}else{echo "w3-bar-item w3-button w3-hover-white";}?>"><i class="fa fa-book" aria-hidden="true">
+  		</i> Norma</a>
+	</td>
+	</table>
+
 	<!--Tutorial-->
 	<table>
 	<td>
@@ -65,6 +73,9 @@
   		</i> Tutorial</a>
 	</td>
 	</table>
+
+
+
 
   <!--Cadastrar Anexo-->
   <table>
