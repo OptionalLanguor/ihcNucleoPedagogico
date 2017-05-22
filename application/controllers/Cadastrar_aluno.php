@@ -48,7 +48,7 @@ class Cadastrar_aluno extends CI_Controller
         $array_aluno = array(
 
           "id_Pessoa" => $consulta[0]->id_Pessoa,
-            'nome' => $consulta[0]->nome,
+            "nome" => $consulta[0]->nome,
             'cpf' => $consulta[0]->cpf,
             'email' => $consulta[0]->email,
             'endereco' => $consulta[0]->endereco,

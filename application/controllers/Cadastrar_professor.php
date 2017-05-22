@@ -11,6 +11,7 @@ class Cadastrar_professor extends CI_Controller
         $this->load->model('Professor_Model');
         $this->load->helper('url');
         $this->load->helper('form');
+        $this->load->library('form_validation');
         $dados['sucesso_cadastro'] = null;
     }
     public function Index()
@@ -27,19 +28,42 @@ class Cadastrar_professor extends CI_Controller
 
     public function Cadastrar()
     {
-        $professor = array(
-          'nome' => $this->input->post('Nome'),
-          'siape' => $this->input->post('Siape'),
-        );
-        if($professor['nome'] !='')
+            $config = array(
+            array(
+                    'field' => 'Nome',
+                    'label' => 'Nome',
+                    'rules' => 'required',
+                    'errors' => array(
+                            'required' => '*Campo obrigatório.',
+                    ),
+            ),
+            array(
+                    'field' => 'Siape',
+                    'label' => 'SIAPE',
+                    'rules' => 'required',
+                    'errors' => array(
+                            'required' => '*Campo obrigatório.',
+                    ),
+            )
+      );
+
+      $this->form_validation->set_rules($config);
+
+        if ($this->form_validation->run() == TRUE)
         {
+          $professor = array(
+            'nome' => $this->input->post('Nome'),
+            'siape' => $this->input->post('Siape'),
+          );
           $this->Professor_Model->cadastrar_professor($professor);
           $dados['resultado'] = $this->Professor_Model->pesquisa_professor('');
           $dados['sucesso_cadastro'] = "Cadastro realizado com sucesso!";
           $this->load->view('cadastrarProfessor', $dados);
         }
-        else{
-          redirect('Cadastrar_professor');
+        else {
+          $pesquisa = $this->input->post('Nome_ou_Siape');
+          $pesquisa_res['resultado'] = $this->Professor_Model->pesquisa_professor($pesquisa);
+          $this->load->view('cadastrarProfessor', $pesquisa_res);
         }
     }
 

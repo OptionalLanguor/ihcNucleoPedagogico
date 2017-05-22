@@ -151,7 +151,7 @@
        </div>
        <div class="w3-section">
          <label>CPF</label>
-         <input class="w3-input w3-border" type="text" maxlength="11" name="CPF" required>
+         <input class="w3-input w3-border" type="text" pattern="\d{11}" title="Digite um CPF no formato: xxxxxxxxxxx" maxlength="11" name="CPF" required>
        </div>
        <div class="w3-section">
          <label>Curso</label>
@@ -159,7 +159,7 @@
        </div>
        <div class="w3-section">
          <label>Periodo do Curso</label>
-         <input class="w3-input w3-border" type="number" maxlength="2" min="1" max="10" name="Periodo" required>
+         <input class="w3-input w3-border" type="number" min="1" max="10" name="Periodo" required>
        </div>
        <div class="w3-section">
          <label>Email</label>
@@ -199,6 +199,10 @@
    </div>
   </div>
 </div>
+
+<?php $this->load->view('commons/sucesso_cadastro'); ?>
+<?php $this->load->view('commons/sucesso_edicao'); ?>
+<?php $this->load->view('commons/sucesso_exclusao'); ?>
 
 <!-- End page content -->
 </div>

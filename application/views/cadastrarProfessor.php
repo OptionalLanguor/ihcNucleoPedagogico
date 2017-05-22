@@ -35,7 +35,7 @@
 
       <div class="w3-section">
         <label>Nome ou SIAPE</label>
-        <input class="w3-input w3-border" type="text" maxlength="10" name="Nome_ou_Siape">
+        <input class="w3-input w3-border" type="text" maxlength="64" name="Nome_ou_Siape">
       </div>
       <button type="submit" class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom">Buscar dados do Professor</button>
 
@@ -80,11 +80,11 @@
       <form role="form" method="post" action="<?php echo base_url('index.php/Cadastrar_professor/salvar_edicao')?>" id="formulario_professor">
         <div class="w3-section">
           <label for="nome">Nome</label>
-          <input type="text" class="form-control" id="nome" name="nome">
+          <input type="text" class="form-control" id="nome" name="nome" maxlength="64" autofocus required>
         </div>
         <div class="w3-section">
           <label for="siape">SIAPE</label>
-          <input type="text" class="form-control" id="siape" name="siape">
+          <input type="text" class="form-control" id="siape" name="siape" maxlength="16" required>
         </div>
         <input type="hidden" class="form-control" name="id_Professor" id="id_Professor">
         <button style="width: 49.5%" type="$('#formulario_professor').submit()" class="w3-button w3-green w3-margin-bottom">Atualizar os dados do Professor</button>
@@ -103,14 +103,16 @@
     </header>
     <div class="w3-container" style="margin-top:20px">
       <hr style="width:50px;border:5px solid #3f51b5" class="w3-round">
-      <?php echo form_open('Cadastrar_professor/Cadastrar'); ?>
        <div class="w3-section">
+         <?php echo form_open('Cadastrar_professor/Cadastrar'); ?>
          <label>Nome</label>
-         <input class="w3-input w3-border" type="text" maxlength="10" name="Nome" required>
+         <?php echo form_error('Nome'); ?>
+         <input class="w3-input w3-border" type="text" maxlength="64" name="Nome" autofocus required>
        </div>
        <div class="w3-section">
          <label>Siape</label>
-         <input class="w3-input w3-border" type="text" maxlength="10" name="Siape" required>
+         <?php echo form_error('Siape'); ?>
+         <input class="w3-input w3-border" type="text" maxlength="16" name="Siape" required>
        </div>
         <button style="width: 49.5%" type="submit" class="w3-button w3-green w3-margin-bottom">Cadastrar Novo Professor</button>
         <button style="width: 49.5%" type ="button" onclick="document.getElementById('modalCadastrarProfessor').style.display='none'" class="w3-button w3-red w3-margin-bottom">Cancelar</button>
