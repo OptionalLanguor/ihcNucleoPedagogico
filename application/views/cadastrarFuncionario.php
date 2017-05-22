@@ -60,13 +60,13 @@
   </thead>
   <?php if(isset($resultado)){foreach($resultado as $row) { ?>
     <tr>
-        <td><?php echo $row->id_Funcionario;?></td>
-        <td><?php echo $row->nome;?></td>
-        <td><?php echo $row->cpf;?></td>
-        <td><?php echo $row->telefone;?></td>
-        <td><?php echo $row->email;?></td>
-        <td><?php echo $row->login;?></td>
-        <td><?php echo $row->senha;?></td>
+        <td >             <?php echo $row->id_Funcionario;?></td>
+        <td class="break"><?php echo $row->nome;?></td>
+        <td >             <?php echo $row->cpf;?></td>
+        <td >             <?php echo $row->telefone;?></td>
+        <td class="break"><?php echo $row->email;?></td>
+        <td class="break"><?php echo $row->login;?></td>
+        <td class="break"><?php echo $row->senha;?></td>
         <td>
           <button href="javascript:;" onclick="janelaEditarFuncionario(<?php echo $row->id_Funcionario ?>)"><i class="fa fa-pencil"></i></button>
           <button href="javascript:;" onclick="janelaExcluirFuncionario(<?php echo $row->id_Funcionario ?>)"><i class="fa fa-trash-o"></i></button>
@@ -100,7 +100,7 @@
         </div>
         <div class="w3-section">
           <label for="email">Email</label>
-          <input type="text" class="form-control" id="email" maxlength="64" name="email" required>
+          <input type="email" class="form-control" id="email" maxlength="64" name="email" required>
         </div>
         <div class="w3-section">
           <label for="login">Login</label>
@@ -142,7 +142,7 @@
         </div>
         <div class="w3-section">
           <label for="email">Email</label>
-          <input type="text" class="form-control" id="email" maxlength="64" name="email" required>
+          <input type="email" class="form-control" id="email" maxlength="64" name="email" required>
         </div>
         <div class="w3-section">
           <label for="login">Login</label>

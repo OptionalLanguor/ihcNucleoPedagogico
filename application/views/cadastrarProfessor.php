@@ -56,9 +56,9 @@
   </thead>
   <?php if(isset($resultado)){foreach($resultado as $row) { ?>
     <tr>
-        <td><?php echo $row->id_Professor;?></td>
-        <td><?php echo $row->siape;?></td>
-        <td><?php echo $row->nome;?></td>
+        <td>              <?php echo $row->id_Professor;?></td>
+        <td>              <?php echo $row->siape;?></td>
+        <td class="break"><?php echo $row->nome;?></td>
         <td>
           <button href="javascript:;" onclick="janelaEditarProfessor(<?php echo $row->id_Professor ?>)"><i class="fa fa-pencil"></i></button>
           <button href="javascript:;" onclick="janelaExcluirProfessor(<?php echo $row->id_Professor ?>)"><i class="fa fa-trash-o"></i></button>

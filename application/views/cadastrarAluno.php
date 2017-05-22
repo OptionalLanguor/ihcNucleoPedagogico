@@ -45,7 +45,7 @@
 
   <!-- Dados -->
   <div class="w3-container">
-  <table class="w3-table-all">
+  <table class="w3-table-all" >
   <thead>
     <tr class="w3-gray">
       <th>id</th>
@@ -62,15 +62,15 @@
   </thead>
   <?php if(isset($resultado)){foreach($resultado as $row) { ?>
     <tr>
-        <td><?php echo $row->id_Pessoa;?></td>
-        <td><?php echo $row->matricula;?></td>
-        <td><?php echo $row->nome;?></td>
-        <td><?php echo $row->cpf;?></td>
-        <td><?php echo $row->curso;?></td>
-        <td><?php echo $row->periodo;?></td>
-        <td><?php echo $row->email;?></td>
-        <td><?php echo $row->telefone;?></td>
-        <td><?php echo $row->endereco;?></td>
+        <td>              <?php echo $row->id_Pessoa;?></td>
+        <td>              <?php echo $row->matricula;?></td>
+        <td class="break"><?php echo $row->nome;?></td>
+        <td>              <?php echo $row->cpf;?></td>
+        <td>              <?php echo $row->curso;?></td>
+        <td>              <?php echo $row->periodo;?></td>
+        <td class="break"><?php echo $row->email;?></td>
+        <td>              <?php echo $row->telefone;?></td>
+        <td class="break"><?php echo $row->endereco;?></td>
         <td>
           <button href="javascript:;" onclick="janelaEditarAluno(<?php echo $row->id_Pessoa ?>)"><i class="fa fa-pencil"></i></button>
           <button href="javascript:;" onclick="janelaExcluirAluno(<?php echo $row->id_Pessoa ?>)"><i class="fa fa-trash-o"></i></button>
@@ -100,7 +100,7 @@
         </div>
         <div class="w3-section">
           <label for="nome">CPF</label>
-          <input type="text" maxlength="11" class="form-control" id="cpf" name="cpf">
+          <input type="text" pattern="\d{11}" title="Digite um CPF no formato: xxxxxxxxxxx" maxlength="11" class="form-control" id="cpf" name="cpf">
         </div>
         <div class="w3-section">
           <label for="nome">Curso</label>

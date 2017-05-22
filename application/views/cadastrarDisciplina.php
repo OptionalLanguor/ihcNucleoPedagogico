@@ -56,9 +56,9 @@
   </thead>
   <?php if(isset($resultado)){foreach($resultado as $row) { ?>
     <tr>
-        <td><?php echo $row->id_Disciplina;?></td>
-        <td><?php echo $row->sigla;?></td>
-        <td><?php echo $row->nome;?></td>
+        <td>              <?php echo $row->id_Disciplina;?></td>
+        <td>              <?php echo $row->sigla;?></td>
+        <td class="break"><?php echo $row->nome;?></td>
         <td>
           <button href="javascript:;" onclick="janelaEditarDisciplina(<?php echo $row->id_Disciplina ?>)"><i class="fa fa-pencil"></i></button>
           <button href="javascript:;" onclick="janelaExcluirDisciplina(<?php echo $row->id_Disciplina ?>)"><i class="fa fa-trash-o"></i></button>
@@ -80,11 +80,11 @@
       <form role="form" method="post" action="<?php echo base_url('index.php/Cadastrar_disciplina/salvar_edicao')?>" id="formulario_disciplina">
         <div class="w3-section">
           <label for="nome">Nome</label>
-          <input type="text" class="form-control" id="nome" name="nome">
+          <input type="text" class="form-control" id="nome" maxlength="64" name="nome">
         </div>
         <div class="w3-section">
           <label for="sigla">SIGLA</label>
-          <input type="text" class="form-control" id="sigla" name="sigla">
+          <input type="text" class="form-control" id="sigla" pattern=".{6}" title="Digite uma Sigla no formato: xxxxxx" name="sigla">
         </div>
         <input type="hidden" class="form-control" name="id_Disciplina" id="id_Disciplina">
         <button style="width: 49.5%" type="$('#formulario_disciplina').submit()" class="w3-button w3-green w3-margin-bottom">Atualizar os dados da Disciplina</button>
@@ -106,11 +106,11 @@
       <?php echo form_open('Cadastrar_disciplina/Cadastrar'); ?>
        <div class="w3-section">
          <label>Nome</label>
-         <input class="w3-input w3-border" type="text" maxlength="10" name="Nome" required>
+         <input class="w3-input w3-border" type="text" maxlength="64" name="Nome" required>
        </div>
        <div class="w3-section">
          <label>Sigla</label>
-         <input class="w3-input w3-border" type="text" maxlength="10" name="Sigla" required>
+         <input class="w3-input w3-border" type="text" pattern=".{6}" title="Digite uma Sigla no formato: xxxxxx" name="Sigla" required>
        </div>
         <button style="width: 49.5%" type="submit" class="w3-button w3-green w3-margin-bottom">Cadastrar Nova Disciplina</button>
         <button style="width: 49.5%" type ="button" onclick="document.getElementById('modalCadastrarDisciplina').style.display='none'" class="w3-button w3-red w3-margin-bottom">Cancelar</button>
