@@ -32,7 +32,8 @@ class Cadastrar_funcionario extends CI_Controller
           'email' => $this->input->post('email'),
         );
         $this->Funcionario_Model->cadastrar_funcionario($funcionario);
-        $this->load->view('CadastrarFuncionario');
+        $pesquisa_res['resultado'] = $this->Funcionario_Model->pesquisa_funcionario('');
+        $this->load->view('cadastrarFuncionario', $pesquisa_res);
     }
 
     public function dados_funcionario()
