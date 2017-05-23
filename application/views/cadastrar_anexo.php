@@ -24,11 +24,37 @@
     <h1 class="w3-jumbo"><b>Anexo</b></h1>
   </div>
 
-  <!-- Preenchimento dos Campos -->
 
-  <div class="w3-container">
-    <p> Selecione o anexo a ser carregado: (Máximo 10 MB) </p>
-    <!-- <?php echo form_open('cadastrar_anexo/Inserir'); ?> -->
+  <!-- Preenchimento dos Campos -->
+<div class="w3-container">
+      <table class="w3-vertical-align:text-top;">
+        <?php
+        if(isset($error))
+        {
+          echo "<div class='w3-container w3-center w3-red'>";
+          echo $error;
+          echo '</div>';
+
+        }
+        elseif (isset($msg_sucesso)) {
+          echo "<div class='w3-container  w3-center w3-green'>";
+          echo $msg_sucesso;
+          echo '</div>';
+        }
+        ?>
+          <p> Selecione o anexo a ser carregado: (Máximo 10 MB) </p>
+          <?php  echo form_open_multipart('Cadastrar_anexo/Upload');?>
+
+          <td valign="middle">
+
+          <p><input  type="file" name="userfile" size="20"></p>
+          </td>
+      </table>
+
+    <input type="submit" name="submit" style="width: 400px;" value = "Cadastrar anexo"/>
+  </form>
+
+<!--
 <table class="w3-vertical-align:text-top;">
       <td valign="middle">
         <div class="w3-section" >
@@ -46,7 +72,8 @@
     </form>
  </div>
 
-<!-- End page content -->
+ End page content -->
+
 </div>
 
 
