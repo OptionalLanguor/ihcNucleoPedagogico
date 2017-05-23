@@ -37,7 +37,7 @@
         <label>Insira a data de abertura, descricao, observação, categoria, ou aluno</label>
         <input class="w3-input w3-border" type="text" maxlength="64" name="qualquer_atributo">
       </div>
-      <button type="submit" class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom">Buscar dados do Registro de Atendimento</button>
+      <button  onlick="updateTableAluno" class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom">Buscar dados do Registro de Atendimento</button>
 
     </form>
   </div>
@@ -90,19 +90,19 @@
         </div>
         <div class="w3-section">
           <label for="nome">Descrição</label>
-          <input type="text" maxlength="64" class="form-control" id="descricao" name="descricao">
+          <input type="text" maxlength="1024" min="3" class="form-control" id="descricao" name="descricao">
         </div>
         <div class="w3-section">
           <label for="nome">id_Categoria</label>
-          <input type="text" maxlength="11" class="form-control" id="id_Categoria" name="id_Categoria">
+          <input type="text" maxlength="11" min="1" class="form-control" id="id_Categoria" name="id_Categoria">
         </div>
         <div class="w3-section">
           <label for="nome">id_Pessoa</label>
-          <input type="text" maxlength="3" class="form-control" id="id_Pessoa" name="id_Pessoa">
+          <input type="text" maxlength="3" min="1" class="form-control" id="id_Pessoa" name="id_Pessoa">
         </div>
         <div class="w3-section">
           <label for="nome">Observação</label>
-          <input type="number" maxlength="2" min="1" max="10" class="form-control" id="observacao" name="observacao">
+          <input type="text" maxlength="1024" class="form-control" id="observacao" name="observacao">
         </div>
         <input type="hidden" class="form-control" name="id_Registro" id="id_Registro">
         <button style="width: 49.5%" type="$('#formulario_registro_atendimento').submit()" class="w3-button w3-green w3-margin-bottom">Atualizar os dados do Registro de Atendimento</button>
@@ -120,24 +120,68 @@
       class="w3-button w3-display-topright">&times;</span>
       <h2>Cadastrar Registro de Atendimento</h2>
     </header>
-    <div class="w3-container" style="margin-top:20px">
-      <hr style="width:50px;border:5px solid #3f51b5" class="w3-round">
-      <?php echo form_open('Cadastrar_registro_atendimento/Cadastrar'); ?>
+
+       <!--
        <div class="w3-section">
          <label>Data de Abertura</label>
-         <input class="w3-input w3-border" type="text" maxlength="10" name="data_abertura" required>
+         <input class="w3-input w3-border" type="text" name="data_abertura" required>
        </div>
+       -->
+
+       <!-- Pesquisa -->
+      <div class="w3-container">
+        <hr style="width:50px;border:5px solid #3f51b5" class="w3-round">
+
+         <?php echo form_open('Cadastrar_registro_atendimento/PesquisaAluno'); ?>
+
+          <div class="w3-section">
+            <label>Filtre os Alunos por: RA, Nome, CPF, Curso ou Período.</label>
+            <input class="w3-input w3-border" type="text" maxlength="64" name="qualquer_atributo">
+          </div>
+          <button type="submit" class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom">Buscar dados do Aluno</button>
+
+        </form>
+      </div>
+
+       <!-- Tentativa de fazer uma lista de Alunos para que o funcionário escolha a qual pertence o registro de atendimento -->
+      <div class="w3-container">
+      <table class="w3-table-all">
+      <thead>
+        <tr class="w3-gray">
+          <th>RA</th>
+          <th>Nome</th>
+          <th>CPF</th>
+          <th>Curso</th>
+          <th>Periodo</th>
+        </tr>
+      </thead>
+      <?php if(isset($pesquisaAluno)){foreach($pesquisaAluno as $row) { ?>
+        <tr>
+            <td><?php echo $row->matricula;?></td>
+            <td><?php echo $row->nome;?></td>
+            <td><?php echo $row->cpf;?></td>
+            <td><?php echo $row->curso;?></td>
+            <td><?php echo $row->periodo;?></td>
+        </tr>
+      <?php }} ?>
+      </table>
+      </div>
+
+      <div class="w3-container" style="margin-top:20px">
+      <hr style="width:50px;border:5px solid #3f51b5" class="w3-round">
+      <?php echo form_open('Cadastrar_registro_atendimento/Cadastrar'); ?>
+
        <div class="w3-section">
          <label>Descrição</label>
-         <input class="w3-input w3-border" type="text" maxlength="64" name="descricao" required>
+         <input class="w3-input w3-border" type="text" minlength="3" maxlength="1024" name="descricao" required>
        </div>
        <div class="w3-section">
          <label>id_Categoria</label>
-         <input class="w3-input w3-border" type="text" maxlength="11" name="id_Categoria" required>
+         <input class="w3-input w3-border" type="text" minlength="1" name="id_Categoria" required>
        </div>
        <div class="w3-section">
          <label>Observação</label>
-         <input class="w3-input w3-border" type="text" maxlength="3" name="observacao" required>
+         <input class="w3-input w3-border" type="text" name="observacao">
        </div>
         <button style="width: 49.5%" type="submit" class="w3-button w3-green w3-margin-bottom">Cadastrar Novo Registro de Atendimento</button>
         <button style="width: 49.5%" type ="button" onclick="document.getElementById('modalCadastrarRegistroAtendimento').style.display='none'" class="w3-button w3-red w3-margin-bottom">Cancelar</button>

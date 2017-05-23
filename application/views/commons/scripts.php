@@ -203,7 +203,6 @@ $(function(){
     }
     //antes de abrir a janela, preciso carregar os dados do cliente e preencher os campos dentro do modal
 
-
     document.getElementById("modalEditarAluno").style.display = "block";
   }
   function janelaExcluirAluno(id_Pessoa){
@@ -323,7 +322,6 @@ $(function(){
   });
 });
 
-
   function carregaDadosRegistroAtendimentoJSon(id_Registro){
     $.post(base_url +'/index.php/Cadastrar_registro_atendimento/dados_registro_atendimento', {
       id_Registro: id_Registro
@@ -344,7 +342,6 @@ $(function(){
       carregaDadosRegistroAtendimentoJSon(id_Registro);
     }
     //antes de abrir a janela, preciso carregar os dados do cliente e preencher os campos dentro do modal
-
 
     document.getElementById("modalEditarRegistroAtendimento").style.display = "block";
   }

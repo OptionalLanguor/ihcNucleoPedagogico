@@ -28,7 +28,6 @@
   </div>
   <!-- Pesquisa -->
   <div class="w3-container">
-
     <hr style="width:50px;border:5px solid #3f51b5" class="w3-round">
 
      <?php echo form_open('Cadastrar_aluno/Pesquisar'); ?>
@@ -40,7 +39,6 @@
       <button type="submit" class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom">Buscar dados do Aluno</button>
 
     </form>
-
   </div>
 
   <!-- Dados -->
