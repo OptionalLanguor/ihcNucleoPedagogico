@@ -82,6 +82,13 @@
 	</table>
 
 
+	<!--Deadline-->
+	<table>
+	<td>
+  		<a href="<?php echo site_url('Apresentar_deadline') ?>" onclick="w3_close()" class="<?php if($this->uri->segment(1)=="Apresentar_deadline"){echo "w3-bar-item w3-button w3-white";}else{echo "w3-bar-item w3-button w3-hover-white";}?>"><i class="fa fa-question-circle">
+  		</i> Deadline</a>
+	</td>
+	</table>
 
 
   <!--Cadastrar Anexo-->
