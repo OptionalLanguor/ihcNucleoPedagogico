@@ -23,7 +23,13 @@ class Apresentar_deadline extends CI_Controller
     {
         return strcmp($a->dias_restantes, $b->dias_restantes);
     }
-
+    public function seleciona_categoria_id($lista_categoria, $id)
+    {
+        foreach($lista_categoria as $categoria) {
+            if($categoria->id_Categoria==$id)
+                return $categoria;
+        }
+    }
     public function atendimentos_deadline()
     {
         $registros = $this->Registro_Atendimento_Model->pesquisa_registro_atendimento('');
@@ -31,8 +37,8 @@ class Apresentar_deadline extends CI_Controller
         $registros_proximos = Array();
         if(isset($registros)){
             foreach($registros as $row) {
-                $deadline=$categorias[$row->id_Categoria]->prazo_deadline;
-                $sqldate=new DateTime($row->data_abertura);
+                $deadline = $this->seleciona_categoria_id($categorias,$row->id_Categoria)->prazo_deadline;
+                $sqldate = new DateTime($row->data_abertura);
                 $now = new DateTime(null, new DateTimeZone('America/Sao_Paulo'));
                 $sqldate->add(new DateInterval(sprintf('P%dD', $deadline)));
                 $now->add(new DateInterval('P21D'));
