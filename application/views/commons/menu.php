@@ -1,12 +1,3 @@
-<!--Fundo de telas para todas as view-->
-<style>
-body {
-    background-image: url('../includes/imagens_pagina/predio1.png');
-  
-}
-</style>
-<!------------------------------------->
-
 <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px" >Close Menu</a>
 <div class="w3-container">
 
