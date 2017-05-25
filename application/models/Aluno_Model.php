@@ -28,7 +28,8 @@ class Aluno_Model extends CI_Model
     {
         $this->db->from('Aluno');
         $this->db->where('id_Pessoa', $id);
-        return $this->db->get()->result();
+        $res = $this->db->get()->result();
+        return (!empty($res))?$res[0]:false;
     }
     public function update_aluno($id_Pessoa=null,$dados_atualizados=null)
     {
