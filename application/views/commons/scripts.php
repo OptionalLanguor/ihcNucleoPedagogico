@@ -37,8 +37,6 @@ $(function(){
     success: function(data) {
       if (data == 1) {
 
-        //se for sucesso, simplesmente recarrego a página. Aqui você pode usar sua imaginação.
-        //document.location.href = base_url +"index.php/Cadastrar_professor/Pesquisar";
         document.getElementById('modalExcluirProfessor').style.display='none';
         janelaExclusaoSucesso();
 
@@ -53,8 +51,8 @@ $(function(){
     success: function(data) {
       if (data == 1) {
 
-        //se for sucesso, simplesmente recarrego a página. Aqui você pode usar sua imaginação.
-        document.location.href = document.location.href;
+        document.getElementById('modalEditarDisciplina').style.display='none';
+        janelaEdicaoSucesso();
 
       }
     }
@@ -65,8 +63,8 @@ $(function(){
     success: function(data) {
       if (data == 1) {
 
-        //se for sucesso, simplesmente recarrego a página. Aqui você pode usar sua imaginação.
-        document.location.href = base_url +"index.php/Cadastrar_disciplina/Pesquisar";
+        document.getElementById('modalExcluirDisciplina').style.display='none';
+        janelaExclusaoSucesso();
 
       }
     }
@@ -79,7 +77,7 @@ function carregaDadosDisciplinaJSon(id_Disciplina){
     }, function (data){
       $('#nome').val(data.nome);
       $('#sigla').val(data.sigla);
-      $('#nome_exclusao').val(data.nome);
+      $('#nome_exclusao').text(data.nome);
       $('#id_Disciplina_exclusao').val(data.id_Disciplina);
       $('#id_Disciplina').val(data.id_Disciplina);//aqui eu seto a o input hidden com o id do cliente, para que a edição funcione. Em cada tela aberta, eu seto o id do cliente.
     }, 'json');
@@ -300,7 +298,7 @@ $(function(){
     document.getElementById("sucesso_exclusao").style.display = "block";
   }
 
-  //Abrir janela de sucesso no cadastro professor
+  //Abrir janela de sucesso no cadastro
   <?php  if (isset($sucesso_cadastro)) {
     echo 'janelaCadastroSucesso();';
   }

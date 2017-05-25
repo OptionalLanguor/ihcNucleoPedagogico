@@ -11,7 +11,6 @@ class Cadastrar_professor extends CI_Controller
         $this->load->model('Professor_Model');
         $this->load->helper('url');
         $this->load->helper('form');
-        $this->load->library('form_validation');
         $dados['sucesso_cadastro'] = null;
     }
     public function Index()
@@ -61,7 +60,7 @@ class Cadastrar_professor extends CI_Controller
           $this->load->view('cadastrarProfessor', $dados);
         }
         else {
-          $pesquisa = $this->input->post('Nome_ou_Siape');
+          $pesquisa = '';
           $pesquisa_res['resultado'] = $this->Professor_Model->pesquisa_professor($pesquisa);
           $this->load->view('cadastrarProfessor', $pesquisa_res);
         }

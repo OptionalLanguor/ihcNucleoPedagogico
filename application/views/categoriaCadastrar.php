@@ -43,7 +43,7 @@
         <label>Nome</label>
         <input class="w3-input w3-border" type="text" name="Nome" required>
       </div>
-      <button type="submit" class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom">Criar Categoria</button>
+      <button type="submit" class="w3-button w3-block w3-padding-large w3-green w3-margin-bottom">Criar Categoria</button>
     </form>
   </div>
 

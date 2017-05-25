@@ -9,16 +9,16 @@ class Registro_Atendimento_Model extends CI_Model
     public function pesquisa_registro_atendimento($pesquisa)
     {
         if($pesquisa == "")
-            return $this->db->get('registatendimento')->result();
-        
-        $this->db->from('registatendimento');
+            return $this->db->get('RegistAtendimento')->result();
+
+        $this->db->from('RegistAtendimento');
         $this->db->where('data_abertura', $pesquisa);
         $this->db->or_like('descricao', $pesquisa);
         $this->db->or_where('id_Categoria', $pesquisa);
         $this->db->or_where('id_Pessoa', $pesquisa);
         $this->db->or_where('id_Registro', $pesquisa);
         $this->db->or_like('observacao', $pesquisa);
-        
+
         return $this->db->get()->result();
     }
     public function cadastra_registro_atendimento($registro_atendimento)

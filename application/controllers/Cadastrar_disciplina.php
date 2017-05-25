@@ -11,6 +11,7 @@ class Cadastrar_disciplina extends CI_Controller
         $this->load->model('Disciplina_Model');
         $this->load->helper('url');
         $this->load->helper('form');
+        $dados['sucesso_cadastro'] = null;
     }
     public function Index()
     {
@@ -26,13 +27,42 @@ class Cadastrar_disciplina extends CI_Controller
 
     public function Cadastrar()
     {
-        $disciplina = array(
-          'nome' => $this->input->post('Nome'),
-          'sigla' => $this->input->post('Sigla'),
-        );
-        $this->Disciplina_Model->Cadastrar_disciplina($disciplina);
-        $pesquisa_res['resultado'] = $this->Disciplina_Model->pesquisa_disciplina('');
-        $this->load->view('cadastrarDisciplina', $pesquisa_res);
+            $config = array(
+            array(
+                    'field' => 'Nome',
+                    'label' => 'Nome',
+                    'rules' => 'required',
+                    'errors' => array(
+                            'required' => '*Campo obrigatório.',
+                    ),
+            ),
+            array(
+                    'field' => 'Sigla',
+                    'label' => 'Sigla',
+                    'rules' => 'required',
+                    'errors' => array(
+                            'required' => '*Campo obrigatório.',
+                    ),
+            )
+      );
+
+      $this->form_validation->set_rules($config);
+
+        if ($this->form_validation->run() == TRUE)
+        {
+            $disciplina = array(
+              'nome' => $this->input->post('Nome'),
+              'sigla' => $this->input->post('Sigla'),
+            );
+            $this->Disciplina_Model->Cadastrar_disciplina($disciplina);
+            $dados['resultado'] = $this->Disciplina_Model->pesquisa_disciplina('');
+            $dados['sucesso_cadastro'] = "Cadastro realizado com sucesso!";
+            $this->load->view('cadastrarDisciplina', $dados);
+        }
+        else {
+          $pesquisa_res['resultado'] = $this->Disciplina_Model->pesquisa_disciplina('');
+          $this->load->view('cadastrarDisciplina', $pesquisa_res);
+        }
     }
 
     public function dados_disciplina()

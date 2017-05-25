@@ -106,11 +106,11 @@
       <?php echo form_open('Cadastrar_disciplina/Cadastrar'); ?>
        <div class="w3-section">
          <label>Nome</label>
-         <input class="w3-input w3-border" type="text" maxlength="64" name="Nome" required>
+         <input class="w3-input w3-border" type="text" maxlength="64" name="Nome" required autofocus>
        </div>
        <div class="w3-section">
          <label>Sigla</label>
-         <input class="w3-input w3-border" type="text" pattern=".{6}" title="Digite uma Sigla no formato: xxxxxx" name="Sigla" required>
+         <input class="w3-input w3-border" type="text" pattern=".{6}" maxlength="6" title="Digite uma Sigla no formato: xxxxxx" name="Sigla" required>
        </div>
         <button style="width: 49.5%" type="submit" class="w3-button w3-green w3-margin-bottom">Cadastrar Nova Disciplina</button>
         <button style="width: 49.5%" type ="button" onclick="document.getElementById('modalCadastrarDisciplina').style.display='none'" class="w3-button w3-red w3-margin-bottom">Cancelar</button>
@@ -138,6 +138,10 @@
    </div>
   </div>
 </div>
+
+<?php $this->load->view('commons/sucesso_cadastro'); ?>
+<?php $this->load->view('commons/sucesso_edicao'); ?>
+<?php $this->load->view('commons/sucesso_exclusao'); ?>
 
 <!-- End page content -->
 </div>

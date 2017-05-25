@@ -90,7 +90,7 @@
       <form role="form" method="post" action="<?php echo base_url('index.php/Cadastrar_aluno/salvar_edicao')?>" id="formulario_aluno">
         <div class="w3-section">
           <label for="nome">Registro Acadêmico</label>
-          <input type="text" maxlength="10" class="form-control" id="matricula" name="matricula">
+          <input type="text" maxlength="10" class="form-control" id="matricula" name="matricula" autofocus required>
         </div>
         <div class="w3-section">
           <label for="nome">Nome</label>

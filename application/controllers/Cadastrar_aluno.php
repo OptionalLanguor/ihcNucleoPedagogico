@@ -11,6 +11,7 @@ class Cadastrar_aluno extends CI_Controller
         $this->load->model('Aluno_Model');
         $this->load->helper('url');
         $this->load->helper('form');
+        $dados['sucesso_cadastro'] = null;
     }
     public function Index()
     {
@@ -19,19 +20,99 @@ class Cadastrar_aluno extends CI_Controller
     }
     public function Cadastrar()
     {
-    	$aluno = array(
-		'nome' => $this->input->post('Nome'),
-		'cpf' => $this->input->post('CPF'),
-		'email' => $this->input->post('Email'),
-		'endereco' => $this->input->post('Endereco'),
-		'telefone' => $this->input->post('Telefone'),
-		'matricula' => $this->input->post('RA'),
-		'curso' => $this->input->post('Curso'),
-		'periodo' => $this->input->post('Periodo')
-		);
-        $this->Aluno_Model->cadastra_aluno($aluno);
-        $pesquisa_res['resultado'] = $this->Aluno_Model->pesquisa_aluno('');
-        $this->load->view('cadastrarAluno', $pesquisa_res);
+
+              $config = array(
+              array(
+                      'field' => 'Nome',
+                      'label' => 'Nome',
+                      'rules' => 'required',
+                      'errors' => array(
+                              'required' => '*Campo obrigatório.',
+                      ),
+              ),
+              array(
+                      'field' => 'CPF',
+                      'label' => 'CPF',
+                      'rules' => 'required',
+                      'errors' => array(
+                              'required' => '*Campo obrigatório.',
+                      ),
+              ),
+              array(
+                      'field' => 'Email',
+                      'label' => 'Email',
+                      'rules' => 'required',
+                      'errors' => array(
+                              'required' => '*Campo obrigatório.',
+                      ),
+              ),
+              array(
+                      'field' => 'Endereco',
+                      'label' => 'Endereco',
+                      'rules' => 'required',
+                      'errors' => array(
+                              'required' => '*Campo obrigatório.',
+                      ),
+              ),
+              array(
+                      'field' => 'Telefone',
+                      'label' => 'Telefone',
+                      'rules' => 'required',
+                      'errors' => array(
+                              'required' => '*Campo obrigatório.',
+                      ),
+              ),
+              array(
+                      'field' => 'RA',
+                      'label' => 'RA',
+                      'rules' => 'required',
+                      'errors' => array(
+                              'required' => '*Campo obrigatório.',
+                      ),
+              ),
+              array(
+                      'field' => 'Curso',
+                      'label' => 'Curso',
+                      'rules' => 'required',
+                      'errors' => array(
+                              'required' => '*Campo obrigatório.',
+                      ),
+              ),
+              array(
+                      'field' => 'Periodo',
+                      'label' => 'Periodo',
+                      'rules' => 'required',
+                      'errors' => array(
+                              'required' => '*Campo obrigatório.',
+                      ),
+              )
+        );
+
+        $this->form_validation->set_rules($config);
+
+              if ($this->form_validation->run() == TRUE)
+              {
+              	$aluno = array(
+          		'nome' => $this->input->post('Nome'),
+          		'cpf' => $this->input->post('CPF'),
+          		'email' => $this->input->post('Email'),
+          		'endereco' => $this->input->post('Endereco'),
+          		'telefone' => $this->input->post('Telefone'),
+          		'matricula' => $this->input->post('RA'),
+          		'curso' => $this->input->post('Curso'),
+          		'periodo' => $this->input->post('Periodo')
+          		);
+              $this->Aluno_Model->cadastra_aluno($aluno);
+              $dados['resultado'] = $this->Aluno_Model->pesquisa_aluno('');
+              $dados['sucesso_cadastro'] = "Cadastro realizado com sucesso!";
+              $this->load->view('cadastrarAluno', $dados);
+            }
+            else {
+              $pesquisa_res['resultado'] = $this->Aluno_Model->pesquisa_aluno('');
+              $this->load->view('cadastrarAluno', $pesquisa_res);
+            }
+
+
     }
     public function Pesquisar()
     {
