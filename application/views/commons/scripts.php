@@ -222,7 +222,8 @@ $(function(){
     success: function(data) {
       if (data == 1) {
 
-        document.location.href = document.location.href;
+        document.getElementById('modalEditarFuncionario').style.display='none';
+        janelaEdicaoSucesso();
 
       }
     }
@@ -232,7 +233,9 @@ $(function(){
   $('#formulario_funcionario_exclusao').ajaxForm({
     success: function(data) {
       if (data == 1) {
-        document.location.href = base_url +"index.php/Cadastrar_funcionario/Pesquisar";
+
+        document.getElementById('modalExcluirFuncionario').style.display='none';
+        janelaExclusaoSucesso();
 
       }
     }
@@ -249,15 +252,10 @@ $(function(){
       $('#nome').val(data.nome);
       $('#nome_exclusao').text(data.nome);
       $('#login').val(data.login);
-      $('#login_exclusao').text(data.login);
       $('#senha').val(data.senha);
-      $('#senha_exclusao').text(data.senha);
       $('#email').val(data.email);
-      $('#email_exclusao').text(data.email);
       $('#cpf').val(data.cpf);
-      $('#cpf_exclusao').text(data.cpf);
       $('#telefone').val(data.telefone);
-      $('#tefefone_exclusao').val(data.telefone);
     }, 'json');
   }
 

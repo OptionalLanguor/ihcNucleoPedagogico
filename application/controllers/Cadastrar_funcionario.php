@@ -8,6 +8,7 @@ class Cadastrar_funcionario extends CI_Controller
         $this->load->model('Funcionario_Model');
         $this->load->helper('url');
         $this->load->helper('form');
+        $dados['sucesso_cadastro'] = null;
     }
     public function Index()
     {
@@ -23,17 +24,78 @@ class Cadastrar_funcionario extends CI_Controller
 
     public function Cadastrar()
     {
-        $funcionario = array(
-          'nome' => $this->input->post('nome'),
-          'cpf' => $this->input->post('cpf'),
-          'telefone' => $this->input->post('telefone'),
-          'login' => $this->input->post('login'),
-          'senha' => $this->input->post('senha'),
-          'email' => $this->input->post('email'),
+              $config = array(
+              array(
+                      'field' => 'nome',
+                      'label' => 'Nome',
+                      'rules' => 'required',
+                      'errors' => array(
+                              'required' => '*Campo obrigatório.',
+                      ),
+              ),
+              array(
+                      'field' => 'cpf',
+                      'label' => 'cpf',
+                      'rules' => 'required',
+                      'errors' => array(
+                              'required' => '*Campo obrigatório.',
+                      ),
+              ),
+              array(
+                      'field' => 'telefone',
+                      'label' => 'telefone',
+                      'rules' => 'required',
+                      'errors' => array(
+                              'required' => '*Campo obrigatório.',
+                      ),
+              ),
+              array(
+                      'field' => 'login',
+                      'label' => 'login',
+                      'rules' => 'required',
+                      'errors' => array(
+                              'required' => '*Campo obrigatório.',
+                      ),
+              ),
+              array(
+                      'field' => 'senha',
+                      'label' => 'senha',
+                      'rules' => 'required',
+                      'errors' => array(
+                              'required' => '*Campo obrigatório.',
+                      ),
+              ),
+              array(
+                      'field' => 'email',
+                      'label' => 'email',
+                      'rules' => 'required',
+                      'errors' => array(
+                              'required' => '*Campo obrigatório.',
+                      ),
+              )
         );
-        $this->Funcionario_Model->cadastrar_funcionario($funcionario);
-        $pesquisa_res['resultado'] = $this->Funcionario_Model->pesquisa_funcionario('');
-        $this->load->view('cadastrarFuncionario', $pesquisa_res);
+
+          $this->form_validation->set_rules($config);
+
+          if ($this->form_validation->run() == TRUE)
+          {
+            $funcionario = array(
+              'nome' => $this->input->post('nome'),
+              'cpf' => $this->input->post('cpf'),
+              'telefone' => $this->input->post('telefone'),
+              'login' => $this->input->post('login'),
+              'senha' => $this->input->post('senha'),
+              'email' => $this->input->post('email'),
+            );
+            $this->Funcionario_Model->cadastrar_funcionario($funcionario);
+            $dados['resultado'] = $this->Funcionario_Model->pesquisa_funcionario('');
+            $dados['sucesso_cadastro'] = "Cadastro realizado com sucesso!";
+            $this->load->view('cadastrarFuncionario', $dados);
+         }
+         else {
+           $pesquisa_res['resultado'] = $this->Funcionario_Model->pesquisa_funcionario('');
+           $this->load->view('cadastrarFuncionario', $pesquisa_res);
+         }
     }
 
     public function dados_funcionario()

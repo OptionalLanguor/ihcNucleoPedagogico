@@ -88,11 +88,11 @@
       <form role="form" method="post" action="<?php echo base_url('index.php/Cadastrar_funcionario/salvar_edicao')?>" id="formulario_funcionario">
         <div class="w3-section">
           <label for="nome">Nome</label>
-          <input type="text" class="form-control" id="nome" maxlength="64" name="nome" required>
+          <input type="text" class="form-control" id="nome" maxlength="64" name="nome" required autofocus>
         </div>
         <div class="w3-section">
           <label for="cpf">CPF</label>
-          <input type="text" class="form-control" id="cpf" maxlength="11" minlength="11" name="cpf" required>
+          <input type="text" pattern="\d{11}" title="Digite um CPF no formato: xxxxxxxxxxx" maxlength="11" class="form-control" id="cpf" name="cpf">
         </div>
         <div class="w3-section">
           <label for="telefone">Telefone</label>
@@ -178,6 +178,10 @@
    </div>
   </div>
 </div>
+
+<?php $this->load->view('commons/sucesso_cadastro'); ?>
+<?php $this->load->view('commons/sucesso_edicao'); ?>
+<?php $this->load->view('commons/sucesso_exclusao'); ?>
 
 <!-- End page content -->
 </div>
