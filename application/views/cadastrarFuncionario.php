@@ -8,7 +8,7 @@
 <body>
 
 <!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-indigo w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+<nav class="w3-sidebar w3-indigo w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;background-image: url('../includes/imagens_pagina/1azul.jpg');:" id="mySidebar"><br>
     <?php $this->load->view('commons/menu'); ?>
 </nav>
 
@@ -20,11 +20,11 @@
 
   <!-- Header -->
   <div class="w3-container" style="margin-top:40px" id="pesquisa_de_funcionario">
-    <h1 class="w3-jumbo"><b>Funcionario</b></h1>
+    <h1 class="w3-jumbo"><b>Funcionário</b></h1>
   </div>
 
   <div class="w3-container">
-    <button class="w3-button w3-green" onclick="janelaCadastrarFuncionario()">Cadastrar Novo Funcionario</button>
+    <button class="w3-button w3-green" onclick="janelaCadastrarFuncionario()">Cadastrar Novo Funcionário</button>
   </div>
   <!-- Pesquisa -->
   <div class="w3-container">
@@ -37,7 +37,7 @@
         <label>Nome ou CPF ou e-mail ou login</label>
         <input class="w3-input w3-border" type="text" maxlength="10" name="variavel_pesquisa">
       </div>
-      <button type="submit" class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom">Buscar dados do Funcionario</button>
+      <button type="submit" class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom">Buscar dados do Funcionário</button>
 
     </form>
 
@@ -48,7 +48,7 @@
   <table class="w3-table-all">
   <thead>
     <tr class="w3-gray">
-      <th>id_Funcionario</th>
+      <th>Id</th>
       <th>Nome</th>
       <th>CPF</th>
       <th>Telefone</th>
@@ -81,7 +81,7 @@
     <header class="w3-container w3-indigo">
       <span onclick="document.getElementById('modalEditarFuncionario').style.display='none'"
       class="w3-button w3-display-topright">&times;</span>
-      <h2>Editar Funcionario</h2>
+      <h2>Editar Funcionário</h2>
     </header>
     <div class="w3-container" style="margin-top:20px">
       <hr style="width:50px;border:5px solid #3f51b5" class="w3-round">
