@@ -35,7 +35,8 @@ class Login_Model extends CI_Model
     {
         $this->session->set_userdata(array(
         'email'  => $this->usuario_info->email,
-        'esta_logado' => true
+        'esta_logado' => true,
+        'adm' => $this->usuario_info->administrador
         )
       );
     }

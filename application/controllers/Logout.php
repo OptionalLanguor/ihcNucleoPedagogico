@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Norma extends CI_Controller {
+class Logout extends CI_Controller {
 
 	public function __construct()
 	{
@@ -13,6 +13,7 @@ class Norma extends CI_Controller {
 
 	public function Index()
 	{
-		$this->load->view('norma');
+			$this->session->sess_destroy();
+			redirect('login');
 	}
 }

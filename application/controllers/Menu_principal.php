@@ -13,6 +13,15 @@ class Menu_principal extends CI_Controller {
 
 	public function Index()
 	{
-		$this->load->view('menu_principal');
+		if ($this->session->userdata('esta_logado') && $this->session->userdata('adm')=="n") {
+				$this->load->view('menu_principal');
+		}
+		elseif ($this->session->userdata('esta_logado') && $this->session->userdata('adm')=="s")
+		{
+				$this->load->view('menu_principal_adm');
+		}
+		else{
+				$this->load->view('login');
+		}
 	}
 }

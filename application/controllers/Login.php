@@ -12,9 +12,14 @@ class Login extends CI_Controller
     }
     public function Index()
     {
-        if ($this->session->userdata('esta_logado')) {
+        if (($this->session->userdata('esta_logado')) && ($this->session->userdata('adm')=="n")) {
             $this->load->view('menu_principal');
-        } else {
+        }
+        elseif (($this->session->userdata('esta_logado')) && ($this->session->userdata('adm')=="n"))
+        {
+            $this->load->view('menu_principal_adm');
+        }
+        else{
             $this->load->view('login');
         }
     }
@@ -22,9 +27,17 @@ class Login extends CI_Controller
     {
         $login = $this->input->post('login');
         $senha = $this->input->post('senha');
-        if ($this->Login_Model->verifica_usuario($login, $senha)) {
-            $this->load->view('menu_principal');
-        } else {
+        if ($this->Login_Model->verifica_usuario($login, $senha))
+        {
+            if($this->session->userdata('adm')=="n"){
+                $this->load->view('menu_principal');
+            }
+            else {
+                $this->load->view('menu_principal_adm');
+            }
+        }
+        else
+        {
           $error_msg = array(
             'error_login_invalido' => 'Usuário ou senha inválidos');
             $this->load->view('login',$error_msg);

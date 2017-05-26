@@ -9,7 +9,7 @@
 
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-indigo w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;background-image: url('../includes/imagens_pagina/1azul.jpg');:" id="mySidebar"><br>
-    <?php $this->load->view('commons/menu'); ?>
+    <?php $this->load->view('commons/menu_adm'); ?>
 </nav>
 
 <!-- Overlay effect when opening sidebar on small screens -->
