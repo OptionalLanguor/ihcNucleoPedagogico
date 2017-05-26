@@ -20,32 +20,24 @@
 
   <!-- Header -->
   <div class="w3-container" style="margin-top:40px" id="pesquisa_de_registro_atendimento">
-    <h1 class="w3-jumbo"><b>Atendimentos com datas de entregas próximas </b></h1>
+    <h1 class="w3-jumbo"><b>Próximos Atendimentos</b></h1></br>
+    <h1 class="w3-xxlarge"><b>Atendimentos com data de término no mês seguinte.</b></h1>
   </div>
 
   <!-- Dados -->
   <div class="w3-container">
-  <table class="w3-table-all">
-  <thead>
-    <tr class="w3-gray">
-      <th>Data de abertura</th>
-      <th>Hora de abertura</th>
-      <th>Dias restantes</th>
-      <th>Nome do Aluno</th>
-      <th>Categoria</th>
-    </tr>
-  </thead>
+  <table class="tabela">
+
   <?php if(isset($resultado)){foreach($resultado as $row) { ?>
-    <tr>
-        <td><?php echo $row->data_abertura;?></td>
-        <td><?php echo $row->hora_abertura;?></td>
-        <td><?php echo intval($row->dias_restantes);?></td>
-        <td><?php echo $row->nome_aluno;?></td>
-        <td><?php echo $row->nome_categoria;?></td>
+
+    <tr class="linha">
+        <td class="coluna" width="18%">Categoria: <?php echo $row->nome_categoria;?></br>Nome do Aluno: <?php echo $row->nome_aluno;?></td>
+        <td class="coluna" width="14%"><?php echo $row->dias_restantes_texto;?></td>
+        <td class="coluna" width="18%">Data da abertura: <?php echo $row->data_abertura;?></br>Hora da abertura: <?php echo $row->hora_abertura;?></td>
+        <td class="coluna break" width="60%">Descrição: <?php echo $row->descricao;?></br>Observação: <?php echo $row->observacao;?></td>
     </tr>
-    <tr>
-        <td colspan="5">Observação: <?php echo $row->observacao;?></br>Descrição: <?php echo $row->descricao;?></td>
-    </tr>
+    <tr class="separador"><td colspan="4"></td></tr>
+
   <?php }} ?>
 </table>
 </div>

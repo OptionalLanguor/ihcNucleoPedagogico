@@ -21,4 +21,18 @@ body {
 .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
 .w3-half img:hover{opacity:1}
 .break{word-break: break-all;}
+.tabela{width:100%; display:table;}
+.coluna:first-child {
+    border-bottom-left-radius: 26px;
+    border-top-left-radius: 26px;
+}
+.coluna:last-child {
+    border-bottom-right-radius: 26px;
+    border-top-right-radius: 26px;
+}
+.linha:nth-child(4n+1){background-color:#fcfcfc}
+.linha:nth-child(4n-1){background-color:#d1d1d1}
+.coluna{padding:8px 8px;padding-left: 16px;display:table-cell;text-align:left;vertical-align:top;}
+.separador:not(:last-child){border: 1px solid #8c8c8c}
+
 </style>

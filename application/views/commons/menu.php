@@ -16,10 +16,23 @@
   		<a id="menu_principal" href="<?php echo base_url() ?>" onclick="w3_close()" class="<?php if($this->uri->segment(1)==""){echo "w3-bar-item w3-button w3-white";}else{echo "w3-bar-item w3-button w3-hover-white";}?>"><i class="fa fa-home"></i> Menu Principal</a>
 	</td>
 	</table>
+	<!--Deadline-->
+	<table>
+	<td>
+  		<a href="<?php echo site_url('Apresentar_deadline') ?>" onclick="w3_close()" class="<?php if($this->uri->segment(1)=="Apresentar_deadline"){echo "w3-bar-item w3-button w3-white";}else{echo "w3-bar-item w3-button w3-hover-white";}?>"><i class="fa fa-calendar">
+  		</i> Próximos Atendimentos</a>
+	</td>
+	</table>
 	<!--Registro de Atendimento-->
 	<table>
 	<td>
   		<a href="<?php echo site_url('Cadastrar_registro_atendimento') ?>" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white"><i class="fa fa-calendar-plus-o"></i> Registros de Atendimento</a>
+	</td>
+	</table>
+	<!--Funcionario-->
+	<table>
+	<td>
+  		<a href="<?php echo site_url('Cadastrar_funcionario') ?>" onclick="w3_close()" class="<?php if($this->uri->segment(1)=="Cadastrar_funcionario"){echo "w3-bar-item w3-button w3-white";}else{echo "w3-bar-item w3-button w3-hover-white";}?>"><i class="fa fa-user-circle-o"></i> Funcionario</a>
 	</td>
 	</table>
 	<!--Aluno-->
@@ -44,12 +57,6 @@
 	<table>
 	<td>
   		<a href="<?php echo site_url('Cadastrar_palavra_chave') ?>" onclick="w3_close()" class="<?php if($this->uri->segment(1)=="Cadastrar_palavra_chave"){echo "w3-bar-item w3-button w3-white";}else{echo "w3-bar-item w3-button w3-hover-white";}?>"><i class="fa fa-key"></i> Palavra-Chave</a>
-	</td>
-	</table>
-	<!--Funcionario-->
-	<table>
-	<td>
-  		<a href="<?php echo site_url('Cadastrar_funcionario') ?>" onclick="w3_close()" class="<?php if($this->uri->segment(1)=="Cadastrar_funcionario"){echo "w3-bar-item w3-button w3-white";}else{echo "w3-bar-item w3-button w3-hover-white";}?>"><i class="fa fa-user-circle-o"></i> Funcionario</a>
 	</td>
 	</table>
 	<!--Categoria-->
@@ -78,15 +85,6 @@
 	<td>
   		<a href="<?php echo site_url('Tutorial') ?>" onclick="w3_close()" class="<?php if($this->uri->segment(1)=="Tutorial"){echo "w3-bar-item w3-button w3-white";}else{echo "w3-bar-item w3-button w3-hover-white";}?>"><i class="fa fa-question-circle">
   		</i> Tutorial</a>
-	</td>
-	</table>
-
-
-	<!--Deadline-->
-	<table>
-	<td>
-  		<a href="<?php echo site_url('Apresentar_deadline') ?>" onclick="w3_close()" class="<?php if($this->uri->segment(1)=="Apresentar_deadline"){echo "w3-bar-item w3-button w3-white";}else{echo "w3-bar-item w3-button w3-hover-white";}?>"><i class="fa fa-question-circle">
-  		</i> Deadline</a>
 	</td>
 	</table>
 
