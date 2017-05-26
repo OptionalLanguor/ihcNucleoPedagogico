@@ -23,28 +23,28 @@
     <h1 class="w3-jumbo"><b>Atendimentos com datas de entregas próximas </b></h1>
   </div>
 
-
   <!-- Dados -->
   <div class="w3-container">
   <table class="w3-table-all">
   <thead>
     <tr class="w3-gray">
-      <th>id</th>
       <th>Data de abertura</th>
+      <th>Hora de abertura</th>
+      <th>Dias restantes</th>
       <th>Nome do Aluno</th>
       <th>Categoria</th>
-      <th>Descricao</th>
-      <th>Observacao</th>
     </tr>
   </thead>
   <?php if(isset($resultado)){foreach($resultado as $row) { ?>
     <tr>
-        <td><?php echo $row->id_Registro;?></td>
         <td><?php echo $row->data_abertura;?></td>
-        <td><?php echo $row->id_Pessoa;?></td>
-        <td><?php echo $row->id_Categoria;?></td>
-        <td><?php echo $row->descricao;?></td>
-        <td><?php echo $row->observacao;?></td>
+        <td><?php echo $row->hora_abertura;?></td>
+        <td><?php echo intval($row->dias_restantes);?></td>
+        <td><?php echo $row->nome_aluno;?></td>
+        <td><?php echo $row->nome_categoria;?></td>
+    </tr>
+    <tr>
+        <td colspan="5">Observação: <?php echo $row->observacao;?></br>Descrição: <?php echo $row->descricao;?></td>
     </tr>
   <?php }} ?>
 </table>
