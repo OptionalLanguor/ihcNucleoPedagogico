@@ -50,7 +50,7 @@
     -->
     <p>Esta página permite registrar os dados do(s) aluno(s) relacionado(s) com este registro. Para cada aluno devem ser registrado os seguintes dados: nome, registro acadêmico, cpf, email, curso, período e telefone.</p>
 
-    <img src="<?php echo base_url('includes/imagens_view_tutorial/FluxogramaCadastrarAluno.png')?>" style="width:100%;height:100%;">
+    <img src="<?php echo base_url('includes/imagens_view_tutorial/Aluno.png')?>" style="width:100%;height:100%;">
 
     <p> Para cadastrar, editar ou excluir um aluno, basta ir até a página, no menu lateral, clicando em Aluno. Na página cadastro de aluno pode-se procurar por alunos já cadastrados e editar seus dados ou excluir o aluno, ambas ações nos "Operações" vistas na última coluna da tabela. O botão com um lápis indica a edição dos dados do aluno. O botão com uma lixeira indica a exclusão daquele aluno.</p>
 
@@ -67,7 +67,7 @@
    <!-- <hr style="width:50px;border:5px solid indigo" class="w3-round"> -->
     <p>O cadastro do professor deverá exigir que o usuário insira o SIAPE do professor e o nome do professor. </p>
 
-     <img src="<?php echo base_url('includes/imagens_view_tutorial/FluxogramaCadastrarProfessor.png')?>" style="width:100%;height:100%;">
+     <img src="<?php echo base_url('includes/imagens_view_tutorial/Professor.png')?>" style="width:100%;height:100%;">
     <p>
     Para cadastrar um professor basta ir na menu lateral e clicar em "Professor" você sera direcionado para página de cadastro, edição e exclusão de professor.
     Ao abrir a página já são listados os professores cadastrados. Na página cadastro de professor pode-se procurar por professores já cadastrados e editar seus dados ou excluir o professor, ambas ações nos "Operações" vistas na última coluna da tabela. O botão com um lápis indica a edição dos dados do professor. O botão com uma lixeira indica a exclusão daquele professor.
@@ -88,7 +88,7 @@
     <p>O cadastro de novas disciplinas será feito a partir da inserção do nome da
 disciplina e sua sigla. Na inserção de uma disciplina é necessário informar os campos de Nome e sigla da disciplina </p>
 
-<img src="<?php echo base_url('includes/imagens_view_tutorial/FluxogramaCadastrarDisciplina.png')?>" style="width:100%;height:100%;">
+<img src="<?php echo base_url('includes/imagens_view_tutorial/Disciplina.png')?>" style="width:100%;height:100%;">
 
  <p>
     Para cadastrar uma disciplina basta ir na menu lateral e clicar em "Disciplina" você sera direcionado para página de cadastro de disciplina.
@@ -111,7 +111,7 @@ disciplina e sua sigla. Na inserção de uma disciplina é necessário informar 
 serão usadas como parâmetros de pesquisa. Cada palavra chave deve conter
 seu respectivo nome. </p>
 
-<img src="<?php echo base_url('includes/imagens_view_tutorial/FluxogramaCadastrarPalavraChave.png')?>" style="width:100%;height:100%;">
+<img src="<?php echo base_url('includes/imagens_view_tutorial/Palavra-chave.png')?>" style="width:100%;height:100%;">
 
     <p>Clique no menu lateral "Cadastrar Palavra-Chave". Após aberta a página Palavra Chave, preencha o campo: Palavra Chave com uma palavra chave e clique no botão verde "Cadastrar Palavra Chave" para efetuar o cadastro</p>
 
@@ -126,7 +126,7 @@ seu respectivo nome. </p>
 
     <p>O usuário poderá efetuar a inserção de novos funcionários. Devem ser armazenados os seguintes dados para cada funcionário: nome, cpf, email, telefone, login e senha. </p>
 
-    <img src="<?php echo base_url('includes/imagens_view_tutorial/FluxogramaCadastrarFuncionario.png')?>" style="width:100%;height:100%;">
+    <img src="<?php echo base_url('includes/imagens_view_tutorial/Funcionario.png')?>" style="width:100%;height:100%;">
 
     <p> Para cadastrar, editar ou excluir um funcionário, basta ir até a página, no menu lateral, clicando em Funcionário. Na pagina cadastro de funcionário pode-se procurar por funcionário já cadastrados e editar seus dados ou excluir o funcionário, ambas ações nos "Operações" vistas na última coluna da tabela. O botão com um lápis indica a edição dos dados do funcionário. O botão com uma lixeira indica a exclusão daquele funcionário.</p>
 
@@ -141,7 +141,7 @@ seu respectivo nome. </p>
   <div class="w3-container" id="services" style="margin-top:75px">
     <h1 class="w3-xxxlarge w3-text-indigo"><b>Cadastrar Categoria.</b></h1>
 
-   <img src="<?php echo base_url('includes/imagens_view_tutorial/FluxogramaCadastrarCategoria.png')?>" style="width:100%;height:100%;">
+   <img src="<?php echo base_url('includes/imagens_view_tutorial/Categoria.png')?>" style="width:100%;height:100%;">
 
     <p>Clique no menu lateral "Categoria". Após aberta a página Categoria, preencha o campo: Nome com uma categoria e clique no botão azul "Criar Categoria" para efetuar o cadastro</p>
 
@@ -156,7 +156,7 @@ seu respectivo nome. </p>
   <div class="w3-container" id="services" style="margin-top:75px">
     <h1 class="w3-xxxlarge w3-text-indigo"><b>Cadastrar Procedimento.</b></h1>
 
-    <img src="<?php echo base_url('includes/imagens_view_tutorial/FluxogramaCadastrarProcedimento.png')?>" style="width:100%;height:100%;">
+    <img src="<?php echo base_url('includes/imagens_view_tutorial/Procedimento.png')?>" style="width:100%;height:100%;">
 
    <p>Clique no menu lateral "Procedimento". Após aberta a página Cadastro de Procedimento, preencha o campo: Nome com uma procedimento e clique no botão azul "Criar Procedimento" para efetuar o cadastro</p>
 
@@ -165,9 +165,22 @@ seu respectivo nome. </p>
 -->
   </div>
 
+<!-- Cadastrar Anexo -->
+  <div class="w3-container" id="services" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-indigo"><b>Cadastrar Anexo.</b></h1>
 
+    <img src="<?php echo base_url('includes/imagens_view_tutorial/Anexo.png')?>" style="width:100%;height:100%;">
 
+   <p>Clique no menu lateral "Anexo". Após aberta a página Cadastro de Anexo, Clique em browse e uma janela para a seleção do arquivo abrirá. Selecione o arquivo desejado(Extensão: .png .jpg .pdf .docx .doc) e clique cadastrar anexo.</p>
 
+<!--
+    <button type="submit" class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom">Ir para a página Cadastrar Procedimento.</button>
+-->
+  </div>
+
+ <div class="w3-container" id="services" style="margin-top:70px">
+    
+  </div>
 
   <!-- Contact
   <div class="w3-container" id="contact" style="margin-top:75px">
