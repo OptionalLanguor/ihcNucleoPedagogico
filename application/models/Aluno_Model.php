@@ -11,7 +11,7 @@ class Aluno_Model extends CI_Model
     {
         if($pesquisa == "")
             return $this->db->get('Aluno')->result();
-
+        
         $this->db->from('Aluno');
         $this->db->like('nome', $pesquisa);
         $this->db->or_where('cpf', $pesquisa);
@@ -28,7 +28,8 @@ class Aluno_Model extends CI_Model
     {
         $this->db->from('Aluno');
         $this->db->where('id_Pessoa', $id);
-        return $res = $this->db->get()->result();
+        $res = $this->db->get()->result();
+        return (!empty($res))?$res[0]:false;
     }
     public function update_aluno($id_Pessoa=null,$dados_atualizados=null)
     {
