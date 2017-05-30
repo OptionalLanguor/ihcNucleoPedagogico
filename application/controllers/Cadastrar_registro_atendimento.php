@@ -10,6 +10,7 @@ class Cadastrar_registro_atendimento extends CI_Controller
         }
         $this->load->model('Registro_Atendimento_Model');
         $this->load->model('Aluno_Model');
+        $this->load->model('Categoria_Model');
         $this->load->helper('url');
         $this->load->helper('form');
     }
@@ -39,7 +40,12 @@ class Cadastrar_registro_atendimento extends CI_Controller
         $pesquisa_res['pesquisaAluno'] = $this->Aluno_Model->pesquisa_aluno($pesquisa);
         $this->load->view('cadastrar_registro_atendimento', $pesquisa_res);
         #echo <phpdocument.getElementById("modalCadastrarRegistroAtendimento").style.display = "block";
-    
+    }
+    public function PesquisaCategoria()
+    {
+        $pesquisa = $this->input->post('qualquer_atributo');
+        $pesquisa_res['pesquisaCategoria'] = $this->Categoria_Model->pesquisa_categoria($pesquisa);
+        $this->load->view('cadastrar_categoria', $pesquisa_res);
     }
     public function Pesquisar()
     {

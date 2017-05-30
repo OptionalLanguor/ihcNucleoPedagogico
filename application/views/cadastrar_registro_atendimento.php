@@ -34,7 +34,7 @@
      <?php echo form_open('Cadastrar_registro_atendimento/Pesquisar'); ?>
 
       <div class="w3-section">
-        <label>Insira a data de abertura, descricao, observação, categoria, ou aluno</label>
+        <label>Insira a data de abertura, descrição, observação, categoria, ou aluno.</label>
         <input class="w3-input w3-border" type="text" maxlength="64" name="qualquer_atributo">
       </div>
       <button  onlick="updateTableAluno" class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom">Buscar dados do Registro de Atendimento</button>
@@ -51,8 +51,9 @@
       <th>Data de abertura</th>
       <th>Nome do Aluno</th>
       <th>Categoria</th>
-      <th>Descricao</th>
-      <th>Observacao</th>
+      <th>Descrição</th>
+      <th>Observação</th>
+      <th>Operações</th>
     </tr>
   </thead>
   <?php if(isset($resultado)){foreach($resultado as $row) { ?>
@@ -113,12 +114,50 @@
   </div>
 </div>
 
+<script>
+function loadTableAlunos() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var i;
+      var xmlDoc = this.responseXML;
+      var table = "<thead> <tr class=\"w3-gray\">" \
+                  +"<th>Matrícula</th>" \
+                  +"<th>Nome</th>" \
+                  +"<th>CPF</th>" \
+                  +"<th>Curso</th>" \
+                  +"<th>Período</th>" \
+                  +"</tr> </thead>";
+        <tr>
+            <td><?php echo $row->matricula;?></td>
+            <td><?php echo $row->nome;?></td>
+            <td><?php echo $row->cpf;?></td>
+            <td><?php echo $row->curso;?></td>
+            <td><?php echo $row->periodo;?></td>
+        </tr>
+   
+      var x = xmlDoc.getElementsByTagName("CD");
+      for (i = 0; i <x.length; i++) { 
+        table += "<tr><td>" +
+        x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+        "</td><td>" +
+        x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+        "</td></tr>";
+      }
+      document.getElementById("demo").innerHTML = table;
+        }
+      };
+      xhttp.open("GET", "cd_catalog.xml", true);
+      xhttp.send();
+}
+</script>
+
 <div id="modalCadastrarRegistroAtendimento" class="w3-modal">
   <div class="w3-modal-content">
     <header class="w3-container w3-indigo">
       <span onclick="document.getElementById('modalCadastrarRegistroAtendimento').style.display='none'"
       class="w3-button w3-display-topright">&times;</span>
-      <h2>Cadastrar Registro de Atendimento</h2>
+      <h2>Cadastrar novo Registro de Atendimento</h2>
     </header>
 
        <!--
@@ -130,12 +169,12 @@
 
        <!-- Pesquisa -->
       <div class="w3-container">
-        <hr style="width:50px;border:5px solid #3f51b5" class="w3-round">
+        <hr style="width:50px; border:5px solid #3f51b5" class="w3-round">
 
          <?php echo form_open('Cadastrar_registro_atendimento/PesquisaAluno'); ?>
 
           <div class="w3-section">
-            <label>Filtre os Alunos por: RA, Nome, CPF, Curso ou Período.</label>
+            <label>Filtre Alunos por: Matrícula, Nome, CPF, Curso ou Período.</label>
             <input class="w3-input w3-border" type="text" maxlength="64" name="qualquer_atributo">
           </div>
           <button type="submit" class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom">Buscar dados do Aluno</button>
@@ -148,7 +187,7 @@
       <table class="w3-table-all">
       <thead>
         <tr class="w3-gray">
-          <th>RA</th>
+          <th>Matrícula</th>
           <th>Nome</th>
           <th>CPF</th>
           <th>Curso</th>
@@ -183,7 +222,7 @@
          <label>Observação</label>
          <input class="w3-input w3-border" type="text" name="observacao">
        </div>
-        <button style="width: 49.5%" type="submit" class="w3-button w3-green w3-margin-bottom">Cadastrar Novo Registro de Atendimento</button>
+        <button style="width: 49.5%" type="submit" class="w3-button w3-green w3-margin-bottom">Cadastrar novo Registro de Atendimento</button>
         <button style="width: 49.5%" type ="button" onclick="document.getElementById('modalCadastrarRegistroAtendimento').style.display='none'" class="w3-button w3-red w3-margin-bottom">Cancelar</button>
       </form>
     </div>
