@@ -16,8 +16,6 @@ body,h1,h2,h3,h4,h5 {font-family: "Josefin"}
 body {font-size:16px;}
 body {
     background-image: url('../includes/imagens_pagina/FundoLogo.png');
-	background-size: 100%;
-	
 
 }
 .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
