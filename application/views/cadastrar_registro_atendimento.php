@@ -109,48 +109,11 @@
         <button style="width: 49.5%" type="$('#formulario_registro_atendimento').submit()" class="w3-button w3-green w3-margin-bottom">Atualizar os dados do Registro de Atendimento</button>
         <button style="width: 49.5%" type ="button" onclick="document.getElementById('modalEditarRegistroAtendimento').style.display='none'" class="w3-button w3-red w3-margin-bottom">Cancelar</button>
       </form>
-
     </div>
   </div>
 </div>
 
-<script>
-function loadTableAlunos() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      var i;
-      var xmlDoc = this.responseXML;
-      var table = "<thead> <tr class=\"w3-gray\">" \
-                  +"<th>Matrícula</th>" \
-                  +"<th>Nome</th>" \
-                  +"<th>CPF</th>" \
-                  +"<th>Curso</th>" \
-                  +"<th>Período</th>" \
-                  +"</tr> </thead>";
-        <tr>
-            <td><?php echo $row->matricula;?></td>
-            <td><?php echo $row->nome;?></td>
-            <td><?php echo $row->cpf;?></td>
-            <td><?php echo $row->curso;?></td>
-            <td><?php echo $row->periodo;?></td>
-        </tr>
-   
-      var x = xmlDoc.getElementsByTagName("CD");
-      for (i = 0; i <x.length; i++) { 
-        table += "<tr><td>" +
-        x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
-        "</td><td>" +
-        x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
-        "</td></tr>";
-      }
-      document.getElementById("demo").innerHTML = table;
-        }
-      };
-      xhttp.open("GET", "cd_catalog.xml", true);
-      xhttp.send();
-}
-</script>
+
 
 <div id="modalCadastrarRegistroAtendimento" class="w3-modal">
   <div class="w3-modal-content">
@@ -182,29 +145,9 @@ function loadTableAlunos() {
         </form>
       </div>
 
-       <!-- Tentativa de fazer uma lista de Alunos para que o funcionário escolha a qual pertence o registro de atendimento -->
-      <div class="w3-container">
-      <table class="w3-table-all">
-      <thead>
-        <tr class="w3-gray">
-          <th>Matrícula</th>
-          <th>Nome</th>
-          <th>CPF</th>
-          <th>Curso</th>
-          <th>Periodo</th>
-        </tr>
-      </thead>
-      <?php if(isset($pesquisaAluno)){foreach($pesquisaAluno as $row) { ?>
-        <tr>
-            <td><?php echo $row->matricula;?></td>
-            <td><?php echo $row->nome;?></td>
-            <td><?php echo $row->cpf;?></td>
-            <td><?php echo $row->curso;?></td>
-            <td><?php echo $row->periodo;?></td>
-        </tr>
-      <?php }} ?>
-      </table>
-      </div>
+
+      <!-- Tentativa de fazer uma lista de Alunos para que o funcionário escolha a qual pertence o registro de atendimento -->
+      <?php echo form_open('Cadastrar_registro_atendimento/dynamicTableAluno'); ?>
 
       <div class="w3-container" style="margin-top:20px">
       <hr style="width:50px;border:5px solid #3f51b5" class="w3-round">
@@ -254,6 +197,8 @@ function loadTableAlunos() {
 
 <!--Scripts da paǵina -->
 <?php $this->load->view('commons/scripts'); ?>
+
+
 
 </body>
 </html>

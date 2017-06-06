@@ -38,9 +38,44 @@ class Cadastrar_registro_atendimento extends CI_Controller
     {
         $pesquisa = $this->input->post('qualquer_atributo');
         $pesquisa_res['pesquisaAluno'] = $this->Aluno_Model->pesquisa_aluno($pesquisa);
+        $pesquisa_res['isOpen'] = "yes";
         $this->load->view('cadastrar_registro_atendimento', $pesquisa_res);
         #echo <phpdocument.getElementById("modalCadastrarRegistroAtendimento").style.display = "block";
+        #$pesquisa_res['pesquisaAluno'] = $this->Aluno_Model->pesquisa_aluno($pesquisa);
+        #return $pesquisa_res
     }
+
+    public function dynamicTableAluno()
+    {
+      $pesquisa = $this->input->post('qualquer_atributo');
+      $pesquisaAluno = $this->Aluno_Model->pesquisa_aluno($pesquisa);
+
+
+      echo '<div class="w3-container">
+            <table class="w3-table-all">
+            <thead>
+              <tr class="w3-gray">
+                <th>Matrícula</th>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Curso</th>
+                <th>Periodo</th>
+              </tr>
+            </thead>';
+            if(isset($pesquisaAluno)){foreach($pesquisaAluno as $row) { 
+              echo '<tr>
+                        <td>' . $row->matricula . '</td>
+                        <td>' . $row->nome . '</td>
+                        <td>' . $row->cpf . '</td>
+                        <td>' . $row->curso . '</td>
+                        <td>' . $row->periodo . '</td>
+                    </tr>';
+            }}
+            echo '</table>
+                  </div>
+                  ';
+    }
+
     public function PesquisaCategoria()
     {
         $pesquisa = $this->input->post('qualquer_atributo');
@@ -53,6 +88,7 @@ class Cadastrar_registro_atendimento extends CI_Controller
         $pesquisa_res['resultado'] = $this->Registro_Atendimento_Model->pesquisa_registro_atendimento($pesquisa);
         $this->load->view('cadastrar_registro_atendimento', $pesquisa_res);
     }
+
     public function dados_registro_atendimento()
     {
         $id_Registro = $this->input->post("id_Registro");

@@ -328,7 +328,6 @@ $(function(){
       $('#id_Pessoa').val(data.id_Pessoa);
       $('#id_Registro').val(data.id_Registro);
       $('#observacao').val(data.observacao);
-
       }, 'json');
   }
 
