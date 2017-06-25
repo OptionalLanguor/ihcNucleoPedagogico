@@ -26,6 +26,7 @@
   <div class="w3-container">
     <button class="w3-button w3-green" onclick="janelaCadastrarRegistroAtendimento()">Cadastrar Novo Registro Atendimento</button>
   </div>
+
   <!-- Pesquisa -->
   <div class="w3-container">
 
@@ -130,40 +131,90 @@
        </div>
        -->
 
-       <!-- Pesquisa -->
+       <!-- Pesquisa do Aluno-->
       <div class="w3-container">
         <hr style="width:50px; border:5px solid #3f51b5" class="w3-round">
 
          <?php echo form_open('Cadastrar_registro_atendimento/PesquisaAluno'); ?>
 
           <div class="w3-section">
-            <label>Filtre Alunos por: Matrícula, Nome, CPF, Curso ou Período.</label>
-            <input class="w3-input w3-border" type="text" maxlength="64" name="qualquer_atributo">
+            <label>Digite a Matrícula do Aluno.</label>
+            <input class="w3-input w3-border" type="text" maxlength="64" name="matricula_aluno">
           </div>
+       <input class="w3-input w3-border" type="hidden" id="id_Categoria" name="id_Categoria" value="<?php if(isset($pesquisaCategoria->id_Categoria)){ echo $pesquisaCategoria->id_Categoria; }?>">
           <button type="submit" class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom">Buscar dados do Aluno</button>
-
         </form>
+      </div>
+      <div id="infoAluno" class="w3-container">
+        <table class="w3-table-all" >
+          <thead>
+            <tr class="w3-gray">
+              <th>id</th>
+              <th>RA</th>
+              <th>Nome</th>
+              <th>CPF</th>
+              <th>Curso</th>
+              <th>Periodo</th>
+              <th>Email</th>
+              <th>Telefone</th>
+              <th>Endereco</th>
+            </tr>
+          </thead>
+          <td>              <?php if(isset($pesquisaAluno->id_Pessoa)){echo $pesquisaAluno->id_Pessoa;}?></td>
+          <td>              <?php if(isset($pesquisaAluno->matricula)){echo $pesquisaAluno->matricula;}?></td>
+          <td class="break"><?php if(isset($pesquisaAluno->nome)){echo $pesquisaAluno->nome;}?></td>
+          <td>              <?php if(isset($pesquisaAluno->cpf)){echo $pesquisaAluno->cpf;}?></td>
+          <td>              <?php if(isset($pesquisaAluno->curso)){echo $pesquisaAluno->curso;}?></td>
+          <td>              <?php if(isset($pesquisaAluno->periodo)){echo $pesquisaAluno->periodo;}?></td>
+          <td class="break"><?php if(isset($pesquisaAluno->email)){echo $pesquisaAluno->email;}?></td>
+          <td>              <?php if(isset($pesquisaAluno->telefone)){echo $pesquisaAluno->telefone;}?></td>
+          <td class="break"><?php if(isset($pesquisaAluno->endereco)){echo $pesquisaAluno->endereco;}?></td>
+        </table>
       </div>
 
 
-      <!-- Tentativa de fazer uma lista de Alunos para que o funcionário escolha a qual pertence o registro de atendimento -->
-      <?php echo form_open('Cadastrar_registro_atendimento/dynamicTableAluno'); ?>
+       <!-- Pesquisa da Categoria-->
+      <div class="w3-container">
+        <hr style="width:50px; border:5px solid #3f51b5" class="w3-round">
+
+         <?php echo form_open('Cadastrar_registro_atendimento/PesquisaCategoria'); ?>
+
+          <div class="w3-section">
+            <label>Digite a Categoria.</label>
+            <input class="w3-input w3-border" type="text" maxlength="64" name="nome_categoria">
+          </div>
+       <input class="w3-input w3-border" type="hidden" id="id_Pessoa" name="id_Pessoa" value="<?php if(isset($pesquisaAluno->id_Pessoa)){ echo $pesquisaAluno->id_Pessoa; }?>">
+          <button type="submit" class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom">Buscar Categoria</button>
+
+        </form>
+      </div>
+      <div id="infoCategoria" class="w3-container">
+        <table class="w3-table-all" >
+          <thead>
+            <tr class="w3-gray">
+              <th>ID</th>
+              <th>Categoria</th>
+            </tr>
+          </thead>
+          <td>              <?php if(isset($pesquisaCategoria->id_Categoria)){echo $pesquisaCategoria->id_Categoria;}?></td>
+          <td class="break"><?php if(isset($pesquisaCategoria->nome)){echo $pesquisaCategoria->nome;}?></td>
+        </table>
+      </div>
+
 
       <div class="w3-container" style="margin-top:20px">
       <hr style="width:50px;border:5px solid #3f51b5" class="w3-round">
       <?php echo form_open('Cadastrar_registro_atendimento/Cadastrar'); ?>
 
+       <input class="w3-input w3-border" type="hidden" id="id_Pessoa_Registro" name="id_Pessoa_Registro" value="<?php if(isset($pesquisaAluno->id_Pessoa)){ echo $pesquisaAluno->id_Pessoa; }?>">
+       <input class="w3-input w3-border" type="hidden" id="id_Categoria_Registro" name="id_Categoria_Registro" value="<?php if(isset($pesquisaCategoria->id_Categoria)){ echo $pesquisaCategoria->id_Categoria; }?>">
        <div class="w3-section">
          <label>Descrição</label>
-         <input class="w3-input w3-border" type="text" minlength="3" maxlength="1024" name="descricao" required>
-       </div>
-       <div class="w3-section">
-         <label>id_Categoria</label>
-         <input class="w3-input w3-border" type="text" minlength="1" name="id_Categoria" required>
+         <textarea class="w3-input w3-border" name="descricao" maxlength="1024" cols="40" rows="4" required></textarea>
        </div>
        <div class="w3-section">
          <label>Observação</label>
-         <input class="w3-input w3-border" type="text" name="observacao">
+         <textarea class="w3-input w3-border" name="observacao" maxlength="1024" cols="40" rows="4" required></textarea>
        </div>
         <button style="width: 49.5%" type="submit" class="w3-button w3-green w3-margin-bottom">Cadastrar novo Registro de Atendimento</button>
         <button style="width: 49.5%" type ="button" onclick="document.getElementById('modalCadastrarRegistroAtendimento').style.display='none'" class="w3-button w3-red w3-margin-bottom">Cancelar</button>
@@ -199,6 +250,12 @@
 <?php $this->load->view('commons/scripts'); ?>
 
 
+<script type="text/javascript">
+    var isOpen = "<?php if(isset($isOpen)){Print(true);}else{Print(false);} ?>";
+    if(isOpen)
+      janelaCadastrarRegistroAtendimento();
+
+</script>
 
 </body>
 </html>

@@ -21,13 +21,13 @@ class Cadastrar_registro_atendimento extends CI_Controller
     }
     public function Cadastrar()
     {
+        $now = new DateTime(null, new DateTimeZone('America/Sao_Paulo'));
     	$registro_atendimento = array(
-		'data_abertura' => $this->input->post('Data de abertura'),
-		'descricao' => $this->input->post('Descricao'),
-		'id_Categoria' => $this->input->post('id_Categoria'),
-		'id_Pessoa' => $this->input->post('id_Pessoa'),
-		'id_Registro' => $this->input->post('id_Registro'),
-		'observacao' => $this->input->post('observacao')
+		'data_abertura' => date_format($now, 'Y/m/d H:i'),
+		'descricao' => $this->input->post('descricao'),
+        'observacao' => $this->input->post('observacao'),
+		'id_Categoria' => $this->input->post('id_Categoria_Registro'),
+		'id_Pessoa' => $this->input->post('id_Pessoa_Registro'),
         //lembrar de quardar a data de abertura automaticamente
 		);
         $this->Registro_Atendimento_Model->cadastra_registro_atendimento($registro_atendimento);
@@ -36,15 +36,28 @@ class Cadastrar_registro_atendimento extends CI_Controller
     }
     public function PesquisaAluno()
     {
-        $pesquisa = $this->input->post('qualquer_atributo');
-        $pesquisa_res['pesquisaAluno'] = $this->Aluno_Model->pesquisa_aluno($pesquisa);
+        $pesquisa = $this->input->post('matricula_aluno');
+        $pesquisa_res['pesquisaAluno'] = $this->Aluno_Model->pesquisa_aluno($pesquisa,'matricula');
+
+        $id_Categoria = $this->input->post('id_Categoria');
+        $pesquisa_res['pesquisaCategoria'] = $this->Categoria_Model->pesquisa_categoria_id($id_Categoria);
         $pesquisa_res['isOpen'] = "yes";
         $this->load->view('cadastrar_registro_atendimento', $pesquisa_res);
         #echo <phpdocument.getElementById("modalCadastrarRegistroAtendimento").style.display = "block";
         #$pesquisa_res['pesquisaAluno'] = $this->Aluno_Model->pesquisa_aluno($pesquisa);
         #return $pesquisa_res
     }
+    public function PesquisaCategoria()
+    {
+        $pesquisa = $this->input->post('nome_categoria');
+        $pesquisa_res['pesquisaCategoria'] = $this->Categoria_Model->pesquisa_categoria($pesquisa);
 
+        $id_Pessoa = $this->input->post('id_Pessoa');
+        $pesquisa_res['pesquisaAluno'] = $this->Aluno_Model->pesquisa_aluno_id($id_Pessoa);
+
+        $pesquisa_res['isOpen'] = "yes";
+        $this->load->view('cadastrar_registro_atendimento', $pesquisa_res);
+    }
     public function dynamicTableAluno()
     {
       $pesquisa = $this->input->post('qualquer_atributo');
@@ -76,12 +89,6 @@ class Cadastrar_registro_atendimento extends CI_Controller
                   ';
     }
 
-    public function PesquisaCategoria()
-    {
-        $pesquisa = $this->input->post('qualquer_atributo');
-        $pesquisa_res['pesquisaCategoria'] = $this->Categoria_Model->pesquisa_categoria($pesquisa);
-        $this->load->view('cadastrar_categoria', $pesquisa_res);
-    }
     public function Pesquisar()
     {
         $pesquisa = $this->input->post('qualquer_atributo');

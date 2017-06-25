@@ -7,18 +7,26 @@ class Aluno_Model extends CI_Model
     {
         parent::__construct();
     }
-    public function pesquisa_aluno($pesquisa)
+    public function pesquisa_aluno($pesquisa, $atributo="")
     {
         if($pesquisa == "")
             return $this->db->get('Aluno')->result();
-        
-        $this->db->from('Aluno');
-        $this->db->like('nome', $pesquisa);
-        $this->db->or_where('cpf', $pesquisa);
-        $this->db->or_where('matricula', $pesquisa);
-        $this->db->or_where('curso', $pesquisa);
-        $this->db->or_where('periodo', (int)$pesquisa);
-        return $this->db->get()->result();
+        else if($atributo == "") 
+        {  
+            $this->db->from('Aluno');
+            $this->db->like('nome', $pesquisa);
+            $this->db->or_where('cpf', $pesquisa);
+            $this->db->or_where('matricula', $pesquisa);
+            $this->db->or_where('curso', $pesquisa);
+            $this->db->or_where('periodo', (int)$pesquisa);
+            return $this->db->get()->result();
+        }
+        else{
+            $this->db->from('Aluno');
+            $this->db->where($atributo, $pesquisa);
+            $res = $this->db->get()->result();
+            return (!empty($res))?$res[0]:false;
+        }
     }
     public function cadastra_aluno($aluno)
     {
