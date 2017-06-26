@@ -16,8 +16,22 @@ class Cadastrar_registro_atendimento extends CI_Controller
     }
     public function Index()
     {
-        $pesquisa_res['resultado'] = $this->Registro_Atendimento_Model->pesquisa_registro_atendimento('');
+        $registros = $this->Registro_Atendimento_Model->pesquisa_registro_atendimento('');
+        $pesquisa_res['resultado'] = $this->registros_formatados($registros);
         $this->load->view('cadastrar_registro_atendimento', $pesquisa_res);
+    }
+    public function registros_formatados($registros){
+        $registros_formatados = Array();
+        if(isset($registros)){
+            foreach($registros as $row) {
+                $row->nome_aluno = $this->Aluno_Model->pesquisa_aluno_id($row->id_Pessoa)->nome;
+                $row->nome_categoria = $this->Categoria_Model->pesquisa_categoria_id($row->id_Categoria)->nome;
+                $sqldate = new DateTime($row->data_abertura,new DateTimeZone('America/Sao_Paulo'));
+                $row->data_abertura = date_format($sqldate, 'd/m/Y H:i');
+                $registros_formatados[]=$row;
+            }
+        }
+        return $registros_formatados;
     }
     public function Cadastrar()
     {
@@ -31,7 +45,8 @@ class Cadastrar_registro_atendimento extends CI_Controller
         //lembrar de quardar a data de abertura automaticamente
 		);
         $this->Registro_Atendimento_Model->cadastra_registro_atendimento($registro_atendimento);
-        $pesquisa_res['resultado'] = $this->Registro_Atendimento_Model->pesquisa_registro_atendimento('');
+        $registros = $this->Registro_Atendimento_Model->pesquisa_registro_atendimento('');
+        $pesquisa_res['resultado'] = $this->registros_formatados($registros);
         $this->load->view('cadastrar_registro_atendimento', $pesquisa_res);
     }
     public function PesquisaAluno()
@@ -58,42 +73,14 @@ class Cadastrar_registro_atendimento extends CI_Controller
         $pesquisa_res['isOpen'] = "yes";
         $this->load->view('cadastrar_registro_atendimento', $pesquisa_res);
     }
-    public function dynamicTableAluno()
-    {
-      $pesquisa = $this->input->post('qualquer_atributo');
-      $pesquisaAluno = $this->Aluno_Model->pesquisa_aluno($pesquisa);
-
-
-      echo '<div class="w3-container">
-            <table class="w3-table-all">
-            <thead>
-              <tr class="w3-gray">
-                <th>Matrícula</th>
-                <th>Nome</th>
-                <th>CPF</th>
-                <th>Curso</th>
-                <th>Periodo</th>
-              </tr>
-            </thead>';
-            if(isset($pesquisaAluno)){foreach($pesquisaAluno as $row) { 
-              echo '<tr>
-                        <td>' . $row->matricula . '</td>
-                        <td>' . $row->nome . '</td>
-                        <td>' . $row->cpf . '</td>
-                        <td>' . $row->curso . '</td>
-                        <td>' . $row->periodo . '</td>
-                    </tr>';
-            }}
-            echo '</table>
-                  </div>
-                  ';
-    }
 
     public function Pesquisar()
     {
         $pesquisa = $this->input->post('qualquer_atributo');
-        $pesquisa_res['resultado'] = $this->Registro_Atendimento_Model->pesquisa_registro_atendimento($pesquisa);
+        $registros = $this->Registro_Atendimento_Model->pesquisa_registro_atendimento($pesquisa);
+        $pesquisa_res['resultado'] = $this->registros_formatados($registros);
         $this->load->view('cadastrar_registro_atendimento', $pesquisa_res);
+
     }
 
     public function dados_registro_atendimento()

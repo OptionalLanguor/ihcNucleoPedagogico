@@ -35,7 +35,7 @@
      <?php echo form_open('Cadastrar_registro_atendimento/Pesquisar'); ?>
 
       <div class="w3-section">
-        <label>Insira a data de abertura, descrição, observação, categoria, ou aluno.</label>
+        <label>Insira a data de abertura, descrição, observação, id. da categoria, ou id. do aluno.</label>
         <input class="w3-input w3-border" type="text" maxlength="64" name="qualquer_atributo">
       </div>
       <button  onlick="updateTableAluno" class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom">Buscar dados do Registro de Atendimento</button>
@@ -48,8 +48,7 @@
   <table class="w3-table-all">
   <thead>
     <tr class="w3-gray">
-      <th>id</th>
-      <th>Data de abertura</th>
+      <th>Data e Hora de abertura</th>
       <th>Nome do Aluno</th>
       <th>Categoria</th>
       <th>Descrição</th>
@@ -59,14 +58,13 @@
   </thead>
   <?php if(isset($resultado)){foreach($resultado as $row) { ?>
     <tr>
-        <td><?php echo $row->id_Registro;?></td>
-        <td><?php echo $row->data_abertura;?></td>
-        <td><?php echo $row->id_Pessoa;?></td>
-        <td><?php echo $row->id_Categoria;?></td>
-        <td><?php echo $row->descricao;?></td>
-        <td><?php echo $row->observacao;?></td>
+        <td>              <?php echo $row->data_abertura;?></td>
+        <td>              <?php echo $row->nome_aluno;?></td>
+        <td>              <?php echo $row->nome_categoria;?></td>
+        <td class="break"><?php echo $row->descricao;?></td>
+        <td class="break"><?php echo $row->observacao;?></td>
         <td>
-          <button href="javascript:;" onclick="janelaEditarRegistroAtendimento(<?php echo $row->id_Pessoa ?>)"><i class="fa fa-pencil"></i></button>
+          <button href="javascript:;" onclick="janelaEditarRegistroAtendimento(<?php echo $row->id_Registro ?>)"><i class="fa fa-pencil"></i></button>
           <!--
           <button href="javascript:;" onclick="janelaExcluirAluno(<?php #echo $row->id_Pessoa ?>)"><i class="fa fa-trash-o"></i></button>
           -->
@@ -91,20 +89,20 @@
           <input type="text" maxlength="10" class="form-control" id="data_abertura" name="data_abertura">
         </div>
         <div class="w3-section">
-          <label for="nome">Descrição</label>
-          <input type="text" maxlength="1024" min="3" class="form-control" id="descricao" name="descricao">
-        </div>
-        <div class="w3-section">
-          <label for="nome">id_Categoria</label>
-          <input type="text" maxlength="11" min="1" class="form-control" id="id_Categoria" name="id_Categoria">
-        </div>
-        <div class="w3-section">
-          <label for="nome">id_Pessoa</label>
+          <label for="nome">ID do Aluno</label>
           <input type="text" maxlength="3" min="1" class="form-control" id="id_Pessoa" name="id_Pessoa">
         </div>
         <div class="w3-section">
+          <label for="nome">ID da Categoria</label>
+          <input type="text" maxlength="11" min="1" class="form-control" id="id_Categoria" name="id_Categoria">
+        </div>
+        <div class="w3-section">
+          <label for="nome">Descrição</label>
+          <textarea class="w3-input w3-border form-control"  id="descricao" name="descricao" maxlength="1024" cols="40" rows="4" required></textarea>
+        </div>
+        <div class="w3-section">
           <label for="nome">Observação</label>
-          <input type="text" maxlength="1024" class="form-control" id="observacao" name="observacao">
+          <textarea class="w3-input w3-border form-control"  id="observacao" name="observacao" maxlength="1024" cols="40" rows="4" required></textarea>
         </div>
         <input type="hidden" class="form-control" name="id_Registro" id="id_Registro">
         <button style="width: 49.5%" type="$('#formulario_registro_atendimento').submit()" class="w3-button w3-green w3-margin-bottom">Atualizar os dados do Registro de Atendimento</button>

@@ -306,7 +306,7 @@ $(function(){
 ////////////////////////////////////REGISTRO DE ATENDIMENTO///////////////////////////////////////
 
 $(function(){
-  $('#formulario_relatorio_atendimento').ajaxForm({
+  $('#formulario_registro_atendimento').ajaxForm({
     success: function(data) {
       if (data == 1) {
 
