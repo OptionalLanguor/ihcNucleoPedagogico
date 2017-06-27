@@ -21,6 +21,7 @@ class Cadastrar_categoria extends CI_Controller
     	$categoria = array(
 		'nome' => $this->input->post('Nome'),
         'data_criacao' => date('m/d/Y h:i:s a', time()),
+        'prazo_deadline' => $this->input->post('prazo_deadline')
 		);
         if ($this->Categoria_Model->cadastra_categoria($categoria)) {
           	$sucesso_msg = array(

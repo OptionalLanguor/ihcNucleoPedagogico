@@ -23,11 +23,11 @@ class Registro_Atendimento_Model extends CI_Model
     }
     public function cadastra_registro_atendimento($registro_atendimento)
     {
-        $this->db->insert('registatendimento', $registro_atendimento);
+        $this->db->insert('RegistAtendimento', $registro_atendimento);
     }
     public function pesquisa_registro_atendimento_id($id)
     {
-        $this->db->from('registatendimento');
+        $this->db->from('RegistAtendimento');
         $this->db->where('id_Registro', $id);
         return $this->db->get()->result();
     }
@@ -35,7 +35,7 @@ class Registro_Atendimento_Model extends CI_Model
     {
       $this->db->where('id_Registro', $id_Registro);
 
-      if($this->db->update('registatendimento', $dados_atualizados))
+      if($this->db->update('RegistAtendimento', $dados_atualizados))
         return true;
       else
         return false;
@@ -44,7 +44,7 @@ class Registro_Atendimento_Model extends CI_Model
     {
       $this->db->where('id_Registro', $id_Registro);
 
-      if($this->db->delete('registatendimento'))
+      if($this->db->delete('RegistAtendimento'))
         return true;
       else
         return false;

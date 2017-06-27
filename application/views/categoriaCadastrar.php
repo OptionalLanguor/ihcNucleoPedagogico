@@ -43,6 +43,10 @@
         <label>Nome</label>
         <input class="w3-input w3-border" type="text" name="Nome" required>
       </div>
+      <div class="w3-section">
+        <label>Quantidade máxima de dias entre atendimento e dia de entrega: </label>
+        <input class="w3-input w3-border" type="number" maxlength="3" min="1"  name="prazo_deadline" required>
+      </div>
       <button type="submit" class="w3-button w3-block w3-padding-large w3-green w3-margin-bottom">Criar Categoria</button>
     </form>
   </div>
