@@ -36,5 +36,7 @@ body {
 .linha:nth-child(4n-1){background-color:#d1d1d1}
 .coluna{padding:8px 8px;padding-left: 16px;display:table-cell;text-align:left;vertical-align:top;}
 .separador:not(:last-child){border: 1px solid #8c8c8c}
-
+.td-metro{text-align: center; border: 6px solid #ffffff; font-size: 26px; height: 160px; width:33%}
+.td-blue{background-color: #3f51b5; color: #efefff; border-radius: 35px; }
+.table-metro{width:100%}
 </style>

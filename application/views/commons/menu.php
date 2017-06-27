@@ -109,6 +109,16 @@
 	</div>
 	</a>
 
+	<!--Acao-->
+	<a href="<?php echo site_url('Cadastrar_acao') ?>" onclick="w3_close()" class="<?php if($this->uri->segment(1)=="Cadastrar_acao"){echo "w3-bar-item w3-button w3-white";}else{echo "w3-bar-item w3-button w3-hover-white";}?>">
+	<div style="height:100%;width:100%">
+	<table>
+	<td>
+  		 Ação
+	</td>
+	</table>
+	</div>
+	</a>
 
 
 	<!--Procedimento-->

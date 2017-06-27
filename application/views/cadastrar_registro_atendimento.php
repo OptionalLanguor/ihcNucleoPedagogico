@@ -98,11 +98,11 @@
         </div>
         <div class="w3-section">
           <label for="nome">Descrição</label>
-          <textarea class="w3-input w3-border form-control"  id="descricao" name="descricao" maxlength="1024" cols="40" rows="4" required></textarea>
+          <textarea class="w3-input w3-border form-control"  id="descricao" name="descricao" maxlength="1024" cols="40" rows="4"></textarea>
         </div>
         <div class="w3-section">
           <label for="nome">Observação</label>
-          <textarea class="w3-input w3-border form-control"  id="observacao" name="observacao" maxlength="1024" cols="40" rows="4" required></textarea>
+          <textarea class="w3-input w3-border form-control"  id="observacao" name="observacao" maxlength="1024" cols="40" rows="4"></textarea>
         </div>
         <input type="hidden" class="form-control" name="id_Registro" id="id_Registro">
         <button style="width: 49.5%" type="$('#formulario_registro_atendimento').submit()" class="w3-button w3-green w3-margin-bottom">Atualizar os dados do Registro de Atendimento</button>
@@ -208,11 +208,11 @@
        <input class="w3-input w3-border" type="hidden" id="id_Categoria_Registro" name="id_Categoria_Registro" value="<?php if(isset($pesquisaCategoria->id_Categoria)){ echo $pesquisaCategoria->id_Categoria; }?>">
        <div class="w3-section">
          <label>Descrição</label>
-         <textarea class="w3-input w3-border" name="descricao" maxlength="1024" cols="40" rows="4" required></textarea>
+         <textarea class="w3-input w3-border" name="descricao" maxlength="1024" cols="40" rows="4"></textarea>
        </div>
        <div class="w3-section">
          <label>Observação</label>
-         <textarea class="w3-input w3-border" name="observacao" maxlength="1024" cols="40" rows="4" required></textarea>
+         <textarea class="w3-input w3-border" name="observacao" maxlength="1024" cols="40" rows="4"></textarea>
        </div>
         <button style="width: 49.5%" type="submit" class="w3-button w3-green w3-margin-bottom">Cadastrar novo Registro de Atendimento</button>
         <button style="width: 49.5%" type ="button" onclick="document.getElementById('modalCadastrarRegistroAtendimento').style.display='none'" class="w3-button w3-red w3-margin-bottom">Cancelar</button>
